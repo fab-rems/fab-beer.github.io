@@ -4,43 +4,34 @@ title: A FAB mission
 id: home
 ---
 
-    <div class="splash">
-    </div>
+<div class="splash">
+</div>
+<div class="mobile-spacer d-none-xs d-block-sm"></div>
+<div class="hero col-xs-12 col-sm-offset-6 col-sm-4">
     
-    <div class="mobile-spacer d-none-xs d-block-sm"></div>
-    <div class="hero col-xs-12 col-sm-offset-6 col-sm-4">
+    
+    <div class="content">
         
-        
-        <div class="content">
-            <img class="headline-logo" src="assets/SVG/biglogo_svg.svg"/>
-            <!-- <img class="little-logo" src="assets/SVG/rattle_svg.svg"/> -->
-            
-            <h1 class="headline">FAB</h1>
-            <div class="biline">Beer for a better future</div>
-                        
-            <div class="mission">
-                <h3>A FAB MISSION</h3>   
-                <p>
-                </p>
-                
-            </div>
-
-
-            {% assign image_files = site.static_files | where: "image", true %}
-            {% for myimage in image_files %}
-            {{ myimage.name}}
-            {{ myimage.path }}
-            {% endfor %}
-
-            <div class="collaborators">
-                <h3>ARTISTS</h3>
-                <div class="artist-list">
-                        {% assign image_files = site.static_files | where: "image", true %}
-                        {% for myimage in image_files %}
-                        <div class="artist"><a href="http://www.adamjoday.com/"><img src={{ myimage.path }}/><span class="desc"><span class="name">{{myimage.name}}</span></span></a></div>
-                        {% endfor %}
-                </div>
-            </div>
+        <h1 class="headline">FAB</h1>
+        <div class="biline">Beer for a better future</div>
+                    
+        <div class="mission">
+            <h3>A FAB MISSION</h3>   
+            <p>
+            </p>
             
         </div>
+
+
+        <div class="collaborators">
+            <h3>ARTISTS</h3>
+            <div class="artist-list">
+                {% for artist in site.data.artists}
+                <div class="artist"><a href={{ artist.link }}>
+                    <img src={{ artist.headshot }}/><span class="desc"><span class="name">{{artist.name}}</span></span>
+                </a></div>
+
+            </div>
+        </div>
     </div>
+</div>
