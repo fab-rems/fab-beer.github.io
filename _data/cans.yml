@@ -1,0 +1,6 @@
+- name: Squid Pro Quo
+  id: sqp
+  artist_id: andy
+- name: Balloon Factory
+  id: bf
+  artist_id: adam

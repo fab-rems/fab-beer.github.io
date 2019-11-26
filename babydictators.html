@@ -2,6 +2,7 @@
 layout: default
 title: Baby Dictators Project
 id: babydictators
+inverted: true
 ---
 
 
@@ -9,13 +10,9 @@ id: babydictators
 </div>
 
 <div class="mobile-spacer d-none-xs d-block-sm"></div>
-<div class="hero col-xs-12 col-sm-offset-6 col-sm-4">
-    
+<div class="hero col-xs-12 offset-sm-6 col-sm-5">
     <div class="content">
-        <img class="headline-logo" src="assets/SVG/biglogo_svg.svg"/>
-        
-        
-        <h1 class="headline">BABY DICTATOR PROJECT</h1>
+        <h2 class="headline">BABY DICTATOR PROJECT</h2>
         <div class="biline">Beer sales fund baby balloons.</div>
         
         <h3>Support baby trump!</h3>
@@ -41,22 +38,13 @@ id: babydictators
             <div class="artists">
                 <h3>ARTISTS</h3>
                 <div class="artist-list">
-                        {% assign image_files = site.static_files | where: "image", true %}
-                        {% for myimage in image_files %}
-                        <div class="artist"><a href="http://www.adamjoday.com/"><img src={{ myimage.path }}/><span class="desc"><span class="name">{{myimage.name}}</span></span></a></div>
-                        {% endfor %}
+                    {% for artist in site.data.artists %}
+                    <div class="artist"><a href={{ artist.link }}>
+                        <img src={{ artist.headshot }}/><span class="desc"><span class="name">{{artist.name}}</span></span>
+                    </a></div>
+                    {% endfor %}
                 </div>
             </div>
-            
         </div>
-        
-        <div class="logo-container">
-            <img class="logo" src="assets/SVG/squarelogo_svg.svg"/>
-        </div>
-    </div>
-    
     </div>
 </div>
-    
-    
-    

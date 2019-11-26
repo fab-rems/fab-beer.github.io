@@ -7,31 +7,20 @@ id: home
 <div class="splash">
 </div>
 <div class="mobile-spacer d-none-xs d-block-sm"></div>
-<div class="hero col-xs-12 col-sm-offset-6 col-sm-4">
+<div class="hero col-xs-12 offset-sm-6 col-sm-4">
     
     
     <div class="content">
         
         <h1 class="headline">FAB</h1>
         <div class="biline">Beer for a better future</div>
-                    
-        <div class="mission">
-            <h3>A FAB MISSION</h3>   
-            <p>
-            </p>
-            
+             
+        {% for can in site.data.cans }
+        <div class="beer"/>
+            {{can.name}}
+            <img src={{ "/assets/canart/cans_"+can.id+"_art.png" }}/>
         </div>
+        {% endfor}    
 
-
-        <div class="collaborators">
-            <h3>ARTISTS</h3>
-            <div class="artist-list">
-                {% for artist in site.data.artists}
-                <div class="artist"><a href={{ artist.link }}>
-                    <img src={{ artist.headshot }}/><span class="desc"><span class="name">{{artist.name}}</span></span>
-                </a></div>
-
-            </div>
-        </div>
     </div>
 </div>
