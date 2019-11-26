@@ -1,48 +1,37 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="import" href="head.html"/>
-        <link rel="stylesheet" href="home.css">
-        <!-- <link rel="stylesheet" href="babydictators.css"> -->
-    </head>
-		<body>
+---
+layout: default
+title: A FAB mission
+id: home
+---
 
-
-
-    <link rel="import" href="nav.html"/>
-    <div class="splash">
-    </div>
+<div class="splash">
+</div>
+<div class="mobile-spacer d-none-xs d-block-sm"></div>
+<div class="hero col-xs-12 col-sm-offset-6 col-sm-4">
     
-    <div class="mobile-spacer d-none-xs d-block-sm"></div>
-    <div class="hero col-xs-12 col-sm-offset-6 col-sm-4">
+    
+    <div class="content">
         
-        
-        <div class="content">
-            <img class="headline-logo" src="assets/SVG/biglogo_svg.svg"/>
-            <!-- <img class="little-logo" src="assets/SVG/rattle_svg.svg"/> -->
-            
-            <h1 class="headline">FAB</h1>
-            <div class="biline">Beer for a better future</div>
-                        
-            <div class="mission">
-                <h3>A FAB MISSION</h3>   
-                <p>
-                </p>
-                
-            </div>
-
-
-  
-
-            <div class="collaborators">
-                <h3>ARTISTS</h3>
-                <div class="artist-list">
-
-                        <div class="artist"><a href="http://www.adamjoday.com/"><img src="/assets/img/adam_001.jpg"/><span class="desc"><span class="name">Adam O'Day</span></span></a></div>
-                        <div class="artist"><a href="https://soulkontroll.com/"><img src="/assets/img/andy_001.jpg"/><span class="desc"><span class="name">Andrew Jacobs</span></span></a></div>
-
-                </div>
-            </div>
+        <h1 class="headline">FAB</h1>
+        <div class="biline">Beer for a better future</div>
+                    
+        <div class="mission">
+            <h3>A FAB MISSION</h3>   
+            <p>
+            </p>
             
         </div>
+
+
+        <div class="collaborators">
+            <h3>ARTISTS</h3>
+            <div class="artist-list">
+                {% for artist in site.data.artists}
+                <div class="artist"><a href={{ artist.link }}>
+                    <img src={{ artist.headshot }}/><span class="desc"><span class="name">{{artist.name}}</span></span>
+                </a></div>
+
+            </div>
+        </div>
     </div>
+</div>
