@@ -2,18 +2,42 @@ body.page-home{
     .splash{
     // background-image:url(/assets/canart/cans_sqp_art.png);
     }
+
+
+
+.can-gallery{
+    height:80vh;
+    width:100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+
+ 
+    align-items: center;
+
 }
-
-
 .can-list{
     display:flex;
     flex-direction:row;
+    flex-wrap:wrap;
+
 
     .can{
-        width:300px;
+        width:250px;
         img{
             width:100%;
         }
     }
+
+
+
+
+}
+
+
+.can{
+    box-shadow: 5px 5px 25px rgba(0, 0, 0, .5);
+    margin: 40px;
+}
 
 }
