@@ -1,5 +1,19 @@
 body.page-home{
     .splash{
-    background-image:url(/assets/canart/cans_sqp_art.png);
+    // background-image:url(/assets/canart/cans_sqp_art.png);
     }
+}
+
+
+.can-list{
+    display:flex;
+    flex-direction:row;
+
+    .can{
+        width:300px;
+        img{
+            width:100%;
+        }
+    }
+
 }
