@@ -2,15 +2,12 @@
 
 
 .splash{
-    background-image:url(assets/babysnakes_white_centered.png);
     background-size:auto 100%;
-
     position:fixed;
     left:0px;
     right:0px;
     top:0px;
     bottom:0px;
-    background-color: black;
     background-repeat: no-repeat;
 
     max-width:1200px;
@@ -26,19 +23,11 @@ svg#Layer_1 {
     top: 50%;
     transform: translate(0%, -50%);
     height: 75%;
-
-
-
 }
 
 
-body{
-    background-color:black !important;
-}
 
 .hero.hero{
-    
-    
     position: absolute;
     /* box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4); */
     margin-top: 17.5vh;

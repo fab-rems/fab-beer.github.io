@@ -1,6 +1,7 @@
 ---
 layout: default
 title: A FAB mission
+id: home
 ---
 
     <div class="splash">
@@ -23,11 +24,21 @@ title: A FAB mission
                 </p>
                 
             </div>
+
+
+            {% assign image_files = site.static_files | where: "image", true %}
+            {% for myimage in image_files %}
+            {{ myimage.name}}
+            {{ myimage.path }}
+            {% endfor %}
+
             <div class="collaborators">
                 <h3>ARTISTS</h3>
                 <div class="artist-list">
-                    <div class="artist"><a href="http://www.adamjoday.com/"><img src="assets/adam_001.jpg"/><span class="desc"><span class="name">Adam O'Day</span></span></a></div>
-                    <div class="artist"><a href="https://soulkontroll.com/home.html"><img src="assets/andy_001.jpg"/><span class="desc"><span class="name">Andrew Jacob</span></span></a></div>
+                        {% assign image_files = site.static_files | where: "image", true %}
+                        {% for myimage in image_files %}
+                        <div class="artist"><a href="http://www.adamjoday.com/"><img src={{ myimage.path }}/><span class="desc"><span class="name">{{myimage.name}}</span></span></a></div>
+                        {% endfor %}
                 </div>
             </div>
             

@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     
     <link href="https://fonts.googleapis.com/css?family=Liu+Jian+Mao+Cao&display=swap" rel="stylesheet">
+    {% if page.id == "home" %}
+    <link rel="stylesheet" href="home.css">
+    {% endif %}
+
+    {% if page.id == "babydictators" %}
+    <link rel="stylesheet" href="babydictators.css">
+    <h1>...</h1>
+    {% endif %}
 </head>
 
 
@@ -21,16 +29,17 @@
 	    		<ul>
 	        		<li><a href="/">HOME</a></li>
                     <li><a href="/babydictators">BABY DICTATORS</a></li>
-                    <li><a href="/store">STORE</li>
+                    <li><a href="/store">STORE</a></li>
 	    		</ul>
             </nav>
             
 
-			<div class="container">
+            {{page.id}}
+            {{page.title}}
+	
+			<!-- {{ content }} -->
 			
-			{{ content }}
 			
-			</div><!-- /.container -->
 			<footer>
 	    		<ul>
 	        		<li><a href="mailto:hi@fab.beer">EMAIL US</a></li>
