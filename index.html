@@ -12,8 +12,16 @@ id: home
         {% for can in site.data.cans %}
 
         <div class="can">
-            <img href="/cans/{{can.id}}" src="/assets/canart/cans_{{ can.id }}_art.png" />
+            <a href="/cans/{{can.id}}"> <img  class="main" src="/assets/canart/cans_{{ can.id }}_art.png" /></a>
+            <!-- <div class="overlay"> -->
+                <div class="additional-images">
+                        <img src="/assets/canart/cans_{{ can.id }}_tall_can.png"/>
+
+                <img src="/assets/canart/cans_{{ can.id }}_wide_can.png"/>
+            <!-- </div> -->
+            </div>
         </div>
+
         {% endfor %}    
     </div>
     

@@ -1,43 +1,110 @@
 body.page-home{
     .splash{
-    // background-image:url(/assets/canart/cans_sqp_art.png);
+        // background-image:url(/assets/canart/cans_sqp_art.png);
     }
+    
+    
+    
+    .can-gallery{
+        height:80vh;
+        width:100vw;
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        
+        
+        align-items: center;
+        
+    }
+    .additional-images{
+        transition-duration: .3s;
+    }
+    .can:hover{
+        .overlay{
+            //opacity:1;
+        }
+        
+        
+    }
+    .can:not(:hover){
+        //filter:grayscale(1);
+        //.overlay{opacity:0;}
+    }
+    
+    .can-list{
+        display:flex;
+        flex-direction:row;
+        flex-wrap:wrap;
+        
+        
+        .can{
+            width:250px;
+            position:relative;
+
+box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
+margin: 40px;
+
+            img.main{
+                width:100%;
+            }
 
 
+            &:not(:first-child) .additional-images{
+    
+                left: 100%;
+                top: 0%;
+                margin-left:30px;
+                position: absolute;
+                display: flex;
+                flex-direction: column;
 
-.can-gallery{
-    height:80vh;
-    width:100vw;
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
+                img{
 
- 
-    align-items: center;
+                    align-self:flex-start;
+                }
+            }
+            &:first-child .additional-images{
+                top:100%;
+                height: 100px;
+                left: -160px;
+                margin-top:12px;
+            
+                
+                
+                position:absolute;
+                display: flex;
+                flex-direction: row;
+                width: 270px;
+                flex-basis: auto;
+                flex-wrap: nowrap;
+                align-items: flex-end;
 
-}
-.can-list{
-    display:flex;
-    flex-direction:row;
-    flex-wrap:wrap;
+                img{
 
-
-    .can{
-        width:250px;
-        img{
-            width:100%;
+                    align-self:flex-end;
+                }
+            }
+            
+            .additional-images{
+                img{
+                    flex-grow: 1;
+                    flex-shrink: 1;
+                    margin-right:10px;
+                    margin-bottom:10px;
+                    width:100px;
+                }
+            }
+            
+            
         }
     }
+    
+    
+    
+    
 
 
 
 
-}
-
-
-.can{
-    box-shadow: 5px 5px 25px rgba(0, 0, 0, .5);
-    margin: 40px;
-}
 
 }
