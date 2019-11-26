@@ -4,7 +4,7 @@ body.inverted{
     background-color:black !important;
 }
 .splash{
-    background-size:auto 100%;
+    background-size:cover;
     position:fixed;
     left:0px;
     right:0px;
@@ -39,8 +39,13 @@ svg#Layer_1 {
     background-color: black;
     color: white;
     padding: 30px;
-
+    z-index:2000;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 1);
 }
+
+
+
+
 
 .headline-logo{
     display:none;
@@ -140,6 +145,7 @@ h3{
 }
 // NAVBAR
 body:not(.inverted){
+    
     .navbar-brand.navbar-brand.navbar-brand:hover{
         color:white;
     }
@@ -155,6 +161,19 @@ body.inverted{
     .navbar-brand.navbar-brand.navbar-brand{
         color:black;
         background-color:white;
+    }
+}
+
+body.inverted{
+    .navbar.navbar.navbar{
+        background-color:rgba(255, 255, 255, .5) !important;
+        .nav-link{
+            color:black;
+    font-weight: bold;
+    letter-spacing: -.05em;
+    text-transform: uppercase;
+    font-size: 1.15em;
+        }
     }
 }
 
