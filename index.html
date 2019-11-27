@@ -5,19 +5,19 @@ id: home
 ---
 
 
-<div class="container">
+<div class="container d-none d-md-block">
     <div class="sections-container col-sm-8">
         <section id="cans">
             <h1><span class="black">FAB</span><span>CANS</span></h1>
         </section>
     </div>
 </div>
-<div class="can-gallery">
+<div class="can-gallery d-md-flex d-none">
     <div class="can-list">
         {% for can in site.cans %}
         <div class="can">
             <a href= "/babydictators"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
-            <div class="additional-images">
+            <div class="additional-images d-none d-md-block">
                 <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
                 <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
             </div>
@@ -26,7 +26,17 @@ id: home
     </div>
 </div>
 
-<div class="container">
+<div class="can-gallery-mobile d-md-none">
+                {% for can in site.cans %}
+                <div class="row">
+                <div class="can can-stretch col-xs-12">
+                    <a href= "/babydictators"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
+                </div>
+                </div>
+                {% endfor %}    
+</div>
+
+<div class="container d-none d-md-block">
     <div class="row toc-container">
         <div class="toc">
             <div class="oneline">

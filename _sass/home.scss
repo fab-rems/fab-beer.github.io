@@ -14,66 +14,72 @@ body.page-home{
         
         padding-top:40px;
         padding-bottom:120px;
+        .can {
+            width:250px;
+        }
         
     }
     .additional-images{
         transition-duration: .3s;
     }
     
-    .can-list{
-        display:flex;
-        flex-direction:row;
-        flex-wrap:wrap;
-        .can{
-            width:250px;
-            position:relative;
-            box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
-            margin: 40px;
-            img.main{
-                width:100%;
-            }
+}
 
-            &:not(:first-child) .additional-images{
-                left: 100%;
-                top: 0%;
-                margin-left:30px;
-                position: absolute;
-                display: flex;
-                flex-direction: column;
 
-                img{
+.can{
 
-                    align-self:flex-start;
-                }
-            }
-            &:first-child .additional-images{
-                top:100%;
-                height: 100px;
-                left: -160px;
-                margin-top:12px;
-                position:absolute;
-                display: flex;
-                flex-direction: row;
-                width: 270px;
-                flex-basis: auto;
-                flex-wrap: nowrap;
-                align-items: flex-end;
-                img{
-                    align-self:flex-end;
-                }
-            }
-            
-            .additional-images{
-                img{
-                    flex-grow: 1;
-                    flex-shrink: 1;
-                    margin-right:10px;
-                    margin-bottom:10px;
-                    width:100px;
-                }
-            }
+    position:relative;
+    box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
+    margin: 40px;
+    img.main{
+        width:100%;
+    }
+
+    &:not(:first-child) .additional-images{
+        left: 100%;
+        top: 0%;
+        margin-left:30px;
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+
+        img{
+
+            align-self:flex-start;
         }
     }
+    &:first-child .additional-images{
+        top:100%;
+        height: 100px;
+        left: -160px;
+        margin-top:12px;
+        position:absolute;
+        display: flex;
+        flex-direction: row;
+        width: 270px;
+        flex-basis: auto;
+        flex-wrap: nowrap;
+        align-items: flex-end;
+        img{
+            align-self:flex-end;
+        }
+    }
+    
+    .additional-images{
+        img{
+            flex-grow: 1;
+            flex-shrink: 1;
+            margin-right:10px;
+            margin-bottom:10px;
+            width:100px;
+        }
+    }
+}
+
+.can-list{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
 }
 
 section#cans{
