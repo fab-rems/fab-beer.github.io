@@ -10,8 +10,6 @@ body.inverted{
     top:0px;
     bottom:0px;
     background-repeat: no-repeat;
-
-    max-width:1200px;
     margin-left:auto;
     margin-right:auto;
     background-position: 30% 50%;
@@ -143,6 +141,9 @@ body:not(.inverted){
         color:white;
         background-color:black;
     }
+    .navbar{
+        background-color:white;
+    }
 }
 body.inverted{
     .navbar-brand.navbar-brand.navbar-brand:hover{
@@ -178,4 +179,8 @@ body{
 
 .navbar.navbar.navbar{
     padding:0px;
+}
+
+.oneline{
+    white-space: nowrap;
 }

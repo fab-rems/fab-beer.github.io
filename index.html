@@ -4,26 +4,52 @@ title: A FAB mission
 id: home
 ---
 
-<div class="splash">
+
+<div class="container">
+    <div class="sections-container col-sm-8">
+        <section id="cans">
+            <h1><span class="black">FAB</span><span>CANS</span></h1>
+        </section>
+    </div>
 </div>
-
 <div class="can-gallery">
-<div class="can-list">
-        {% for can in site.data.cans %}
-
+    <div class="can-list">
+        {% for can in site.cans %}
         <div class="can">
-            <a href="/cans/{{can.id}}"> <img  class="main" src="/assets/canart/cans_{{ can.id }}_art.png" /></a>
-            <!-- <div class="overlay"> -->
-                <div class="additional-images">
-                        <img src="/assets/canart/cans_{{ can.id }}_tall_can.png"/>
-
-                <img src="/assets/canart/cans_{{ can.id }}_wide_can.png"/>
-            <!-- </div> -->
+            <a href="/cans/{{can.code}}"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
+            <div class="additional-images">
+                <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
+                
+                <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
             </div>
         </div>
-
         {% endfor %}    
     </div>
-    
+</div>
 
+<div class="container">
+    <div class="row toc-container">
+        <div class="toc">
+            <div class="oneline">
+                <span class="lightgray">FAB Cans</span>
+                <a href="#about">Read Story</a>
+            </div>
+            <div class="oneline">
+                <a href="#find-our-beer">Find Beer</a>
+                <a href="#merch">Get Merch</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sections-container col-sm-8">
+        <section id="about"><h1>STORY</h1></section>
+        <section id="find-out-beer"><h1>BEER</h1></section>
+        <section id="merch"><h1>MERCH</h1></section>
+        
+        
+    </div>
+    
+    <div class="footer">
+        Copyright 2019, Coolship LLC
+    </div>
 </div>

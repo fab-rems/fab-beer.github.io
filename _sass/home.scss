@@ -6,51 +6,34 @@ body.page-home{
     
     
     .can-gallery{
-        height:80vh;
         width:100vw;
         display: flex;
         justify-content: center;
         flex-direction: row;
-        
-        
         align-items: center;
+        
+        padding-top:40px;
+        padding-bottom:120px;
         
     }
     .additional-images{
         transition-duration: .3s;
-    }
-    .can:hover{
-        .overlay{
-            //opacity:1;
-        }
-        
-        
-    }
-    .can:not(:hover){
-        //filter:grayscale(1);
-        //.overlay{opacity:0;}
     }
     
     .can-list{
         display:flex;
         flex-direction:row;
         flex-wrap:wrap;
-        
-        
         .can{
             width:250px;
             position:relative;
-
-box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
-margin: 40px;
-
+            box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
+            margin: 40px;
             img.main{
                 width:100%;
             }
 
-
             &:not(:first-child) .additional-images{
-    
                 left: 100%;
                 top: 0%;
                 margin-left:30px;
@@ -68,9 +51,6 @@ margin: 40px;
                 height: 100px;
                 left: -160px;
                 margin-top:12px;
-            
-                
-                
                 position:absolute;
                 display: flex;
                 flex-direction: row;
@@ -78,9 +58,7 @@ margin: 40px;
                 flex-basis: auto;
                 flex-wrap: nowrap;
                 align-items: flex-end;
-
                 img{
-
                     align-self:flex-end;
                 }
             }
@@ -94,17 +72,60 @@ margin: 40px;
                     width:100px;
                 }
             }
-            
-            
         }
     }
-    
-    
-    
-    
+}
+
+section#cans{
+    margin-bottom:0px;
+}
+.toc-container{
+    margin-top:15px;
+    text-align:center;
+.toc{
+    margin-left:auto;
+    padding-bottom: 25px;
+    text-align:left;
+    text-transform:uppercase;
+    letter-spacing:.75em;
+
+    >*>*{
+        margin:10px;
+        margin-left:30px;
+    }
 
 
+}
+}
+
+.footer{
+    text-align:center;
+    padding-top:50px;
+    padding-bottom:50px;
+    background-color:#FBFBFB;
 
 
+}
 
+h1{
+    font-weight: bold !important;
+    letter-spacing: -.1em;
+    font-size: 5em !important;
+    color: lightgray;
+    >*{margin-right:.25em;}
+
+}
+
+.sections-container{
+    margin-top:20px;
+    section{
+        margin-bottom:50px;
+    }
+}
+
+.black{
+    color:black;
+}
+.lightgray{
+    color:lightgray;
 }

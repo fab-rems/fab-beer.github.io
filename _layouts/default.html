@@ -9,6 +9,7 @@
 </head>
 
 <body class="page-{{page.id}} {% if page.inverted %} inverted {% endif %}">
+  {% if page.navbar %}
   <nav class="navbar navbar-expand-lg fixed-bottom {% if page.inverted %} navbar-dark bg-dark {% endif %}">
     <a class="navbar-brand" href="/">FAB</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +21,9 @@
       </ul>
     </div>
   </nav>
+  {% endif page.navbar %}
   {{ content }}
   
+
 </body>
 </html>

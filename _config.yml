@@ -5,3 +5,6 @@ defaults:
       path: "assets/headshots"
     values:
       headshot: true
+collections:
+  cans:
+    output: true
