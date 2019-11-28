@@ -52,7 +52,7 @@ balloonscripts: true
                 <div class="artist-list">
                     {% for artist in site.data.artists %}
                     <div class="artist"><a href={{ artist.link }}>
-                        <img src={{ artist.headshot }}/><span class="desc"><span class="name">{{artist.name}}</span></span>
+                        <img src="{{ artist.headshot }}" /><span class="desc"><span class="name">{{artist.name}}</span></span>
                     </a></div>
                     {% endfor %}
                 </div>

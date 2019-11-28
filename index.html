@@ -4,6 +4,7 @@ title: A FAB mission
 id: home
 balloonscripts: true
 style: main
+navbar: true
 ---
 
 
@@ -18,7 +19,7 @@ style: main
     <div class="can-list">
         {% for can in site.cans %}
         <div class="can">
-            <a href= "/babydictators"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
+            <a href= "/cans/{{can.code}}"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
             <div class="additional-images">
                 <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
                 <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>

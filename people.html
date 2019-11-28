@@ -1,0 +1,26 @@
+---
+title: FAB People
+layout: default
+id: people
+style: main
+navbar: true
+---
+
+
+
+
+{% assign people_by_type = site.data.collaborators | group_by:"type" %}
+
+<div class="collaborators col-md-8 offset-md-2">
+    {% for type in people_by_type %}
+    <h1>{{ type.name }}</h1>
+    <div class="type-list">
+        {% for person in type.items %}
+        <div class="person">
+                  <a href="{{person.link}}"><img src="{{person.thumb}}" />
+                 <div>{{person.name}}</div></a>
+            </div>
+        {% endfor %}
+    </div>
+    {% endfor %}
+</div>
