@@ -3,13 +3,17 @@ Beer for art’s sake
 ### BREWED FOR A BETTER FUTURE ###
 FAB is the world that is realized in art and music. We are a gypsy brewing project based out of Dorchester Brewing Company in Boston, MA. Our mission is to create beers for the sake of art, which realize the unique visions of the artists which are part of our community and then bring these artworks to life in the real world in a way which reflects the intention of that artist, and that piece. 
 
-Our idea is that the world which we wish to see is a mirror of the art that we create. The first step of this process is to create galleries and financial support for the art-makers. Our cans are our art galleries, and our sales fund their creation. The second step of this process is to follow up on these artworks, growing them up from can artworks to public art projects, sometimes at grand scales. 
+Our idea is that the world which we wish to see is a mirror of the art that we create. The first step is to create cans which are galleries for  art-makers. The second step is to follow up on these artworks, investing can sales to transform can art into to public art projects and sculpture at grand scales. 
 # OUR FIRST PROJECT #
 Is the Baby Dictators Project. The goal of this project is to create one hundred unique BABY DICTATOR BALLOONS which will be flown at activist events and political rallies in the USA election year 2020. These balloons will replace 100-fold the “Baby Trump” protest artwork which was destroyed by LSU Football Game.
-[IMAGE: Trump balloon inflated / deflated]
+<div class="original-baby inline-image-next image-next"></div>
+![Original Baby Trump](/assets/img/babytrump.jpg){:class="img-responsive"}
+
+
 
 Our first project is to reinforce on a national scale the theme of artistic resiliency and free protest. This theme inspired MEDUSA BALLOON, our mascot.
-[IMAGE: MEDUSA BALLOON]
+<div class="medusa left-image-next image-next"></div>
+![Original Baby Trump](/assets/img/Headwithoutgray@0,5x.png){:class="img-responsive"}
 ## BABY DICTATOR BEERS ##
 Ben and Todd designed the recipe for our first two beers. BALLOON FACTORY is a West Coast-style IPA and SQUID PRO QUO is a similar Double IPA. Both beers are brimming with hops from the American Northwest. Each of these first recipes employs mash hopping, a technique which we are curious about (see below). These beers are also dry hopped at two points--once, during the height of fermentation activity to promote the integration of resinous hop terpenes into the flavor of the beer, and secondly, at the tail end of fermentation--immediately following which addition, the beer is capped to capture the hop aromas, with the secondary benefit of naturally carbonating the beer, from the trace amounts of fermentable sugars present in the hop flowers.
 ### MASH HOPPING ###

@@ -1,4 +1,18 @@
 body.style-main{
+
+    .inline-image-next + *{
+        width:250px;
+        display:block;
+        position:relative;
+    }
+    .left-image-next + *{
+        position:absolute;
+        right:100%;
+        width:200px;
+    }
+    .image-next + * img{
+max-width:100%;
+    }
     .splash{
         // background-image:url(/assets/canart/cans_sqp_art.png);
     }
