@@ -23,18 +23,18 @@ body.page-home{
         transition-duration: .3s;
     }
     
-}
+
 
 
 .can{
-
+    
     position:relative;
     box-shadow: 6px 6px 13px rgba(0, 0, 0, 0.35);
     margin: 40px;
     img.main{
         width:100%;
     }
-
+    
     &:not(:first-child) .additional-images{
         left: 100%;
         top: 0%;
@@ -42,9 +42,9 @@ body.page-home{
         position: absolute;
         display: flex;
         flex-direction: column;
-
+        
         img{
-
+            
             align-self:flex-start;
         }
     }
@@ -76,6 +76,17 @@ body.page-home{
     }
 }
 
+    
+h1{
+    font-weight: bold !important;
+    letter-spacing: -.1em;
+    font-size: 5em !important;
+    color: lightgray;
+    >*{margin-right:.25em;}
+    
+}
+
+
 .can-list{
     display:flex;
     flex-direction:row;
@@ -88,51 +99,44 @@ section#cans{
 .toc-container{
     margin-top:15px;
     text-align:center;
-.toc{
-    margin-left:auto;
-    padding-bottom: 25px;
-    text-align:left;
-    text-transform:uppercase;
-    letter-spacing:.75em;
-
-    >*>*{
-        margin:10px;
-        margin-left:30px;
+    .toc{
+        margin-left:auto;
+        padding-bottom: 25px;
+        text-align:left;
+        text-transform:uppercase;
+        letter-spacing:.75em;
+        
+        >*>*{
+            margin:10px;
+            margin-left:30px;
+        }
+        
+        
+    }
+    
+    
+    .footer{
+        text-align:center;
+        padding-top:50px;
+        padding-bottom:50px;
+        background-color:#FBFBFB;
+        
+        
     }
 
-
-}
-
-
-.footer{
-    text-align:center;
-    padding-top:50px;
-    padding-bottom:50px;
-    background-color:#FBFBFB;
-
-
-}
-
-h1{
-    font-weight: bold !important;
-    letter-spacing: -.1em;
-    font-size: 5em !important;
-    color: lightgray;
-    >*{margin-right:.25em;}
-
-}
-
-.sections-container{
-    margin-top:20px;
-    section{
-        margin-bottom:50px;
+    .sections-container{
+        margin-top:20px;
+        section{
+            margin-bottom:50px;
+        }
+    }
+    
+    .black{
+        color:black;
+    }
+    .lightgray{
+        color:lightgray;
     }
 }
 
-.black{
-    color:black;
-}
-.lightgray{
-    color:lightgray;
-}
 }

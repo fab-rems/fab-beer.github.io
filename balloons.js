@@ -1,4 +1,17 @@
 
+var lastOffset = $( ".hero" ).scrollTop();
+var lastDate = new Date().getTime();
+
+$( ".hero" ).scroll(function(e) {
+    var delayInMs = e.timeStamp - lastDate;
+    var offset = e.target.scrollTop - lastOffset;
+    var speedInpxPerMs = offset / delayInMs;
+    console.log(speedInpxPerMs);
+
+    lastDate = e.timeStamp;
+    lastOffset = e.target.scrollTop;
+});
+
 $( document ).ready(function() {
     //window.setInterval(
     
