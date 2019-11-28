@@ -2,7 +2,7 @@ name: Welcome to FAB
 markdown: kramdown
 defaults:
   - scope:
-      path: "assets/headshots"
+      path: "assets/"
     values:
       headshot: true
 collections:

@@ -1,0 +1,19 @@
+body.page-people{
+    h1{
+        margin-top:50px;
+    }
+.type-list{
+    display:flex;
+    flex-direction:row;
+    flex-wrap:wrap;
+    .person{
+        height:150px;
+        margin:10px;
+        margin-top:50px;
+        img{
+            height:100%;
+            
+        }
+    }
+}
+}
