@@ -71,8 +71,12 @@ style: main
         
         
     </div> -->
-    
-    <!-- <div class="footer">
-        Copyright 2019, Coolship LLC
-    </div> -->
+    <div class="col-sm-6 offset-sm-2">
+    {% capture my_include %}{% include /story.md %}{% endcapture %}
+    {{ my_include | markdownify }}
+    </div>
+
+
+
+
 </div>
