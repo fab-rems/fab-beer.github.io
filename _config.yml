@@ -8,3 +8,4 @@ defaults:
 collections:
   cans:
     output: true
+    navbar: true
