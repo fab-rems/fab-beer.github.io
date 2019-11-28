@@ -1,7 +1,49 @@
+@media (max-width: 767px) {
+    /* CSS goes here */
+    .balloons{
+        position:absolute;
+        top:0px;
+        left:0px; 
+
+    }
+}
+@media (min-width: 768px) {
+    /* CSS goes here */
+    .balloons{
+        position:fixed;
+        top:100%;
+        left:0px; 
+    }
+}
 body.page-babydictators{
+
+
     .splash{
     background-image:url(/assets/img/babysnakes_white_centered.png);
     background-color: black;
     background-size:cover;
+    }
+
+  
+
+
+    .balloon-head{
+        //position:absolute;
+        width:96px;
+        transition-timing-function: linear;
+
+    }
+    .particle{
+        background-color:black;
+        width:2px;
+        height:2px;
+        position:absolute;
+        transition-timing-function: linear;
+
+    }
+
+ 
+    h3{
+        padding-top:20px;
     }
 }
