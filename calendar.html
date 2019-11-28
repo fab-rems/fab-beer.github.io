@@ -1,0 +1,26 @@
+---
+layout: default
+title: Calendar
+permalink: /calendar/
+id: calendar
+excerpt: Calendar of events
+style: main
+---
+
+
+<script>
+    $(function(){
+$(".event").each((i,e)=>{
+    $(e).append($("<span>").text(moment($(e).attr("date"))));
+
+    })
+})
+</script>
+
+<h1><span class="black fab">FAB</span>EVENTS</h1>
+{% for event in site.data.calendar %}
+<div class="event">
+<h3><span class="date" date={{event.date}}>{{event.date}}</span> {{event.name}}</h3>
+</div>
+{% endfor %}
+

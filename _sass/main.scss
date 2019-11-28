@@ -1,10 +1,16 @@
-body.page-home{
+body.style-main{
     .splash{
         // background-image:url(/assets/canart/cans_sqp_art.png);
     }
     
     
-    
+    .fab{
+
+        &:hover{
+            letter-spacing:0em;
+        }
+        color:black !important;
+    }
     .can-gallery{
         width:100vw;
         display: flex;
