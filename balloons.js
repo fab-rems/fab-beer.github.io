@@ -34,6 +34,9 @@ $( document ).ready(function() {
     var vx = {}
     var vy = {}
 
+
+    var starts_x = {0:0, 1:50}
+    var starts_y = {0:0, 1:0}
     var string_lengths = [window.innerWidth/2,window.innerWidth/3]
     var init_len = 10
     $(".balloon-head").css("transition-duration",`${interval/1000}s`)
@@ -41,14 +44,12 @@ $( document ).ready(function() {
 
     $(".balloon-head").each(
         function(i,e){    
-
             op = $(e).offsetParent().offset()
             $(e).offset(
             {top:(op.top)  -(2**.5)*init_len,
             left:op.left +(2**.5)*init_len})
             vx[i] = 0
             vy[i] = 0
-
         })
 
     var np =20;
@@ -73,14 +74,18 @@ $( document ).ready(function() {
                 var y = -1*(top - op.top)
                 var x = left - op.left
 
+
                 new_y = y+Math.sin(wind_radians)*wind_height_fun(y)*20 - 10
                 new_x = x+Math.cos(wind_radians)*wind_height_fun(y)*20
                 if( (Math.abs(new_x) > 500 )| (Math.abs(new_y) > 500)){
                     $(e).remove()
                     addParticle({top:-Math.random()*window.innerHeight/3,left:0})
-
                     return
                 }
+
+                var out_y = new_y
+                var out_x = new_x
+
                 $(e).offset({top:op.top - new_y,
                         left:op.left + new_x})
                 }
@@ -94,24 +99,21 @@ $( document ).ready(function() {
             var wleft = ofs.left;
             var wtop =  ofs.top;
             var string_length = string_lengths[i]
-            var y = -1*(wtop - op.top)
-            var x = wleft - op.left
+            
+            anchor_x = starts_x[i]
+            anchor_y = starts_y[i]
 
-            // var scl = energy;
-            // var new_left = left + scl*Math.random() - scl/2 + wind_x - (i*3)
-            // var new_top = top + scl*Math.random() - scl/2 + wind_y + (i*3)
-            // rotation = Math.atan(new_left / new_top)
-            // abs = Math.sqrt(new_left**2 + new_top **2)
-            // rescale = string_len/abs
-            // new_left = new_left * rescale
-            // new_top = new_top * rescale
+            var ytemp = -1*(wtop - op.top)
+            var xtemp = wleft - op.left
+
+            var y  = ytemp - anchor_y;
+            var x  = xtemp - anchor_x;
 
             string_radians = Math.atan(y / x)
 
             var  wind_speed = wind_height_fun(y)
             f_wind_x = wind_speed * Math.cos(wind_radians)
             f_wind_y = wind_speed * Math.sin(wind_radians)
-
             f_wind_r = wind_speed * Math.cos(wind_radians - string_radians)
             f_wind_t = wind_speed * Math.sin(wind_radians - string_radians)
 
@@ -133,9 +135,11 @@ $( document ).ready(function() {
             new_x = x+vx[i]
             new_y = y+vy[i]
 
+            var  out_x = new_x + anchor_x;
+            var  out_y = new_y + anchor_y;
             $(e).offset(
-                {top:-1 * new_y+ op.top,
-                left:new_x+ op.left})
+                {top:-1 * out_y+ op.top,
+                left:out_x+ op.left})
 
             $(e).css({"transform":`rotate(${-1*(string_radians-(+3.14/2))}rad)`})
 
