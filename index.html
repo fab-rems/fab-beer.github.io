@@ -8,6 +8,43 @@ navbar: true
 ---
 
 
+<script>
+
+$.fn.isInViewport = function() {
+var elementTop = $(this).offset().top;
+var elementBottom = elementTop + $(this).outerHeight();
+var viewportTop = $(window).scrollTop();
+var viewportBottom = viewportTop + $(window).height();
+return elementBottom > viewportTop && elementTop < viewportBottom;
+};
+
+$(function(){
+
+$("body").on("click",".toggle-button",(ev)=>{
+    console.log("TOGGLING!")
+   console.log( $(ev.target).siblings())
+    targetId= $(ev.target).attr("target-id")
+$("#" + targetId ).each((i,e)=>{
+        console.log("INNER TOGGLE")
+        $(e).toggleClass("on",!$(e).hasClass("on"))})
+})
+
+    // $(window).on('resize scroll', function() {
+    //        $(".flyaway").each((i,e)=>{ 
+    //            $(e).isInViewport() 
+    //            ? $(e).css({"margin-top":"0", "margin-right":"0","opacity":1})
+    //            : $(e).css({"margin-top":"200px", "margin-right":"-1000px","opacity":.25, height:"25%"})
+    //        })
+    // });
+
+    // $("body").on("click",".flyaway",
+    // function(e){
+    //     $(e.target).css({"margin-top":"-200px", "margin-right":"200px"})
+    //     }
+    // )
+})
+</script>
+
 <div class="container d-none d-md-block">
     <div class="sections-container col-sm-8">
         <section id="cans">
@@ -40,11 +77,12 @@ navbar: true
 </div>
 
 <div class="container d-none d-md-block">
+      
     <div class="row toc-container">
         <div class="toc">
             <div class="oneline">
                 <span class="lightgray">FAB Cans</span>
-                <span class="lightgray">Read Story [12/3]</a>
+                <a class="black" href="#story">Read Story</a>
             </div>
             <div class="oneline">
                 <span class="lightgray">Find Beer [12/16]</a>

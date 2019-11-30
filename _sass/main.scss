@@ -2,10 +2,9 @@ body.style-main{
     .artist-flex-list{
         display:flex;
         flex-wrap:wrap;
-        // >*{
-        //     width:50%;
-        // }
     }
+
+
 
     .wip-flex-list{
         
@@ -26,19 +25,155 @@ body.style-main{
         }
     }
 
-    .inline-image-next + *{
-        width:250px;
+
+    h3{
+        font-weight:bold;
+        margin-top:50px;
+        letter-spacing:0em;
+        font-size:1.25rem;
+    }
+
+    .can-section{
+        margin-top:75px;
+    }
+    h4{
+        font-size:1rem;
+    }
+
+    .background-image{
+
+        position:absolute;
+        z-index:-1;
+    }
+    .fermentation-arts{
+        opacity: .25;
+        width: 50px;
+        /* right: 0px; */
+        /* bottom: 20vh; */
+        bottom: -4em;
+        left: 1em;
+        transform: rotate(0deg);
+    
+    
+    
+    }
+
+    #cans{
+        h1{
+            margin-top:50px;
+        }
+    }
+
+    .can-image.can-image.can-image{
+        transform:translate(0px, 0px)
+    }
+    .flyaway{
+        cursor:pointer;
+        transition: margin-top .76s ease-in 0s, margin-right .5s ease-in .3s  , opacity .5s .5s ;
+    }
+    .noclick{
+        pointer-events:none;
+    }
+
+    .baby-trump::after{
+        background-color: yellow;
+        color: red;
+        font-weight: bold;
+        content: " - Remember this";
+      }
+
+      .technique-header{
+        padding: 10px;
+        margin-top:10px;
+        text-transform:uppercase;
+        background: white;
+        color: black;
+        margin-bottom:0px;
         display:block;
+        cursor:pointer;
+        padding:10px;
+        font-style:normal;
+        text-align: center;
+        font-weight:bold;
+
+        border: 1.5px solid black;
+      }
+      .technique-content{
+          padding:20px;
+          display:none;
+        
+        padding-top:10px;
+        padding-bottom:10px;
+        margin-bottom:25px;
+        visibility:hidden;
+        height:0px;
+        position:relative;
+        background-color:black;
+        color:white;
+        position:relative;
+        font-style:normal;
+        .fancy{
+            color:white;
+            background-color:inherit;
+        }
+        &.on{
+            visibility:visible;
+            height:auto;
+            display: block;
+        }
+    
+      }
+      .caption{
+
+        position:absolute;
+        font-size:.8em;
+      }
+      .caption-120{
+          margin-top:120px;
+      }
+
+      .image-40{
+          height:40px;
+      }
+      .image-80{
+          height:80px;
+      }
+      .image-60{
+        height:60px;
+    }
+      .image-200{
+          height:200px;
+      }
+      .image-400{
+        height:400px;
+    }
+    .image-120{
+        height:120px;
+    }
+    .image-huge.image-huge{
+        width:20vw;
+        transform: translate(0%, -50%);
+    }
+    .inline-image{
+
+        display:inline-block;
         position:relative;
     }
-    .left-image-next + *{
+    .left-image{
         position:absolute;
         right:100%;
-        width:200px;
+        transform: translate(0%, -100%);
     }
-    .image-next + * img{
-        max-width:100%;
+    .right-image{
+        position:absolute;
+        left:100%;
     }
+
+.image{
+
+    max-height:100%;
+
+}
     .splash{
         // background-image:url(/assets/canart/cans_sqp_art.png);
     }
@@ -57,9 +192,10 @@ body.style-main{
     
     h1{
         font-weight: bold !important;
-        letter-spacing: -.1em;
+        letter-spacing: -.08em;
         font-size: 5em !important;
         color: lightgray;
+        margin-top:100px;
         >*{margin-right:.25em;}
         
     }
