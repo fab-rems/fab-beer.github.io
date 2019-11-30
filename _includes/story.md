@@ -1,45 +1,71 @@
-# <span class="fab">FAB<span> #
+
+
+# <span class="fab" id="story">FAB<span> #
+
+
 Beer for art’s sake
-### BREWED FOR A BETTER FUTURE ###
-FAB is the world that is realized in art and music. We are a gypsy brewing project based out of Dorchester Brewing Company in Boston, MA. Our mission is to create beers for the sake of art, which realize the unique visions of the artists which are part of our community and then bring these artworks to life in the real world in a way which reflects the intention of that artist, and that piece. 
+### Brewed for a better future ###
 
-Our idea is that the world which we wish to see is a mirror of the art that we create. The first step is to create cans which are galleries for  art-makers. The second step is to follow up on these artworks, investing can sales to transform can art into to public art projects and sculpture at grand scales. 
-# OUR FIRST PROJECT #
-Is the Baby Dictators Project. The goal of this project is to create one hundred unique BABY DICTATOR BALLOONS which will be flown at activist events and political rallies in the USA election year 2020. These balloons will replace 100-fold the “Baby Trump” protest artwork which was destroyed by LSU Football Game.
-<div class="original-baby inline-image-next image-next"></div>
-![Original Baby Trump](/assets/img/babytrump.jpg){:class="img-responsive"}
+<b>FAB</b> is the world that is realized in art and music. We are a gypsy brewery, "<b>F</b>ermentation <b>A</b>rts <b>B</b>rasserie", based out of Somerville and brewing at Dorchester Brewing in Boston. Our mission is to create beers which realize the unique visions of  artists in our community and then bring these artworks to life in ways which reflects the intention of that artist, and that piece. 
 
 
+Our idea is that the art that we create is a mirror of the world which we wish to live in. The first step is to create cans which are galleries for art-makers. The second step is to follow up on these artworks, investing can sales to transform artistic visions into to public art projects and sculpture at grand scales.  
 
-Our first project is to reinforce on a national scale the theme of artistic resiliency and free protest. This theme inspired MEDUSA BALLOON, our mascot.
-<div class="medusa left-image-next image-next"></div>
-![Original Baby Trump](/assets/img/Headwithoutgray@0,5x.png){:class="img-responsive"}
-## BABY DICTATOR BEERS ##
-Ben and Todd designed the recipe for our first two beers. BALLOON FACTORY is a West Coast-style IPA and SQUID PRO QUO is a similar Double IPA. Both beers are brimming with hops from the American Northwest. Each of these first recipes employs mash hopping, a technique which we are curious about (see below). These beers are also dry hopped at two points--once, during the height of fermentation activity to promote the integration of resinous hop terpenes into the flavor of the beer, and secondly, at the tail end of fermentation--immediately following which addition, the beer is capped to capture the hop aromas, with the secondary benefit of naturally carbonating the beer, from the trace amounts of fermentable sugars present in the hop flowers.
-### MASH HOPPING ###
-Both BALLOON FACTORY and SQUID PRO QUO are mash hopped beers. Mash hopping involves the addition of hops (in this case, Citra) at the very beginning of beer brewing. These hops are added at relatively low temperatures, allowing extraction into the beer of many sought after aroma compounds in addition to some plant sugars which are found in the hop flowers. Mash hop plant matter is discarded before the beer is boiled and our early experiments point to this reducing the extraction of harsh bitterness which can result from hop additions during the boiling of wort. 
 
-## BABY DICTATOR BALLOONS ##
-Adam O’Day and Andy Jacobs imagined the first two Baby Dictator Balloons, named “BALLOON FACTORY” and “SQUID PRO QUO”, respectively. These balloons are represented on our first two cans. 
+![Artists at work](/assets/story/ptown_team.jpg){:class="img-responsive inline-image image-120 image"}
+<!-- *At work*{:class="caption caption-120"} -->
 
-### BALLOON FACTORY ###
-BALLOON FACTORY is the first can in the Baby Dictators series. Created by Adam O’Day who lived for a time in Athens Georgia, we wanted the first beer in this series to take a step back from a literal rendering of the subject and to tell a different story… the BALLOON FACTORY is a pretty dark place, from which the balloon escapes to greener pastures. 
-#### ARTIST’S STATEMENT:  ####
-“This baby Trump balloon is a very orange Georgia peach. The poor guy didn’t seem happy in the city. He is freed from a menacing urban landscape and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings: retiring in peace... or going to jail.”
---ADAM O’DAY, Balloon Factory, MA
+### Our first project ###
 
-### SQUID PRO QUO ###
-SQUID PRO QUO is the second can in the Baby Dictators series. It is created by artist / surfing teacher / oyster farmer / shark commentator, Andy Jacob in Wellfleet MA. Andy is one of the founders of this series, the purpose of which is to explore the alternate potential futures of baby Trump, had he only had a happier childhood. Andy took the concept of the series literally. The five surfer Trumps pulling SQUID PRO QUO in the artwork are alternate reality future Trumps who benefited from surfing lessons as kids and now live peacefully as professional surfers, riding the swells. 
-#### ARTIST’S STATEMENT #### 
-“I imagined him floating over a psychedelic sunset, riding tubes in pure bliss. 5 alternate reality surfer Trumps guide the strings harmoniously. Like if he grew up surfing with his dad, going to the beach each weekend.”
---ANDREW JACOBS, Wellfleet Mass.
-@SOULKONTROLLER
+Is the **[BABY DICTATORS PROJECT](/babydictators)**{:class="bd-text fancy"}. We're creating cans which invent satirical BABY DICTATOR BALLOONS. Balloons will be fabricated and flown at activist events and political rallies in the USA election year 2020. The first two balloons are *BALLOON FACTORY*{:class="bf-text fancy"}  and *SQUID PRO QUO*{:class="sqp-text fancy"}. Using can sales to fund art and fabrication, we will create enough balloons to replace 100-fold the “Baby Trump” protest artwork which was destroyed at an LSU Football Game.
+
+![Original Baby Trump](/assets/img/babytrump.jpg){:class="img-responsive inline-image image-120 image baby-trump"}
+
+
+The purpose of this project is to reinforce artistic resiliency and free protest on a national scale. Its mascot is MEDUSA BALLOON, created by Adam O'Day. More on MEDUSA BALLOON below...
+
+![Original Baby Trump](/assets/img/Headwithoutgray@0,5x.png){:class="img-responsive image left-image image-400"}
+# BEERS #
+Ben and Todd created the recipes for our first two beers. *BALLOON FACTORY*{:class="bf-text fancy"} is a West Coast-style IPA and *SQUID PRO QUO*{:class="sqp-text fancy"} is a Double IPA. Both beers are brimming with hops from the American Northwest. Each of these first recipes employs mash hopping, a technique which we are curious about (see below). These beers are also dry hopped at two points--once, during the height of fermentation activity to promote the integration of resinous hop terpenes into the flavor of the beer, and secondly, at the tail end of fermentation--immediately following which addition, the beer is capped to capture the hop aromas, with the secondary benefit of naturally carbonating the beer, from the trace amounts of fermentable sugars present in the hop flowers.
+*[+] Learn about Mash Hopping*{:class="technique-header toggle-button" target-id="mash-hop-target"}
+<span class="technique-content toggle-target" id="mash-hop-target">Both *BALLOON FACTORY*{:class="bf-text fancy"} and *SQUID PRO QUO*{:class="sqp-text fancy"} are mash hopped beers. Mash hopping involves the addition of hops (in this case, Citra) at the very beginning of beer brewing. These hops are added at relatively low temperatures, allowing extraction into the beer of many sought after aroma compounds in addition to some plant sugars which are found in the hop flowers. Mash hop plant matter is discarded before the beer is boiled and our early experiments point to this reducing the extraction of harsh bitterness which can result from hop additions during the boiling of wort. </span>
+
+
+
+###  *[BALLOON FACTORY](/cans/bf)*{:class="bf-text fancy can-section"} ###
+<a href="/cans/bf">![BF can](/assets/canart/cans_bf_tall_can.png){:class="img-responsive image can-image left-image image-200"}</a>
+*BALLOON FACTORY*{:class="bf-text fancy"} is the first can in the Baby Dictators series. Created by Adam O’Day who lived for a time in Athens Georgia, we wanted the first beer in this series to take a step back from a literal rendering of the subject and to tell a different story… the *BALLOON FACTORY*{:class="bf-text fancy"} is a pretty dark place, from which the balloon escapes to greener pastures. 
+
+![Just Peachy](/assets/story/just_peach.png){:class="img-responsive image right-image flyaway image-huge"}
+
+> #### Artist's statement:  ####
+> “This baby Trump balloon is a very orange Georgia peach. The poor guy didn’t seem happy in the city. He is freed from a menacing urban landscape and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings: retiring in peace... or going to jail.”  
+> --ADAM O’DAY, Balloon Factory, MA  
+
+
+### *[SQUID PRO QUO](/cans/sqp)*{:class="sqp-text fancy can-section"} ###
+<a href="/cans/sqp">![SQP can](/assets/canart/cans_sqp_tall_can.png){:class="img-responsive can-image image left-image image-200"}</a>
+*SQUID PRO QUO*{:class="sqp-text fancy"} is the second can in the Baby Dictators series. It is created by artist / surfing teacher / oyster farmer / shark commentator, Andy Jacob in Wellfleet MA. Andy is one of the founders of this series, the purpose of which is to explore the alternate potential futures of baby Trump, had he only had a happier childhood. Andy took the concept of the series literally. The five surfer Trumps pulling *SQUID PRO QUO*{:class="sqp-text fancy"} in the artwork are alternate reality future Trumps who benefited from surfing lessons as kids and now live peacefully as professional surfers, riding the swells.
+
+![Just Squiddy](/assets/story/squid_head_only.png){:class="img-responsive image right-image flyaway image-huge"}
+
+> #### Artists' statement: #### 
+> “I imagined him floating over a psychedelic sunset, riding tubes in pure bliss. 5 alternate reality surfer Trumps guide the strings harmoniously. Like if he grew up surfing with his dad, going to the beach each weekend.”  
+> --ANDREW JACOBS, Wellfleet Mass  
+> @SOULKONTROLLER
 
 ### REACH GOAL: MEDUSA BALLOON ###
-MEDUSA BALLOON is the mascot for this series. It was imagined by Adam O’Day who is also an artist of BALLOON FACTORY, the first Balloon in the Baby Dictators can series. We are not sure how to fabricate MEDUSA BALLOON… if you have any advice for us, please email: fabrication-advice@fab.beer
-[IMAGE: MEDUSA BALLOON]
+MEDUSA BALLOON is the mascot for this series. It was imagined by Adam O’Day who is also an artist of *BALLOON FACTORY*{:class="bf-text fancy"}, the first baby dictator. We are not sure how to fabricate MEDUSA BALLOON, as the shape is outrageously complicated. A perfect MEDUSA BALLOON, would probably work like this guy:
+
+<iframe width="280" src="https://www.youtube.com/embed/jLdNObRoZpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+If you have any advice for how we can achieve that effect, please email:   
+
+<b>fabrication-advice@fab.beer</b>
+
 # STORE #
-In addition to making balloons and beer, we also created a store where you can pick up cool gear for both FAB and the BABY DICTATORS PROJECT. The store is launching on 12/3/2019. Check it out then.
+In addition to making balloons and beer, we also created a store where you can pick up cool gear for both FAB and the  **[BABY DICTATORS PROJECT](/babydictators)**{:class="bd-text fancy"}. The store is launching on 12/3/2019. Check it out then.
 # MAILING LIST #
 Sign up for our mailing list!
 [here](https://www.google.com)
