@@ -3,7 +3,8 @@ Beer for art’s sake
 ### BEER FOR A BETTER FUTURE ###
 FAB is the world that is realized in art and music. We are a gypsy brewing project based out of Dorchester Brewing Company in Boston, MA. Our mission is to create beers for the sake of art, which realize the unique visions of the artists which are part of our community and then bring these artworks to life in the real world in a way which reflects the intention of that artist, and that piece. 
 
-Our idea is that the world which we wish to see is a mirror of the art that we create. The first step of this process is to create galleries and financial support for the art-makers. Our cans are our art galleries, and our sales fund their creation. The second step of this process is to follow up on these artworks, growing them up from can artworks to public art projects, sometimes at grand scales. 
+Our idea is that the world which we wish to build is a mirror of the art which we create. Our mission is to realize that world through (1) supporting of artists and activists, and (2) undertaking ambitious projects. Our cans are art galleries and patrons. To accomplish the first half of our mission, we create galleries for the exhibitions of artwork work and invest in patronage of art. To accomplish the second half of our mission we to follow up on these artworks. We step beyond and grow them up into public art projects, sometimes at grand scales. 
+
 # OUR FIRST PROJECT #
 Is the Baby Dictators Project. The goal of this project is to create one hundred unique BABY DICTATOR BALLOONS which will be flown at activist events and political rallies in the USA election year 2020. These balloons will replace 100-fold the “Baby Trump” protest artwork which was destroyed by LSU Football Game.
 [IMAGE: Trump balloon inflated / deflated]
