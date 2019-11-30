@@ -60,7 +60,7 @@ body.style-main{
 
     #cans{
         h1{
-            margin-top:50px;
+            margin-top:20px;
         }
     }
 
@@ -153,6 +153,13 @@ body.style-main{
     .image-huge.image-huge{
         width:20vw;
         transform: translate(0%, -50%);
+    }
+    .image-medusa-ruler{
+        height: 365px;
+        transform: translate(0px, 0px);
+        margin-right: 20px;
+        position: absolute;
+        right: 100%;
     }
     .inline-image{
 

@@ -22,7 +22,7 @@ Is the **[BABY DICTATORS PROJECT](/babydictators)**{:class="bd-text fancy"}. We'
 ![Original Baby Trump](/assets/img/babytrump.jpg){:class="img-responsive inline-image image-120 image baby-trump"}
 
 
-The purpose of this project is to reinforce artistic resiliency and free protest on a national scale. Its mascot is MEDUSA BALLOON, created by Adam O'Day. More on MEDUSA BALLOON below...
+The purpose of this project is to reinforce artistic resiliency and free protest on a national scale. Its mascot is MEDUSA BALLOON, created by Adam O'Day. 
 
 ![Original Baby Trump](/assets/img/Headwithoutgray@0,5x.png){:class="img-responsive image left-image image-400"}
 # BEERS #
@@ -55,14 +55,14 @@ Ben and Todd created the recipes for our first two beers. *BALLOON FACTORY*{:cla
 > @SOULKONTROLLER
 
 ### REACH GOAL: MEDUSA BALLOON ###
+![Medusa With Ruler](/assets/story/medusa_with_ruler_bw@0,25x.png){:class="img-responsive image image-medusa-ruler"}
+
 MEDUSA BALLOON is the mascot for this series. It was imagined by Adam O’Day who is also an artist of *BALLOON FACTORY*{:class="bf-text fancy"}, the first baby dictator. We are not sure how to fabricate MEDUSA BALLOON, as the shape is outrageously complicated. A perfect MEDUSA BALLOON, would probably work like this guy:
 
 <iframe width="280" src="https://www.youtube.com/embed/jLdNObRoZpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-If you have any advice for how we can achieve that effect, please email:   
-
-<b>fabrication-advice@fab.beer</b>
+If you have any advice for how we can achieve that effect, please email: <a href="mailto:fabrication-advice@fab.beer">fabrication-advice@fab.beer</a>
 
 # STORE #
 In addition to making balloons and beer, we also created a store where you can pick up cool gear for both FAB and the  **[BABY DICTATORS PROJECT](/babydictators)**{:class="bd-text fancy"}. The store is launching on 12/3/2019. Check it out then.
