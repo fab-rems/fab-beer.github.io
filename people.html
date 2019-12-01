@@ -6,18 +6,14 @@ style: main
 navbar: true
 ---
 
-
-
-
-{% assign people_by_type = site.data.collaborators | group_by:"type" %}
-
+{% assign people_by_type = site.data.people | group_by:"type" %}
 <div class="collaborators col-md-8 offset-md-2">
     {% for type in people_by_type %}
     <h1>{{ type.name }}</h1>
     <div class="type-list">
         {% for person in type.items %}
         <div class="person">
-                  <a href="{{person.link}}"><img src="{{person.thumb}}" />
+                  <a href="{{person.link}}"><img src="{{person.webasset}}" />
                  <div>{{person.name}}</div></a>
             </div>
         {% endfor %}
