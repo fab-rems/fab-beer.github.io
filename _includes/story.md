@@ -10,19 +10,39 @@
 <p>Our idea is that the art that we create is a mirror of the world which we wish to live in. The first step is to create cans which are galleries for art-makers. The second step is to follow up on these artworks, investing can sales to transform artistic visions into to public art projects and sculpture at grand scales.</p>
 
 <div class="slick-center">
-
       {% for image in site.static_files %}
-    
-            image.path
-    
           {% if image.path contains 'balloon_wip' %}
+          {% if image.path contains 'bs_' %}
                 <div class="slick-image">
-                  <img src="{{ site.baseurl }}{{ image.path }}" alt="image" class="img-responsive inline-image image-120 image " />
+                  <img src="{{ site.baseurl }}{{ image.path }}" alt="image" class=" " />
               </div>
-       
+            {% endif %}
           {% endif %}
       {% endfor %}
+</div>
 
+<div class="slick-center">
+      {% for image in site.static_files %}
+          {% if image.path contains 'balloon_wip' %}
+          {% if image.path contains 'sqp_' %}
+                <div class="slick-image">
+                  <img src="{{ site.baseurl }}{{ image.path }}" alt="image" class=" " />
+              </div>
+            {% endif %}
+          {% endif %}
+      {% endfor %}
+</div>
+
+<div class="slick-center">
+      {% for image in site.static_files %}
+          {% if image.path contains 'balloon_wip' %}
+          {% if image.path contains 'bf_' %}
+                <div class="slick-image">
+                  <img src="{{ site.baseurl }}{{ image.path }}" alt="image" class=" " />
+              </div>
+            {% endif %}
+          {% endif %}
+      {% endfor %}
 </div>
 
 <h3 id="our-first-project">Our first project</h3>
