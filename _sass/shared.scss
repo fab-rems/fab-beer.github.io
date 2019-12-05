@@ -43,6 +43,19 @@ blockquote{
     color:white;
     font-weight:bold;
     background-color:black;
+    a{
+        color:white;
+        font-weight:bold;
+            
+    }
+    a:link{
+        color:white;
+        font-weight:bold;
+    }
+    a:visited{
+        color:white;
+        font-weight:bold;
+    }
 
 
 }
@@ -221,6 +234,8 @@ filter:invert(100);
     
 }
 
+
+
 .artist img{
     width:100%;
 }
@@ -250,6 +265,10 @@ h3{
     a{padding-left:30px;}
 }
 
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,0,0, 1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E") !important;
+}
+
 .navbar-brand.navbar-brand.navbar-brand{
     font-weight:bold;
     height: 100%;
@@ -261,6 +280,10 @@ h3{
     padding-right:20px;
 }
 // NAVBAR
+.navbar-nav li{
+    text-align:center;
+}
+
 
 body:not(.inverted){
     
@@ -317,6 +340,8 @@ body{
 .headline.baby-dictators{
     
 }
+
+
 .alert-banner{
 
     position: absolute;
