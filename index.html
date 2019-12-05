@@ -21,43 +21,13 @@ return elementBottom > viewportTop && elementTop < viewportBottom;
 $(function(){
 
 $("body").on("click",".toggle-button",(ev)=>{
-    console.log("TOGGLING!")
-   console.log( $(ev.target).siblings())
     targetId= $(ev.target).attr("target-id")
 $("#" + targetId ).each((i,e)=>{
-        console.log("INNER TOGGLE")
         $(e).toggleClass("on",!$(e).hasClass("on"))})
 })
 
 })
 
-console.log("SLICKING")
-console.log($(".slick-center"))
-$(function(){
-$('.slick-center').slick({
-
-    centerMode: true,
-     slidesToShow: 2,
-     variableWidth: true,
-     arrows:true,
-    infinite:false,
-    padding:50,
-
-  responsive: [
-    {
-      breakpoint: 768,
-      settings: {
-        centerMode: true,
-     slidesToShow: 1,
-     variableWidth: true,
-     arrows:true,
-    infinite:true,
-    padding:50,
-      }
-    },    
-  ]
-})
-})
 </script>
 
 
