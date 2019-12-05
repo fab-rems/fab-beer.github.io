@@ -29,23 +29,42 @@ $("#" + targetId ).each((i,e)=>{
         $(e).toggleClass("on",!$(e).hasClass("on"))})
 })
 
-    // $(window).on('resize scroll', function() {
-    //        $(".flyaway").each((i,e)=>{ 
-    //            $(e).isInViewport() 
-    //            ? $(e).css({"margin-top":"0", "margin-right":"0","opacity":1})
-    //            : $(e).css({"margin-top":"200px", "margin-right":"-1000px","opacity":.25, height:"25%"})
-    //        })
-    // });
+})
 
-    // $("body").on("click",".flyaway",
-    // function(e){
-    //     $(e.target).css({"margin-top":"-200px", "margin-right":"200px"})
-    //     }
-    // )
+console.log("SLICKING")
+console.log($(".slick-center"))
+$(function(){
+$('.slick-center').slick({
+
+    centerMode: false,
+//   centerPadding: '60px',
+     slidesToShow: 3,
+     variableWidth: true,
+     arrows:true,
+    infinite:true,
+
+//   responsive: [
+//     {
+//       breakpoint: 768,
+//       settings: {
+//         arrows: false,
+//         centerMode: false,
+//         centerPadding: '40px',
+//         slidesToShow: 2,
+//   variableWidth: true,
+//       }
+//     },    
+//   ]
+})
 })
 </script>
 
-<div class="container d-none d-md-block">
+<div class="alert-banner">
+    Now brewing <a class="bd-text fancy" href="/babydictators">BABY DICTATORS PROJECT</a> beers: <a href="/cans/sqp" class="sqp-text fancy">SQUID PRO QUO</a> & <a href="/cans/bf" class="bf-text fancy">BALLOON FACTORY</a>. 
+</div>
+
+
+<div class="container d-none d-md-block cans-banner">
     <div class="sections-container col-sm-8">
         <section id="cans">
             <h1><span class="black fab">FAB</span><span>CANS</span></h1>
@@ -56,7 +75,9 @@ $("#" + targetId ).each((i,e)=>{
     <div class="can-list">
         {% for can in site.cans %}
         <div class="can">
-            <a href= "/cans/{{can.code}}"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
+            <!-- <a href= "/cans/{{can.code}}">  -->
+                <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
+            <!-- </a> -->
             <div class="additional-images">
                 <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
                 <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
@@ -70,13 +91,13 @@ $("#" + targetId ).each((i,e)=>{
                 {% for can in site.cans %}
                 <div class="row">
                 <div class="can can-stretch col-xs-12">
-                    <a href= "/babydictators"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
+                        <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
                 </div>
                 </div>
                 {% endfor %}    
 </div>
 
-<div class="container d-none d-md-block">
+<div class="container">
       
     <div class="row toc-container">
         <div class="toc">
@@ -85,31 +106,12 @@ $("#" + targetId ).each((i,e)=>{
                 <a class="black" href="#story">Read Story</a>
             </div>
             <div class="oneline">
-                <div class="lightgray" style="display:inline-block">Find Beer<br/>[12/16]</div>
-                <div class="lightgray"  style="display:inline-block">Get Merch<br/>[12/16]</div>
+
             </div>
-            <!-- <div class="oneline">
-                    <span class="lightgray"><span class="black">F</span>ermentation <span class="black">A</span>rts <span class="black">B</span>rasserie [2020]</span>span>
-                </div> -->
-<!-- 
-            <div class="oneline">
-                    <span class="lightgray">FAB Cans</span>
-                    <a href="#about">Read Story</a>
-                </div>
-                <div class="oneline">
-                    <a href="#find-our-beer">Find Beer</a>
-                    <a href="#merch">Get Merch</a>
-                </div> -->
         </div>
     </div>
-    
-    <!-- <div class="sections-container col-sm-8">
-        <section id="about"><h1>STORY</h1></section>
-        <section id="find-out-beer"><h1>BEER</h1></section>
-        <section id="merch"><h1>MERCH</h1></section>
-        
-        
-    </div> -->
+
+    </div>π
     <div class="col-sm-6 offset-sm-4">
     {% capture my_include %}{% include /story.md %}{% endcapture %}
     {{ my_include | markdownify }}

@@ -317,8 +317,25 @@ body{
 .headline.baby-dictators{
     
 }
+.alert-banner{
 
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    /* height: 25px; */
+    background-color: black;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: white;
+    text-align: center;
+}
 
 footer{
     height:100px;
+}
+
+.cans-banner{
+    top: 50px;
+    position: relative;
 }
