@@ -26,7 +26,7 @@
     {{ statement }}
   </div>
   <div class="col-md-10 offset-md-1">
-  <div class="wip-flex-list slick-center">
+  <div class="wip-flex-list slick-gallery">
       {% for image in site.static_files %}
           {% if image.path contains page.code %}
           {% if image.path contains 'wip' %}

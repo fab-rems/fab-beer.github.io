@@ -367,6 +367,17 @@ footer{
 
 .slick-slide{
     img{
-        height:200px;
+        //height:200px;
+    }
+}
+.slick-gallery{
+    .slick-list{
+        overflow:visible;
+    }
+    img{
+        height:150px;
+        display: block;
+        margin: 15px;
+        // box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     }
 }

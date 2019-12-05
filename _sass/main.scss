@@ -17,17 +17,15 @@ body.style-main{
         }
     }
     }
-    .item{
-        height:200px;
-        .graphic{
-            height:100%;
-            
-        }
+    .beer-gallery{
+        margin-top:50px;
     }
-
 
     h3{
         font-weight:bold;
+        &.beer-section{
+            margin-top:5px;
+        }
         margin-top:50px;
         letter-spacing:0em;
         font-size:1.25rem;
@@ -255,5 +253,7 @@ body.style-main{
             color:lightgray;
         }
     }
+ 
     
+
 }
