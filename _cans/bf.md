@@ -7,6 +7,7 @@ navbar: true
 beer_style: AMERICAN IPA
 abv: 6.1
 last_brewed: 12/3/2019
+merch_types: the original artwork, T-shirts and stickers
 statement: |
   “This baby Trump balloon is a very orange Georgia peach. The poor guy didn’t seem happy in the city. He is freed from a menacing urban landscape and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings: retiring in peace... or going to jail.”
   --ADAM O’DAY, Balloon Factory, MA
@@ -26,7 +27,7 @@ ad_feature_html: |
     </button>
     <div class="can-print-description">
         <h6 class="can-print-biline">by Adam O'Day</h6>
-        <p>Own the original acrylic-on-canvas artwork. Profits shared with the artist. Learn about our mission <a href="mission">here</a>.</p>
+        <p>Own the original acrylic-on-canvas artwork. Profits to the artist.</p>
         </div>
     </div>     
 ---

@@ -42,129 +42,141 @@ navbar: true
         <div class="can-list">
             {% for can in site.cans %}
             <div class="can">
-              <a href= "/cans/{{can.code}}"> 
+                <a href= "/cans/{{can.code}}"> 
                     <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
-                     </a>
-                    <div class="additional-images">
-                        <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
-                        <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
-                    </div>
-                </div>
-                {% endfor %}    
-            </div>
-        </div>
-        
-        <div class="can-gallery-mobile d-md-none">
-            {% for can in site.cans %}
-            <div class="row">
-                <div class="can can-stretch col-xs-12">
-                    <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
+                </a>
+                <div class="additional-images">
+                    <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
+                    <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
                 </div>
             </div>
             {% endfor %}    
         </div>
-        
-        <div class="container">
-            
-            
-        </div>
-        <div class="col-sm-5 offset-sm-3">
-            
-            <h1 id="fab"><span class="fab" id="story">FAB<span></span></span></h1>
-            
-            <p>Beer for art’s sake</p>
-            <h3 id="brewed-for-a-better-future">Brewed for a better future</h3>
-            <p><b>FAB</b> is the world that is realized in art and music. We are a gypsy brewery based out of Somerville and brewing at Dorchester Brewing in Boston. Our mission is to create beers which realize the unique visions of  artists in our community and then bring these artworks to life in ways which reflects the intention of that artist, and that piece.</p>
-            
-
-            
-            <p><b>THE ART</b> that we create is a mirror of the world which we wish to live in. The first step is to create cans which are galleries for art-makers. The second step is to follow up on these artworks, investing can sales to transform artistic visions into to public art projects and sculpture at grand scales.</p>
-
-            <p><a href="/babydictators" class="fancy bd-text">THE BABY DICTATORS PROJECT</a> is our first can series, which satirizes aspiring dictators by exploring their alternative-reality possible futures if they had had happier childhoods.</p>
-            
-        </div>
-        <div class="col-sm-5 offset-sm-3">
-            <div class="slick-gallery">
-                {% for image in site.static_files %}
-                {% if image.path contains 'balloon_wip' %}
-                {% if image.path contains 'bs_' %}
-                <div class="slick-image">
-                    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" class=" " />
-                </div>
-                {% endif %}
-                {% endif %}
-                {% endfor %}
+    </div>
+    
+    <div class="can-gallery-mobile d-md-none">
+        {% for can in site.cans %}
+        <div class="row">
+            <div class="can can-stretch col-xs-12">
+                <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
             </div>
         </div>
+        {% endfor %}    
+    </div>
+    
+    <div class="container">
         
         
-        <div class="col-sm-5 offset-sm-3">
-            
-            <h3 class="chapter" id="our-first-project">Our first project</h3>
-            
-            <p>Is the <strong class="bd-text fancy"><a href="/babydictators">BABY DICTATORS PROJECT</a></strong>. We’re creating cans which invent satirical BABY DICTATOR BALLOONS. Balloons will be fabricated and flown at activist events and political rallies in the USA election year 2020. The first two balloons are <em class="bf-text fancy">BALLOON FACTORY</em>  and <em class="sqp-text fancy">SQUID PRO QUO</em>. Using can sales to fund art and fabrication, we will create enough balloons to replace 100-fold the “Baby Trump” protest artwork which was destroyed at an LSU Football Game.</p>
-            
-            <p>The purpose of this project is to reinforce artistic resiliency and free protest on a national scale. Its mascot is MEDUSA BALLOON, created by Adam O’Day.</p>
-            
-            <div class="story-inline-gallery">
-
-                    <button type="button" class="btn medusa-t-button" data-toggle="modal" data-target="#medusa-t-modal"><img class="thumbnail t-shirt" src="assets/icons/medusa_navy.png"/> <em class="medusa-t-title new">MEDUSA T</em><div class="medusa-t-description">by Adam O'Day. Profits fund baby dictator balloons</p></div></button>
-
-        <img src="/assets/img/Headwithoutgray@0,5x.png" alt="Original Baby Trump" class="img-responsive image image-300" />
+    </div>
+    <div class="col-sm-5 offset-sm-3">
+        
+        <h1 id="fab"><span class="fab" id="story">FAB<span></span></span></h1>
+        
+        <p>Beer for art’s sake</p>
+        <h3 id="brewed-for-a-better-future">Brewed for a better future</h3>
+        <p><b>FAB</b>: We are a gypsy brewery based out of Somerville and brewing at Dorchester Brewing in Boston. Our mission is to create beers which realize the unique visions of  artists in our community and then bring these artworks to life in ways which reflects the intention of that artist, and that piece.</p>
+        
+        
+        
+        <p>We believe that art can be a mirror of the world which we aspire to create. By <b>supporting art-makers and using beer and merchandise sales to fund public art projects</b>, we can realize that vision incrementally. The first step is to create cans which are galleries for art-makers. The second step is to follow up on these artworks, investing can sales to transform artistic visions into to public art projects and sculpture at grand scales.</p>
+        
+        <p><a href="/babydictators" class="fancy bd-text">THE BABY DICTATORS PROJECT</a> is our first can series, which satirizes aspiring dictators by exploring their alternative-reality possible futures if they had had happier childhoods.</p>
+        
+    </div>
+    <div class="col-sm-5 offset-sm-3">
+        <div class="slick-gallery">
+            {% for image in site.static_files %}
+            {% if image.path contains 'balloon_wip' %}
+            {% if image.path contains 'bs_' %}
+            <div class="slick-image">
+                <img src="{{ site.baseurl }}{{ image.path }}" alt="image" class=" " />
             </div>
-
-
-            {% assign shopify_product_id=4407213490260 %}
+            {% endif %}
+            {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    
+    
+    <div class="col-sm-5 offset-sm-3">
+        
+        <h3 class="chapter" id="our-first-project">Our first project</h3>
+        
+        <p>Is the <strong class="bd-text fancy"><a href="/babydictators">BABY DICTATORS PROJECT</a></strong>. We’re creating cans which invent satirical BABY DICTATOR BALLOONS. Balloons will be fabricated and flown at activist events and political rallies in the USA election year 2020. The first two balloons are <em class="bf-text fancy">BALLOON FACTORY</em>  and <em class="sqp-text fancy">SQUID PRO QUO</em>. Using can sales to fund art and fabrication, we will create enough balloons to replace 100-fold the “Baby Trump” protest artwork which was destroyed at an LSU Football Game.</p>
+        
+        <p>The purpose of this project is to reinforce artistic resiliency and free protest on a national scale. Its mascot is MEDUSA BALLOON, created by Adam O’Day.</p>
+        
+        <div class="story-inline-gallery">
             
-            <div class="modal fade" id="medusa-t-modal">
-                <div class="modal-dialog modal-xl" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Get a Medusa T</h5>
-                        </div>
-                        <div class="modal-body shopify">
-                            {% include storeproduct.js %}
-                        </div>
+            <button type="button" class="btn medusa-t-button" data-toggle="modal" data-target="#medusa-t-modal"><img class="thumbnail t-shirt" src="assets/icons/medusa_navy.png"/> <em class="medusa-t-title new">MEDUSA T</em><div class="medusa-t-description">by Adam O'Day. Profits fund baby dictator balloons</p></div></button>
+            
+            <img src="/assets/img/Headwithoutgray@0,5x.png" alt="Original Baby Trump" class="img-responsive image image-300" />
+        </div>
+        
+        
+        {% assign shopify_product_id=4407213490260 %}
+        
+        <div class="modal fade" id="medusa-t-modal">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Get a Medusa T</h5>
+                    </div>
+                    <div class="modal-body shopify">
+                        {% include storeproduct.js %}
                     </div>
                 </div>
             </div>
-            <script type="text/javascript">
+        </div>
+        <script type="text/javascript">
             $('#medusa-t-modal').on('shown.bs.modal', function () {
                 window.dispatchEvent(new Event('resize'));
-              })
-              </script>
-            
-            
-            <h1 id="beers">BEERS</h1>
-            <p>Ben and Todd created the recipes for our first two beers. <em class="bf-text fancy">BALLOON FACTORY</em> is a West Coast-style IPA and <em class="sqp-text fancy">SQUID PRO QUO</em> is a Double IPA. Both beers are brimming with hops from the American Northwest. </p>
-            <img class="image-left image-200" src="/assets/story/mashhops.jpg"/>    
-            <p>Each of these first recipes employs mash hopping, a technique which deeply integrates hop flavors (see below). These beers are also dry hopped at two points–once, during the height of fermentation activity to promote the integration of resinous hop terpenes into the flavor of the beer, and secondly, at the tail end of fermentation–immediately following which addition, the beer is capped to capture the hop aromas. This naturally carbonates the beer, producing tiny, champagne-like bubbles from fermentation of trace amounts of sugars present in the hop flowers.</p>
-                <em class="technique-header toggle-button" target-id="mash-hop-target">[+] Learn about Mash Hopping</em>
-                <span class="technique-content toggle-target" id="mash-hop-target">Both <em class="bf-text fancy">BALLOON FACTORY</em> and <em class="sqp-text fancy">SQUID PRO QUO</em> are mash hopped beers. Mash hopping involves the addition of hops (in this case, Citra) at the very beginning of beer brewing. These hops are added at relatively low temperatures, allowing extraction into the beer of many sought after aroma compounds in addition to some plant sugars which are found in the hop flowers. Mash hop plant matter is discarded before the beer is boiled and our early experiments point to this reducing the extraction of harsh bitterness which can result from hop additions during the boiling of wort. </span></p>
-                
-                
-   
-                {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| split: "/" | slice:3 | first'  %}
+            })
+        </script>
+        
+        
+        <h1 id="beers">BEERS</h1>
+        <p>Ben and Todd created the recipes for our first two beers. <em class="bf-text fancy">BALLOON FACTORY</em> is a West Coast-style IPA and <em class="sqp-text fancy">SQUID PRO QUO</em> is a Double IPA. Both beers are brimming with hops from the American Northwest. </p>
+        <img class="image-left image-200" src="/assets/story/mashhops.jpg"/>    
+        <p>Each of these first recipes employs mash hopping, a technique which deeply integrates hop flavors (see below). These beers are also dry hopped at two points–once, during the height of fermentation activity to promote the integration of resinous hop terpenes into the flavor of the beer, and secondly, at the tail end of fermentation–immediately following which addition, the beer is capped to capture the hop aromas. This naturally carbonates the beer, producing tiny, champagne-like bubbles from fermentation of trace amounts of sugars present in the hop flowers.</p>
+        <em class="technique-header toggle-button" target-id="mash-hop-target">[+] Learn about Mash Hopping</em>
+        <span class="technique-content toggle-target" id="mash-hop-target">Both <em class="bf-text fancy">BALLOON FACTORY</em> and <em class="sqp-text fancy">SQUID PRO QUO</em> are mash hopped beers. Mash hopping involves the addition of hops (in this case, Citra) at the very beginning of beer brewing. These hops are added at relatively low temperatures, allowing extraction into the beer of many sought after aroma compounds in addition to some plant sugars which are found in the hop flowers. Mash hop plant matter is discarded before the beer is boiled and our early experiments point to this reducing the extraction of harsh bitterness which can result from hop additions during the boiling of wort. </span></p>
+        
+        
+        
+        {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| split: "/" | slice:3 | first'  %}
+        
+        
+        {% for can in site.cans %}
+        <div class="chapter"></div>
+        {% include can_info_template.html %}
+        <p>...Learn more about <a href="/cans/{{can.code}}"><em class="fancy {{can.code}}-text text-upper">{{can.name}}</em></a> and fund Baby Dictator balloons with <b>{{can.merch_types}}</b>, <a href="/cans/{{can.code}}">HERE</a>!</p>
+        {% endfor %}
+        
+        
+        
+        
+        <h3  class="chapter" id="reach-goal-medusa-balloon">REACH GOAL: MEDUSA BALLOON</h3>
+        <p><img src="/assets/story/medusa_with_ruler_bw@0,25x.png" alt="Medusa With Ruler" class="img-responsive image image-medusa-ruler" /></p>
+        
+        <p>MEDUSA BALLOON is the mascot for this series. It was imagined by Adam O’Day who is also an artist of <em class="bf-text fancy">BALLOON FACTORY</em>, the first baby dictator. We are not sure how to fabricate MEDUSA BALLOON, as the shape is outrageously complicated. A perfect MEDUSA BALLOON, would probably work like this guy:</p><br/>
+        
+        
+<iframe width="280" src="https://www.youtube.com/embed/jLdNObRoZpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<br/>
 
+If you have any advice for how we can achieve that effect, please email: <a href="mailto:fabrication-advice@fab.beer">fabrication-advice@fab.beer</a>
 
-                        {% for can in site.cans %}
-                        <div class="chapter"></div>
-                        {% include can_info_template.html %}
-                        {% endfor %}
+<h1>STORE </h1>
+In addition to making balloons and beer, we also created a store where you can pick up cool gear for both FAB and the <a href="/babydictators"><em class="fancy bd-text">BABY DICTATORS PROJECT</em></a>. The store is launching on 12/3/2019. Check it out then.
 
-
-
-                                
-                                <h3  class="chapter" id="reach-goal-medusa-balloon">REACH GOAL: MEDUSA BALLOON</h3>
-                                <p><img src="/assets/story/medusa_with_ruler_bw@0,25x.png" alt="Medusa With Ruler" class="img-responsive image image-medusa-ruler" /></p>
-                                
-                                <p>MEDUSA BALLOON is the mascot for this series. It was imagined by Adam O’Day who is also an artist of <em class="bf-text fancy">BALLOON FACTORY</em>, the first baby dictator. We are not sure how to fabricate MEDUSA BALLOON, as the shape is outrageously complicated. A perfect MEDUSA BALLOON, would probably work like this guy:</p>
-                                
-                                
-                                
-                            </div>
-                            
-                            
-                            
-                            
-                        </div>
+<h1>MAILING LIST</h1>
+Sign up for our mailing list!
+<a href="http://eepurl.com/gLvm09">here</a>
+        
+    </div>
+    
+    
+    <footer></footer>
+    
+</div>

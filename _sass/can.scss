@@ -7,8 +7,8 @@ body.page-category-can{
     }
     .head-graphic{
         position: fixed;
-        display:none;
-        // opacity: .25;
+        // display:none;
+        opacity: .6;
         /* left: 0px; */
         top: -20vh;
         height: 140vh;
@@ -42,15 +42,12 @@ body.page-category-can{
         &.store{    
             padding-top:4em;
             padding-bottom:4em;
-        }
-        
-        &.title,&.art,&.store{
             background-color:white;
         }
         
-        &.description,&.statement{
 
-        }
+        
+  
         &.store{
             .shopify-buy__product__title{
                 height:4em;
@@ -149,6 +146,10 @@ ul.inline-list{
     .can-print-description{
         padding-top:15px;
     }
+    button{
+        text-decoration:underline;
+
+    }
     margin-top:5em;
     margin-bottom:5em;
     text-align:center;
@@ -160,6 +161,7 @@ ul.inline-list{
     }
 
      .ad-button{
+         text-decoration:underline;
          .btn-dark{
     background-color:black;
     color:white;
