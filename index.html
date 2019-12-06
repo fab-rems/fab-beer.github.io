@@ -148,7 +148,7 @@ navbar: true
 
                             {% for group in image_groups %}
                             {% if group.name==can.code %}
-                            {% for image in group.items limit: 10 %}
+                            {% for image in group.items limit: 6 %}
                             <div class="item">
                                 <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
                             </div>
