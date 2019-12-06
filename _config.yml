@@ -9,3 +9,6 @@ collections:
   cans:
     output: true
     navbar: true
+  blog_posts:
+    output: true
+    navbar: true

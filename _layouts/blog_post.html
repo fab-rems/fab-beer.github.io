@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>{% include head.html %}</head>
+<body class="page-{{page.id}} page-category-can {% if page.style %}style-{{page.style}}{% endif %} {% if page.inverted %} inverted {% endif %}">
+    {% include nav.html %}
+      
+    
+    <div class="blog-nav "><ul class="inline-list">
+            <li><span class="fancy"><a class="fab" href="/">FAB</a></span> <span class="text-upper fancy {{can.code}}-text">{{can.name}}</span> </li>
+            <li>
+                <a href="/blog" >BLOG</a>
+            </li>
+        </ul>
+    </div>
+    
+    {{ content }}
+</body>
+</html>

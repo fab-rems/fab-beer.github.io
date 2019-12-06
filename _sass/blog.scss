@@ -1,0 +1,19 @@
+
+.blog-nav{
+    padding-left:2em;
+    padding-top:1em;
+    padding-bottom:1em;
+    background-color:white;
+    text-transform:capitalize;
+    position:fixed;
+    z-index:100;
+    top:0px;
+    width:100vw;
+    box-shadow: 3px 3px 7px rgba(0, 0, 0, .1);
+}
+
+body.page-blog{
+    padding-top:300px;
+
+    li{ list-style:none;}
+}
