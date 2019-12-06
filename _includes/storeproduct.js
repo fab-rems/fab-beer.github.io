@@ -1,4 +1,4 @@
-<div id='product-component-1575591134940'></div>
+<div id='product-component-1575592969229'></div>
 <script type="text/javascript">
 /*<![CDATA[*/
 (function () {
@@ -27,7 +27,7 @@
     ShopifyBuy.UI.onReady(client).then(function (ui) {
       ui.createComponent('product', {
         id: {{shopify_product_id}},
-        node: document.getElementById('product-component-1575591134940'),
+        node: document.getElementById('product-component-1575592969229'),
         moneyFormat: '%24%7B%7Bamount%7D%7D',
         options: {
   "product": {
@@ -68,6 +68,7 @@
         "font-size": "15.299999999999999px"
       }
     },
+    "buttonDestination": "checkout",
     "layout": "horizontal",
     "contents": {
       "img": false,
@@ -76,7 +77,7 @@
     },
     "width": "100%",
     "text": {
-      "button": "Add to cart"
+      "button": "Buy Now"
     }
   },
   "productSet": {

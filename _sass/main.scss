@@ -18,14 +18,11 @@ body.style-main{
     }
     }
     .beer-gallery{
-        margin-top:50px;
+        margin-bottom:50px;
     }
 
     h3{
         font-weight:bold;
-        &.beer-section{
-            margin-top:5px;
-        }
         margin-top:50px;
         letter-spacing:0em;
         font-size:1.25rem;
@@ -145,6 +142,9 @@ body.style-main{
       .image-400{
         height:400px;
     }
+    .image-300{
+        height:300px;
+    }
     .image-120{
         height:120px;
     }
@@ -164,11 +164,18 @@ body.style-main{
         display:inline-block;
         position:relative;
     }
-    .left-image{
+
+    .left-image-container{
         position:absolute;
-        right:100%;
-        transform: translate(0%, -100%);
+        right:100%;    
+
+        &.anchor-bottom{
+            transform: translate(0%, -100%);
+        }
     }
+
+
+
     .right-image{
         position:absolute;
         left:100%;
@@ -255,5 +262,40 @@ body.style-main{
     }
  
     
+    .story-inline-gallery{
+
+        height: 300px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+        >*{
+            height:100%;
+
+        }
+
+        
+        >.medusa-t-button{
+            right:100%;
+            >*{
+                margin-left:auto;
+                margin-right:auto;
+            }
+        }
+        .medusa-t-title{
+            &:after{
+                content:"new";
+                margin-left:5px;
+                background-color:red;
+                color:white;
+                vertical-align: super;
+                font-size:75%;
+            } 
+        }
+        .medusa-t-description{
+            max-width:9em;
+        }
+        
+    }
 
 }
