@@ -9,26 +9,29 @@
     {% include nav.html %}
     
     
-    <div class="col-md-10 offset-md-1">
+    <div class="col-lg-8 offset-lg-2">
         {% assign can=page %}
         {% include can_info_template.html %}
-        {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
-        <div class="wip-flex-list slick-gallery">
-            {% for group in image_groups %}
-            {% if group.name==page.code %}
-            {% for image in group.items limit: 10 %}
-            <div class="item">
-                <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+        
+        <section class="wip-images">
+            {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
+            <div class="wip-flex-list slick-gallery">
+                {% for group in image_groups %}
+                {% if group.name==page.code %}
+                {% for image in group.items limit: 10 %}
+                <div class="item">
+                    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endfor %}
             </div>
-            {% endfor %}
-            {% endif %}
-            {% endfor %}
-        </div>
-        
-        <div id='collection-component-1575574611446'></div>
-        {% assign shopify_collection_id=page.collection_id %}
-        {% include storeview.js %}
-        
+        </section>
+        <section class='store'>
+            <div id='collection-component-1575574611446'></div>
+            {% assign shopify_collection_id=page.collection_id %}
+            {% include storeview.js %}
+        </section>
     </div>
 </body>
 </html>
