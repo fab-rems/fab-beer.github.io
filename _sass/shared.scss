@@ -372,7 +372,7 @@ footer{
 }
 .slick-gallery{
     .slick-list{
-        overflow:visible;
+
     }
     img{
         height:150px;
@@ -380,4 +380,8 @@ footer{
         margin: 15px;
         // box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.3);
     }
+}
+.slick-prev:before, 
+.slick-next:before {
+    color: black;    
 }

@@ -105,6 +105,25 @@ navbar: true
             <p>The purpose of this project is to reinforce artistic resiliency and free protest on a national scale. Its mascot is MEDUSA BALLOON, created by Adam O’Day.</p>
             
             <p><img src="/assets/img/Headwithoutgray@0,5x.png" alt="Original Baby Trump" class="img-responsive image left-image image-400" /></p>
+            
+            {% assign shopify_product_id=4407213490260 %}
+            
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#medusa-t-modal">Toggle modal</button>
+            HIHIHIH
+            <div class="modal fade" id="medusa-t-modal">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        </div>
+                        <div class="modal-body shopify">
+                            {% include storeproduct.js %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
             <h1 id="beers">BEERS</h1>
             <p>Ben and Todd created the recipes for our first two beers. <em class="bf-text fancy">BALLOON FACTORY</em> is a West Coast-style IPA and <em class="sqp-text fancy">SQUID PRO QUO</em> is a Double IPA. Both beers are brimming with hops from the American Northwest. Each of these first recipes employs mash hopping, a technique which we are curious about (see below). These beers are also dry hopped at two points–once, during the height of fermentation activity to promote the integration of resinous hop terpenes into the flavor of the beer, and secondly, at the tail end of fermentation–immediately following which addition, the beer is capped to capture the hop aromas, with the secondary benefit of naturally carbonating the beer, from the trace amounts of fermentable sugars present in the hop flowers.
                 <em class="technique-header toggle-button" target-id="mash-hop-target">[+] Learn about Mash Hopping</em>
@@ -112,14 +131,14 @@ navbar: true
                 
                 
                 <div class="slick-gallery  beer-gallery">
-                        {% for image in site.static_files %}
-                        {% if image.path contains 'bf' %}
-                        {% if image.path contains 'wip' %}
-                            <div class="item">
-                                <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-                            </div>
-                        {% endif %}
-                        {% endif %}
+                    {% for image in site.static_files %}
+                    {% if image.path contains 'bf' %}
+                    {% if image.path contains 'wip' %}
+                    <div class="item">
+                        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+                    </div>
+                    {% endif %}
+                    {% endif %}
                     {% endfor %}
                 </div>
                 
@@ -136,14 +155,14 @@ navbar: true
                         </blockquote>
                         
                         <div class="slick-gallery beer-gallery">
-                                {% for image in site.static_files %}
-                                {% if image.path contains 'sqp' %}
-                                {% if image.path contains 'wip' %}
-                                    <div class="item">
-                                        <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-                                    </div>
-                                {% endif %}
-                                {% endif %}
+                            {% for image in site.static_files %}
+                            {% if image.path contains 'sqp' %}
+                            {% if image.path contains 'wip' %}
+                            <div class="item">
+                                <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+                            </div>
+                            {% endif %}
+                            {% endif %}
                             {% endfor %}
                         </div>
                         

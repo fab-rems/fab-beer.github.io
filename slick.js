@@ -5,8 +5,9 @@
   
         variableWidth: true,
         lazyLoad:"ondemand",
-        arrows:false,
+        arrows:true,
         infinite:false,
+        dots:true,
     
       responsive: [
         {

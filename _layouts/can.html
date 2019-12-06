@@ -3,7 +3,7 @@
 <html>
 <head>{% include head.html %}</head>
 
-<body class="page-{{page.id}} {% if page.style %}style-{{page.style}}{% endif %} {% if page.inverted %} inverted {% endif %}">
+<body class="page-{{page.id}} page-category-can {% if page.style %}style-{{page.style}}{% endif %} {% if page.inverted %} inverted {% endif %}">
   {% include nav.html %}
   <div class="can-gallery d-md-flex d-none">
       <div class="can-list">
@@ -22,21 +22,27 @@
       </div>
   </div>
   
+
   <div class="col-md-6 offset-md-3">
-    {{ statement }}
+    {{ page.statement }}
   </div>
   <div class="col-md-10 offset-md-1">
+      
+        <div id='collection-component-1575574611446'></div>
+        {% assign shopify_collection_id=page.id %}
+        {% include storeview.js %}
+        {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
+
   <div class="wip-flex-list slick-gallery">
-      {% for image in site.static_files %}
-          {% if image.path contains page.code %}
-          {% if image.path contains 'wip' %}
+      {% for group in image_groups %}
+        {% if group.name==page.code %}
+        {% for image in group.items limit: 10 %}
               <div class="item">
                   <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
               </div>
-          {% endif %}
-          {% endif %}
+              {% endfor %}
+              {% endif %}
       {% endfor %}
-  
       </div>
   </div>
 </body>
