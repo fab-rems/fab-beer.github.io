@@ -76,9 +76,9 @@ navbar: true
             <h3 id="brewed-for-a-better-future">Brewed for a better future</h3>
             <p><b>FAB</b> is the world that is realized in art and music. We are a gypsy brewery based out of Somerville and brewing at Dorchester Brewing in Boston. Our mission is to create beers which realize the unique visions of  artists in our community and then bring these artworks to life in ways which reflects the intention of that artist, and that piece.</p>
             
-            <p>FAB is our brewery. <a href="/babydictators" class="fancy bd-text">THE BABY DICTATORS PROJECT</a> is our first can series, which satirizes aspiring dictators by exploring their alternative-reality possible futures if they had had happier childhoods.</p>
+            <p><a href="/babydictators" class="fancy bd-text">THE BABY DICTATORS PROJECT</a> is our first can series, which satirizes aspiring dictators by exploring their alternative-reality possible futures if they had had happier childhoods.</p>
             
-            <p>Our idea is that the art that we create is a mirror of the world which we wish to live in. The first step is to create cans which are galleries for art-makers. The second step is to follow up on these artworks, investing can sales to transform artistic visions into to public art projects and sculpture at grand scales.</p>
+            <p><b>THE ART</b> that we create is a mirror of the world which we wish to live in. The first step is to create cans which are galleries for art-makers. The second step is to follow up on these artworks, investing can sales to transform artistic visions into to public art projects and sculpture at grand scales.</p>
             
         </div>
         <div class="col-sm-6 offset-sm-4">
@@ -143,11 +143,9 @@ navbar: true
 
 
                         {% for can in site.cans %}
-                        <h3 id="{{can.code}}" class="beer-section">
                         {% include can_info_template.html %}
-
-
                         <div class="wip-flex-list slick-gallery">
+
                             {% for group in image_groups %}
                             {% if group.name==can.code %}
                             {% for image in group.items limit: 10 %}
@@ -157,8 +155,8 @@ navbar: true
                             {% endfor %}
                             {% endif %}
                             {% endfor %}
-                        </div>
 
+                        </div>
                         {% endfor %}
 
 
