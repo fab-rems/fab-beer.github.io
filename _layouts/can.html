@@ -14,7 +14,8 @@
         {% include can_info_template.html %}
         
         <section class="wip-images">
-            {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
+            {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| split: "/" | slice:3 | first'  %}
+
             <div class="wip-flex-list slick-gallery">
                 {% for group in image_groups %}
                 {% if group.name==page.code %}

@@ -139,7 +139,7 @@ navbar: true
                 
                 
    
-                {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
+                {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| split: "/" | slice:3 | first'  %}
 
 
                         {% for can in site.cans %}
