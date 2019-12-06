@@ -3,8 +3,7 @@ layout: can
 name: Squid Pro Quo
 code: sqp
 artist_id: andy
-style: can
-style: DOUBLE IPA
+beer_style: DOUBLE IPA
 abv: 7.5
 statement: |
  <div> ARTIST’S STATEMENT

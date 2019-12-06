@@ -139,53 +139,30 @@ navbar: true
                 
                 
    
-                <h3 id="balloon-factory" class="beer-section"><em class="bf-text fancy can-section"><a href="/cans/bf">BALLOON FACTORY</a></em> AMERICAN IPA, 6.1%</h3>
-                <div class="left-image-container"><a href="/cans/bf"><img src="/assets/canart/cans_bf_tall_can.png" alt="BF can" class="img-responsive image can-image image-200" /></a></div>
-                    <em class="bf-text fancy">BALLOON FACTORY</em> is the first can in the Baby Dictators series. Created by Adam O’Day who lived for a time in Athens Georgia, we wanted the first beer in this series to take a step back from a literal rendering of the subject and to tell a different story… the <em class="bf-text fancy">BALLOON FACTORY</em> is a pretty dark place, from which the balloon escapes to greener pastures.</p>
-                    
-                    <p><img src="/assets/story/just_peach.png" alt="Just Peachy" class="img-responsive image right-image flyaway image-huge" /></p>
-                    
-                    <blockquote>
-                        <h4 id="artists-statement">Artist’s statement:</h4>
-                        <p>“This baby Trump balloon is a very orange Georgia peach. The poor guy didn’t seem happy in the city. He is freed from a menacing urban landscape and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings: retiring in peace… or going to jail.”<br />
-                            –ADAM O’DAY, Balloon Factory, MA</p>
-                        </blockquote>
-                        <div class="slick-gallery  beer-gallery">
-                                {% for image in site.static_files %}
-                                {% if image.path contains 'bf' %}
-                                {% if image.path contains 'wip' %}
-                                <div class="item">
-                                    <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-                                </div>
-                                {% endif %}
-                                {% endif %}
-                                {% endfor %}
-                            </div>
-                            
-                        
-         
-                        
-                        <h3 id="squid-pro-quo" class="beer-section"><em class="sqp-text fancy can-section"><a href="/cans/sqp">SQUID PRO QUO</a></em> DOUBLE IPA, 7.5%</h3>
-                        <div class="left-image-container"><a href="/cans/sqp"><img src="/assets/canart/cans_sqp_tall_can.png" alt="SQP can" class="img-responsive can-image image image-200" /></a></div>
-                            <em class="sqp-text fancy">SQUID PRO QUO</em> is the second can in the Baby Dictators series. It is created by artist / surfing teacher / oyster farmer / shark commentator, Andy Jacob in Wellfleet MA. Andy is one of the founders of this series, the purpose of which is to explore the alternate potential futures of baby Trump, had he only had a happier childhood. Andy took the concept of the series literally. The five surfer Trumps pulling <em class="sqp-text fancy">SQUID PRO QUO</em> in the artwork are alternate reality future Trumps who benefited from surfing lessons as kids and now live peacefully as professional surfers, riding the swells.</p>
-                            
-                            <p><img src="/assets/story/squid_head_only.png" alt="Just Squiddy" class="img-responsive image right-image flyaway image-huge" /></p>
-                            
-                            <blockquote>
-                                <h4 id="artists-statement-1">Artists’ statement:</h4>
-                                <p>“I imagined him floating over a psychedelic sunset, riding tubes in pure bliss. 5 alternate reality surfer Trumps guide the strings harmoniously. Like if he grew up surfing with his dad, going to the beach each weekend.”<br />
-                                    –ANDREW JACOBS, Wellfleet Mass<br />
-                                    @SOULKONTROLLER</p>
-                                </blockquote>
-                                <div class="slick-gallery beer-gallery">
-                                    {% assign images = site.static_files | where: "image", "image.path contains 'sqp'" | where: "image", "image.path contains 'wip'" %}
-                                        {% for image in images limit:6 %}
-                                        <div class="item">
-                                            <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-                                        </div>
+                {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
 
-                                        {% endfor %}
-                                    </div>
+
+                        {% for can in site.cans %}
+                        <h3 id="{{can.code}}" class="beer-section">
+                        {% include can_info_template.html %}
+
+
+                        <div class="wip-flex-list slick-gallery">
+                            {% for group in image_groups %}
+                            {% if group.name==can.code %}
+                            {% for image in group.items limit: 10 %}
+                            <div class="item">
+                                <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+                            </div>
+                            {% endfor %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+
+                        {% endfor %}
+
+
+
                                 
                                 <h3 id="reach-goal-medusa-balloon">REACH GOAL: MEDUSA BALLOON</h3>
                                 <p><img src="/assets/story/medusa_with_ruler_bw@0,25x.png" alt="Medusa With Ruler" class="img-responsive image image-medusa-ruler" /></p>

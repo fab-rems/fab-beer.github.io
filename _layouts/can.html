@@ -4,66 +4,31 @@
 <head>{% include head.html %}</head>
 
 <body class="page-{{page.id}} page-category-can {% if page.style %}style-{{page.style}}{% endif %} {% if page.inverted %} inverted {% endif %}">
-  {% include nav.html %}
-  <!-- <div class="can-gallery d-md-flex d-none">
-      <div class="can-list">
-          {% for can in site.cans %}
-          {% if can.code == page.code %}
-          <div class="can">
-              <a href= "/babydictators"> <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" /></a>
-              <div class="additional-images">
-                  <img src="/assets/canart/cans_{{ can.code }}_tall_can.png"/>
-                  <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
-              </div>
-          </div>
-          {% endif %}
-          {% endfor %}    
-  
-      </div>
-  </div>
-   -->
+    
+    {% include nav.html %}
+    <div class="col-md-6 offset-md-3">
+        {% assign can=page %}
+        {% include can_info_template.html %}
+    </div>
 
-
-  <div class="col-md-6 offset-md-3">
-  <h3 class="beer-section"><em class="{{page.code}}-text fancy can-section"><a href="/cans/{{page.code}}">{{page.name}}</a></em> {{page.style}}, {{page.abv}}%</h3>
-  <div class="left-image-container"><a href="/cans/{{page.code}}"><img src="/assets/canart/cans_{{page.code}}_tall_can.png" alt="{{page.code}} can" class="img-responsive can-image image image-200" /></a></div>
-      {{page.description}}
-      <p><img src="{{page.head_graphic}}" alt="Just Squiddy" class="img-responsive image right-image flyaway image-huge" /></p>
-      
-      <blockquote>
-          <h4 id="artists-statement-1">Artists’ statement:</h4>
-          <p>{{ page.statement }}</p>
-          </blockquote>
-          <div class="slick-gallery beer-gallery">
-              {% assign images = site.static_files | where: "image", "image.path contains page.code" | where: "image", "image.path contains 'wip'" %}
-                  {% for image in images limit:6 %}
-                  <div class="item">
-                      <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-                  </div>
-
-                  {% endfor %}
-              </div>
-          
-
-  </div>
-  <div class="col-md-10 offset-md-1">
-      
-        <div id='collection-component-1575574611446'></div>
-        {% assign shopify_collection_id=page.id %}
-        {% include storeview.js %}
+    <div class="col-md-10 offset-md-1">
         {% assign image_groups = site.static_files | group_by_exp: "item", 'item.path| match_regex: "/wip/(.*)/"' %}
-
-  <div class="wip-flex-list slick-gallery">
-      {% for group in image_groups %}
-        {% if group.name==page.code %}
-        {% for image in group.items limit: 10 %}
-              <div class="item">
-                  <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
-              </div>
-              {% endfor %}
-              {% endif %}
-      {% endfor %}
-      </div>
-  </div>
+        <div class="wip-flex-list slick-gallery">
+            {% for group in image_groups %}
+            {% if group.name==page.code %}
+            {% for image in group.items limit: 10 %}
+            <div class="item">
+                <img src="{{ site.baseurl }}{{ image.path }}" alt="image" />
+            </div>
+            {% endfor %}
+            {% endif %}
+            {% endfor %}
+        </div>
+        
+        <div id='collection-component-1575574611446'></div>
+        {% assign shopify_collection_id=page.collection_id %}
+        {% include storeview.js %}
+        
+    </div>
 </body>
 </html>
