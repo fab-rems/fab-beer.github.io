@@ -21,13 +21,18 @@ body.style-main{
         margin-bottom:50px;
     }
 
+    margin-top-50{
+        margin-top:50px;
+    }
     h3{
         font-weight:bold;
-        margin-top:50px;
         letter-spacing:0em;
         font-size:1.25rem;
     }
 
+    .chapter{
+        margin-top:75px;
+    }
     .can-section{
         margin-top:75px;
     }
@@ -269,32 +274,55 @@ body.style-main{
     flex-direction: row;
     flex-wrap: nowrap;
     align-items: center;
+        font-size:75%;
+        justify-content: center;
+
         >*{
             height:100%;
 
         }
 
+        h3{
+            margin-top:10px;
+        }
         
         >.medusa-t-button{
-            right:100%;
-            >*{
-                margin-left:auto;
-                margin-right:auto;
-            }
-        }
-        .medusa-t-title{
-            &:after{
-                content:"new";
-                margin-left:5px;
-                background-color:red;
-                color:white;
-                vertical-align: super;
-                font-size:75%;
-            } 
+            padding:15px;
+            margin-left:0px;
+            margin-right:0px;
+            font-size:inherit;
         }
         .medusa-t-description{
             max-width:9em;
         }
+        
+    }
+    img.thumbnail.t-shirt{
+        width: 9em;
+        display: block;
+    }
+
+    section.description{
+        //margin-top:10px;
+        display:none;
+
+
+    }
+    .statement{
+        blockquote{
+            padding-top:0px;
+            margin-top:0px;
+        }
+        h6{
+            display:none;
+        }
+        *{
+        background-color:white;
+        }
+    }
+    .image-left{
+        position:absolute;
+        right:100%;
         
     }
 

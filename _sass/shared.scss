@@ -7,10 +7,12 @@ $bf-fg-color:#cd6800;
 
 blockquote{
     background-color:#EFEFEF;
-    padding-left:2em;
+    padding-left:3em;
     padding-bottom:1em;
     padding-top:1em;
-    padding-right:1em;
+    padding-right:3em;
+    margin-left: -3em !important;
+    margin-right: -3em !important;
 }
 
 .fancy{
@@ -252,7 +254,7 @@ filter:invert(100);
 a:link{
  
 }
-h3{
+h3,h6{
     text-transform: uppercase;
 
 }
@@ -386,9 +388,20 @@ footer{
     color: black;    
 }
 
-img.icon{
+
+
+.text-upper{
+    text-transform: uppercase;
 }
-img.thumbnail.t-shirt{
-    width: 128px;
-    display: block;
+.new:after{
+    content:"new";
+    margin-left:5px;
+    background-color:red;
+    color:white;
+    vertical-align: super;
+    font-size:75%;
+} 
+
+.hover-fade-hint:hover{
+    opacity:.8;
 }

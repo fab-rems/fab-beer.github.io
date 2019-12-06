@@ -1,36 +1,63 @@
-<section class="title">
+<!-- <section id="{{can.code}}-title" class="title default-title">
     <h3 class="beer-section">
         <em class="{{can.code}}-text fancy can-section">
             <a href="/cans/{{can.code}}">{{can.name}}</a>
         </em> {{can.beer_style}}, {{can.abv}}%
     </h3>
+</section> -->
+
+<section id="{{can.code}}-title" class="title special-title">
+    <div class="row">
+        <div class="col-md-5 d-sm-none d-md-inline-block">
+            <a href="/cans/{{can.code}}" class="hover-fade-hint">
+                <img src="/assets/canart/cans_{{can.code}}_wide_can.png" alt="{{can.code}} can" class="img-responsive can-image image" />
+            </a> 
+        </div>
+        
+        <div class="col-md-6">
+            <h3 class="beer-section">
+                <em class="{{can.code}}-text fancy can-section">
+                    <a href="/cans/{{can.code}}">{{can.name}}</a>
+                </em>
+            </h3>
+            <h5>{{can.beer_style}}, {{can.abv}}%</h5>
+            
+            <ul class="inline-list text-courier">
+                <li class="fermentation-status fermenting"></li>
+                <li>Last brewed: {{can.last_brewed}}</li>
+                <li><a href="#brewlog">view brew logs</a></li>
+            </ul>
+        </div>
+    </div>
 </section>
 
-<section class="art">
+<!-- <section id="{{can.code}}-art" class="art default-art">
     <div class="left-image-container image-container"><a href="/cans/{{can.code}}"><img src="/assets/canart/cans_{{can.code}}_tall_can.png" alt="{{can.code}} can" class="img-responsive can-image image image-200" /></a></div>
-</section>
+</section> -->
 
-<section class="description">
+<section id="{{can.code}}-description" class="description">
+    <h6 class="default-description-header">Description</h6>
     {{can.description}}
 </section>
 
-<section class="bighead">
+<section id="{{can.code}}-head-graphic" class="bighead">
     <p><img src="{{can.head_graphic}}" alt="Just Squiddy" class="img-responsive head-graphic image right-image flyaway image-huge" /></p>
 </section>
 
-<section class="statement">
+<section id="{{can.code}}-statement" class="statement">
+    <h6 id="artists-statement-1">Artists’ statement:</h6>
+    
     <blockquote>
-        <h4 id="artists-statement-1">Artists’ statement:</h4>
         <p>{{ can.statement }}</p>
     </blockquote>
 </section>
 
-<section class="gallery">
+<!-- <section id="{{can.code}}-gallery" class="gallery">
     <div class="slick-gallery beer-gallery">
         {% assign images = site.static_files | where: "image", "image.path contains can.code" | where: "image", "image.path contains 'wip'" %}
         {% for image in images limit:6 %}
         <div class="item"><img src="{{ site.baseurl }}{{ image.path }}" alt="image" /></div>
         {% endfor %}
     </div>
-</section>
+</section> -->
 

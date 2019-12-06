@@ -55,6 +55,7 @@
                 "font-size": "16px",
                 "padding-top": "16px",
                 "padding-bottom": "16px",
+                "width": "100%",
                 ":hover": {
                   "background-color": "#e65d00"
                 },
@@ -62,7 +63,7 @@
                 ":focus": {
                   "background-color": "#e65d00"
                 },
-                "border-radius": "13px",
+                "border-radius": "0px",
                 "padding-left": "41px",
                 "padding-right": "41px"
               },
