@@ -1,0 +1,36 @@
+<section class="title">
+    <h3 class="beer-section">
+        <em class="{{can.code}}-text fancy can-section">
+            <a href="/cans/{{can.code}}">{{can.name}}</a>
+        </em> {{can.style}}, {{can.abv}}%
+    </h3>
+</section>
+
+<section class="art">
+    <div class="left-image-container"><a href="/cans/{{can.code}}"><img src="/assets/canart/cans_{{can.code}}_tall_can.png" alt="{{can.code}} can" class="img-responsive can-image image image-200" /></a></div>
+</section>
+
+<section class="description">
+    {{can.description}}
+</section>
+
+<section class="bighead">
+    <p><img src="{{can.head_graphic}}" alt="Just Squiddy" class="img-responsive head-graphic image right-image flyaway image-huge" /></p>
+</section>
+
+<section class="quote">
+    <blockquote>
+        <h4 id="artists-statement-1">Artists’ statement:</h4>
+        <p>{{ can.statement }}</p>
+    </blockquote>
+</section>
+
+<section class="gallery">
+    <div class="slick-gallery beer-gallery">
+        {% assign images = site.static_files | where: "image", "image.path contains can.code" | where: "image", "image.path contains 'wip'" %}
+        {% for image in images limit:6 %}
+        <div class="item"><img src="{{ site.baseurl }}{{ image.path }}" alt="image" /></div>
+        {% endfor %}
+    </div>
+</section>
+
