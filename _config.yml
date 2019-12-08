@@ -1,5 +1,6 @@
 name: Welcome to FAB
 markdown: kramdown
+google_maps_javascript_api_key: "AIzaSyCCK99lIGLXj04Bts-C3nZlcc3HWKvLH6U"
 defaults:
   - scope:
       path: "assets/"

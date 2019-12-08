@@ -1,0 +1,232 @@
+    <div id="map"></div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js" integrity="sha256-Bmvb4pJWin8rqq3GnwPz/hxBtqXaMdZHJnHYlpRULa4=" crossorigin="anonymous"></script>   
+    <script>
+        var map;
+        function initMap() {
+            
+            var _map;
+            var _markers = [];
+            var _infoWindows = [];
+            
+            var overlaySVG;
+            function initOverlay(svgBounds) {
+                SVGOverlay.prototype = new google.maps.OverlayView();
+                /** @constructor */
+                function SVGOverlay(bounds, image, map) {
+                    // Initialize all properties.
+                    this.bounds_ = bounds;
+                    this.image_ = image;
+                    this.map_ = map;
+                    this.div_ = null;
+                    this.setMap(map);
+                }
+                
+                SVGOverlay.prototype.onAdd = function() {
+                    var div = document.createElement("div")
+                    div.style.borderStyle = 'none';
+                    div.style.borderWidth = '0px';
+                    div.style.position = 'absolute';
+                    
+                    // Load the inline svg element and attach it to the div.
+                    var svg = this.image_;
+                    svg.style.width = '100%';
+                    svg.style.height = '100%';
+                    
+                    
+                    div.appendChild(svg);
+                    this.div_ = div;
+                    // Add the element to the "overlayLayer" pane.
+                    var panes = this.getPanes();
+                    panes.overlayLayer.appendChild(div);
+                };
+                
+                SVGOverlay.prototype.draw = function() {
+                    // We use the south-west and north-east
+                    // coordinates of the overlay to peg it to the correct position and size.
+                    // To do this, we need to retrieve the projection from the overlay.
+                    var overlayProjection = this.getProjection();
+                    
+                    // Retrieve the south-west and north-east coordinates of this overlay
+                    // in LatLngs and convert them to pixel coordinates.
+                    // We'll use these coordinates to resize the div.
+                    var sw = overlayProjection.fromLatLngToDivPixel(this.bounds_.getSouthWest());
+                    var ne = overlayProjection.fromLatLngToDivPixel(this.bounds_.getNorthEast());
+                    
+                    // Resize the image's div to fit the indicated dimensions.
+                    var div = this.div_;
+                    div.style.left = sw.x + 'px';
+                    div.style.top = ne.y + 'px';
+                    div.style.width = (ne.x - sw.x) + 'px';
+                    div.style.height = (sw.y - ne.y) + 'px';
+                };
+                
+                
+                mySVG = document.getElementById('mySVG');
+                window.my = mySVG;
+                overlaySVG = new SVGOverlay(svgBounds, mySVG, _map);
+                
+            }
+            
+            var setupInfoWindowClose = function(markerArray, infoWindowArray) {
+                _.each(infoWindowArray, function(element) {
+                    element.addListener('closeclick', function() {
+                        var t = this;
+                        var marker = _.find(markerArray, function(m) {
+                            return m.id === t.id;
+                        });
+                        marker.isOpen = false;
+                    });
+                });
+            };
+            
+            
+            /*
+            * @param array of google.maps.Marker objects
+            * @param array of google.maps.InfoWindow objects
+            */
+            var setupMarkerClickEvents = function(markerArray, infoWindowArray) {
+                _.each(markerArray, function(element) {
+                    element.addListener('click', function() {
+                        // find this marker's matching infoWindow
+                        // and display it
+                        if (!this.isOpen) {
+                            var t = this;
+                            var infoWindow = _.find(infoWindowArray, function(w) {
+                                return w.id === t.id;
+                            });
+                            
+                            if (infoWindow) {
+                                infoWindow.open(_map, this);
+                            }
+                            
+                            this.isOpen = true;
+                        } 
+                    });
+                });
+            };
+            
+            
+            
+            
+            
+            var data_images = {bf:`<image x="-25" y="-25" width="50" height="50" href="{% include balloon_uri_bf.txt %}"/>`,
+            sqp:`<image x="-25" y="-25" width="50" height="50" href="{% include balloon_uri_sqp.txt %}"/>`}
+            
+            $(`
+            <?xml version="1.0"?>
+            <svg id="mySVG" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
+                    ${data_images['bf']}
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+                </g>
+            </svg>`).appendTo($("body"))
+            
+            var bf_svg_path = btoa(`<?xml version="1.0"?>
+            <svg viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
+                    ${data_images['sqp']}
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+                </g>
+            </svg>`);
+            
+            var sqp_svg_path =btoa(`
+            <?xml version="1.0"?>
+            <svg viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g>
+                    <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
+                    ${data_images['sqp']}
+                    <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+                </g>
+            </svg>`);
+            
+            
+            
+            function getIcon(name) {
+                return name=="bf" ? {
+                    url: 'data:image/svg+xml;charset=UTF-8;base64,' + bf_svg_path,
+                    scaledSize: new google.maps.Size(100, 100)
+                    
+                } : {
+                    url: 'data:image/svg+xml;charset=UTF-8;base64,' + sqp_svg_path, 
+                    scaledSize: new google.maps.Size(100, 100)
+                };
+            }
+            _map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: Number(window.venues[0].lat), lng: Number(window.venues[0].lng)},
+                zoom: 10,
+                options: {
+                    gestureHandling: 'greedy'
+                }
+            });
+            var cnt = 0
+            for (var v of window.venues){
+                for (var nm of ["sqp", "bf"]){
+                    cnt +=1;
+                    k = cnt;
+                    var marker;
+                    var infoWindow;
+                    var containerDiv = document.createElement('div');
+                    containerDiv.className = 'venueWindow';
+                    
+                    // create headline
+                    var header = document.createElement('h4');
+                    var checkinText = (v.n_checkins > 1) ? ' Check-ins at ' : ' Check-in at ';
+                    header.textContent = v.n_checkins + checkinText + v.venue_name;
+                    containerDiv.appendChild(header);
+                    
+                    var marker = new google.maps.Marker({
+                        id: cnt,
+                        clickable: true,
+                        isOpen: false,
+                        icon: getIcon(nm),
+                        position: new google.maps.LatLng(Number(v.lat), Number(v.lng)),
+                        map: _map
+                    });
+                    
+                    _markers.push(marker);
+                    
+                    infoWindow = new google.maps.InfoWindow({
+                        id: cnt,
+                        clickable: true,
+                        content: containerDiv,
+                        maxWidth: 250,
+                        position: new google.maps.LatLng(Number(v.lat),Number( v.lng))
+                    });
+                    
+                    //infoWindow.open(_map, marker);
+                    _infoWindows.push(infoWindow);
+                    
+                }
+            }
+            setupInfoWindowClose(_markers, _infoWindows);
+            setupMarkerClickEvents(_markers, _infoWindows);
+            
+            var svgBounds = new google.maps.LatLngBounds(
+            new google.maps.LatLng(  42.3, -71.05),
+            new google.maps.LatLng(  42.4, -70.95));
+
+            var svgBounds2 = new google.maps.LatLngBounds(
+            new google.maps.LatLng(  42.4, -71.05),
+            new google.maps.LatLng(  42.5, -70.95));
+            
+            
+            initOverlay(svgBounds);
+            
+            initOverlay(svgBounds2);
+
+            google.maps.event.addDomListener(window, 'resize', function() {
+                map.setCenter(myOptions.center);
+            });
+            
+        }
+        /*
+        * @param array of google.maps.Marker objects
+        * @param array of google.maps.InfoWindow objects
+        */
+        
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCK99lIGLXj04Bts-C3nZlcc3HWKvLH6U&callback=initMap"
+    async defer></script>
