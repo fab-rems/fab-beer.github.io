@@ -6,10 +6,16 @@ defaults:
       path: "assets/"
     values:
       headshot: true
+  -
+    scope:
+      type: redirects
+    values:
+      layout: redirect
 collections:
   cans:
     output: true
-    navbar: true
   blog_posts:
     output: true
-    navbar: true
+  redirects:
+    output: true
+    permalink: /:path/
