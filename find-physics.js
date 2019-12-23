@@ -17,14 +17,14 @@ $(function(){
     
     var default_attractor = function(bodyA, bodyB) {
         return {
-            x: .02, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-            y: .00, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+            x: .03, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: -.03, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };
     }
     var drag_attractor = function(bodyA, bodyB){
         return {
-            x: .03, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-            y: -.03, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+            x: .02, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: -.00, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };  
     }
 
@@ -273,12 +273,8 @@ $(function(){
                         // returns a force vector that applies to bodyB
                         plugin: {
                             attractors: [
-                                function(bodyA, bodyB) {
-                                    return {
-                                        x: .01, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-                                        y: 0, //(bodyA.position.y - bodyB.position.y) * 1e-6,
-                                    };
-                                }
+                                
+                                default_attractor
                             ]
                         }
                     });
