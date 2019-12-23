@@ -14,7 +14,7 @@ $(function(){
 
 
     }
-    var default_cons_length = 5
+    var default_cons_length =20
     var default_texture_scale = .5
     
     window.wind_direction = 0
@@ -29,13 +29,13 @@ $(function(){
 
     var default_attractor = function(bodyA, bodyB) {
         return {
-            x: .04, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-            y: -.04, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+            x: .01, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: -.01, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };
     }
     var drag_attractor = function(bodyA, bodyB){
         return {
-            x: .02, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            x: .06, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
             y: -.00, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };  
     }
@@ -60,8 +60,9 @@ $(function(){
         for( var item of window.physics.items){
             //console.log(item.render.sprite)
             var m = window.map
-            console.log((.5 )* (10 / m.zoom))
-            var pix_scl = default_texture_scale * 1.5**( (10 / m.zoom -1))
+
+            miles_per_pixel = 4**( (10 / m.zoom -1)) * 1
+            pix_scl = default_texture_scale * miles_per_pixel;
             var cons_scl = default_cons_length * 2**( (10 / m.zoom - 1))
 
 
@@ -93,8 +94,11 @@ $(function(){
             }, 50)
 
             console.log(window.wind_direction)
-        },5000)
+        },10000)
         window.physics = {}
+        window.physics.items = [];
+        window.physics.chains = [];
+        
         
         Matter.use('matter-attractors');
         const { Bodies, Body, Composite, Composites, Constraint, Engine, Mouse, MouseConstraint, Render, Runner, World } = Matter
@@ -114,7 +118,7 @@ $(function(){
 
               options: {
                 //showAngleIndicator : true,
-                wireframes         : false,
+                wireframes         :  false,
                 //showVelocity       : true,
                 //showCollisions     : true,
                 enableSleeping     : true,
@@ -126,26 +130,13 @@ $(function(){
             }
         })
         const world = engine.world
-        // const render = Render.create({
-        //     element: document.querySelector('.physics'),
-        //     engine,
-        //     options: {
-        //         background: 'transparent',
-        //         width: window.innerWidth,
-        //         height: window.innerHeight,
-        //         wireframes: true,
-        //         showAngleIndicator : true,
-        //         showVelocity       : true,
-        //         showCollisions     : true,
-        //         enableSleeping     : true,
-        //         hasBounds          : true
 
-        //     }
-        // })
 
         window.world = world;
         window.render = engine.render;
         window.engine = engine
+
+        
 
         var overlay = window.overlay;
         var anchors = window.anchors;
@@ -159,7 +150,9 @@ $(function(){
                     (Number(v.lng))*510, 
                     (Number(v.lat))*-690, 
                     1, 
+
                     {
+                        label:"anchor",
                     collisionFilter:{group:-1},
                     isStatic:true,
                     render: { 
@@ -173,50 +166,52 @@ $(function(){
         }
         
         
-        engine.world.gravity.y = -4;
+        engine.world.gravity.y =1;
         
         // create item
         const createItem = ({ length: stringLength, texture = '', anchorBody:anchorBody }) => {
             const group = Body.nextGroup(true)
 
 
+            var string_visibility = true;
             var stringX = anchorBody.position.x;
             var stringY = anchorBody.position.y;
 
             //define the stack of elements in the string
-            const string = Composites.stack(stringX, stringY, 3, 1, 2, 2, (x, y) =>
-            Bodies.rectangle(x, y, stringLength / 2,.5, {
-                // collisionFilter:{group},
+            const string = Composites.stack(stringX+ stringLength, stringY, 5, 1,stringLength/4,stringLength/4, (x, y) =>
+            Bodies.circle(x, y, stringLength/10, {
                 collisionFilter:{group:-1},
-                density:.2,
+                label:"joint",
+                mass:4.0,
+                isStatic:false,
                 render: {
-                    
-                    fillStyle: string_color,
-                    visible:true,
+                    strokeStyle: "orange",
+                    visible:string_visibility,
                 },
             })
             )
 
             window.physics.string = string;
-            if (! ("items" in window.physics) ){
-                window.physics.items = [];
-            }
 
-            if (! ("chains" in window.physics) ){
-                window.physics.chains = [];
-            }
 
         
             const firstBody = string.bodies[0]
             const lastBody = string.bodies[string.bodies.length - 1]
 
+
+
+                window.lastBody = lastBody
+
+
             //anchor the item to the end of the string
             const item = Bodies.circle(
-                lastBody.position.x, lastBody.position.y + 10, 30,
+                lastBody.position.x+stringLength*2, lastBody.position.y, stringLength/4,
                  {
-                    frictionAir: 0.5, 
-                    density:.005,
+                    frictionAir: 0.1, 
+                    mass: 5,
                     collisionFilter:{group:-1},
+                    label:"balloon",
+                    isStatic:false,
                     render: {
                         sprite: {
                             texture: texture,
@@ -229,20 +224,39 @@ $(function(){
                     
                 })
 
+                
+
                 window.physics.items.push(item)
 
+                var buoyancyAttractor = Bodies.circle(100, 100, stringLength/4, {
+                    isStatic:false ,
+                plugin: {
+                    
+                    attractors: [
+                        (bodyA, bodyB)=>{
+                            // console.log("B",bodyB.id)
+                            // console.log("Item", item.id)
+                            if( bodyB.id ==item.id){ //bodyB.label=="balloon"){
+                                console.log("MATCHED!!")
+                                console.log(bodyB.label)
+                                return         {
+                                x:0,
+                                y:-.02,
+                            } } else { return  null}
+                        }
+                    ]
+                }
+                })
+                    World.add(world, buoyancyAttractor);
 
-                window.lastBody = lastBody
+
                 const itemConstraint = Constraint.create({
                     bodyA: item,
                     bodyB: lastBody,
-                    pointA: { x: 0, y:0},
-                    pointB: { x:lastBody.bounds.max.x - lastBody.position.x, y: 0 },
-                    stiffness: 0.75,
-                    damping:.3,
+                    length:stringLength*2,
                     render: {
                         strokeStyle: string_color,
-                        visible:true,
+                        visible:string_visibility,
                         type:'line',
                         lineWidth:.5,
                         anchors:false,
@@ -250,8 +264,14 @@ $(function(){
                 })
                 
 
-                window.physics.chains.push(  Composites.chain(string, .5,0,-.5,-.5, {
-                    stiffness: .75,
+                window.physics.chains.push(  Composites.chain(
+                    string,
+                     0,
+                     0,
+                     0,
+                     0, {
+                    stiffness: .8,
+
                     length:default_cons_length,
                     collisionFilter:{group:-1},
                     render: { 
@@ -259,8 +279,8 @@ $(function(){
                         lineWidth:.5,
                         anchors:false,
                         type: 'line', 
-                        visible: true ,
-                        strokeStyle: "black"
+                        visible: string_visibility ,
+                        strokeStyle: string_color,
                     },
                 }))
                 
@@ -271,11 +291,12 @@ $(function(){
                         bodyB: firstBody,
                         pointA: { x: 0, y: 0 },
                         pointB: { x: firstBody.bounds.min.x - firstBody.position.x, y:0},
-                        stiffness: 0.25,
-                        damping:.05,
+                        stiffness: 0.75,
+                        damping:.25,
+                        length:stringLength,
                         render: {
-                            strokeStyle: "red",
-                            visible:true,
+                            strokeStyle: string_color,
+                            visible:string_visibility,
                             type:'line',
                         lineWidth:.5,
                         anchors:false,
@@ -283,7 +304,10 @@ $(function(){
                     })
                     )
                     
-                    World.add(world, [string, item, itemConstraint,anchorBody])
+                    World.add(world, string)
+                    World.add(world,item)
+                    World.add(world, itemConstraint)
+                    World.add(world,anchorBody)
                 }
                 
                 // sun
@@ -300,14 +324,14 @@ $(function(){
                         
                 createItem({
                     anchorBody:v,
-                    length: window.innerHeight * 0.05,
+                    length: 10,
                     texture: `/assets/balloons/small-heads_${nm}.png`,
                 })
                     }
                 }
             
                 
-                // create a body with an attractor
+                //create a body with an attractor
                 var attractiveBody = Bodies.circle(
                     0,
                     0,
@@ -316,7 +340,6 @@ $(function(){
                         isStatic: true,
                         plugin: {
                             attractors: [
-                                
                                 default_attractor
                             ]
                         }
@@ -326,21 +349,27 @@ $(function(){
                     World.add(world, attractiveBody);
 
 
-                    console.log(first_anchor)
-                    var wind = Bodies.circle(
-                        first_anchor.position.x- 50, 
-                        first_anchor.position.y, 
-                        0,{
-                            isStatic:true,
-                            plugin:{
-                                attractors:[
-                                    wind_attractor_func
-                                ]
-                            }
-                        }
-                    )
-                    window.physics.wind = wind;
-                    World.add(world, wind);
+      
+
+
+                    //var buoyancyAttractor = Bodies.circle
+
+
+                    // console.log(first_anchor)
+                    // var wind = Bodies.circle(
+                    //     first_anchor.position.x- 50, 
+                    //     first_anchor.position.y, 
+                    //     0,{
+                    //         isStatic:true,
+                    //         plugin:{
+                    //             attractors:[
+                    //                 wind_attractor_func
+                    //             ]
+                    //         }
+                    //     }
+                    // )
+                    // window.physics.wind = wind;
+                    // World.add(world, wind);
 
                     
                     // mouse
