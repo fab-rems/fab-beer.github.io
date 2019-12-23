@@ -192,7 +192,24 @@
                     google.maps.event.addListener(_map,'idle', function(){
                         window.updateBounds();
                     })
+
+                    google.maps.event.addListener(_map,'dragstart', function(){
+                        window.startDragging();
+                    })
+
+
+                    google.maps.event.addListener(_map,'zoom_changed', function(){
+                        window.zoomChanged();
+                    })
+
+
+
+
+                    google.maps.event.addListener(_map,'dragend', function(){
+                        window.doneDragging();
+                    })
         });
+        
 
         
     }

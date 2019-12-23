@@ -15,10 +15,53 @@ $(function(){
 
     }
     
+    var default_attractor = function(bodyA, bodyB) {
+        return {
+            x: .02, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: .00, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+        };
+    }
+    var drag_attractor = function(bodyA, bodyB){
+        return {
+            x: .03, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: -.03, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+        };  
+    }
 
+    window.startDragging = (e)=>{
+        console.log("started")
+        var p = window.physics;
+        p.attractiveBody.plugin.attractors = [drag_attractor]
+    }
+
+    window.doneDragging = (e)=>{
+        console.log("done")
+        var p = window.physics;
+        p.attractiveBody.plugin.attractors = [default_attractor]
+
+    }
+    window.zoomChanged = (e)=>{
+        console.log("done")
+        var p = window.physics;
+        //p.attractiveBody.plugin.attractors = [] 
+
+        for( var item of window.physics.items){
+            //console.log(item.render.sprite)
+            var m = window.map
+            console.log((.5 )* (10 / m.zoom))
+            var scl = .25 * 1.5**( (10 / m.zoom))
+            console.log(scl)
+            item.render.sprite.yScale = scl;
+            item.render.sprite.xScale = scl;
+
+            console.log(item.render.sprite)
+            // console.log(e)
+            // last_event = e
+        }
+    }
 
     window.createPhysics = function(){
-
+        window.physics = {}
         
         Matter.use('matter-attractors');
         const { Bodies, Body, Composite, Composites, Constraint, Engine, Mouse, MouseConstraint, Render, Runner, World } = Matter
@@ -97,7 +140,7 @@ $(function(){
         }
         
         
-        engine.world.gravity.y = -2;
+        engine.world.gravity.y = -3;
         
         // create item
         const createItem = ({ length: stringLength, texture = '', anchorBody:anchorBody }) => {
@@ -141,6 +184,11 @@ $(function(){
                     
                     
                 })
+                if (! ("items" in window.physics) ){
+                    console.log('setting')
+                    window.physics.items = [];
+                }
+                window.physics.items.push(item)
 
 
                 window.lastBody = lastBody
@@ -235,6 +283,7 @@ $(function(){
                         }
                     });
                     
+                    window.physics.attractiveBody = attractiveBody;
                     
                     
                     World.add(world, attractiveBody);
