@@ -17,10 +17,19 @@ $(function(){
     var default_cons_length = 5
     var default_texture_scale = .5
     
+    window.wind_direction = 0
+
+    var wind_attractor_func = function(bodyA, bodyB) {
+        return {
+            x: Math.cos(window.wind_direction)*.01,
+            y: Math.sin(window.wind_direction)*.01,
+        };
+    }
+
     var default_attractor = function(bodyA, bodyB) {
         return {
-            x: .03, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-            y: -.03, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+            x: .04, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: -.04, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };
     }
     var drag_attractor = function(bodyA, bodyB){
@@ -73,6 +82,10 @@ $(function(){
     }
 
     window.createPhysics = function(){
+        window.setInterval(()=>{
+            window.wind_direction= window.wind_direction + (this.Math.random() - .5)*1.5 
+            console.log(window.wind_direction)
+        },1000)
         window.physics = {}
         
         Matter.use('matter-attractors');
@@ -152,7 +165,7 @@ $(function(){
         }
         
         
-        engine.world.gravity.y = -3;
+        engine.world.gravity.y = -4;
         
         // create item
         const createItem = ({ length: stringLength, texture = '', anchorBody:anchorBody }) => {
@@ -192,7 +205,7 @@ $(function(){
             //anchor the item to the end of the string
             const item = Bodies.circle(
                 lastBody.position.x, lastBody.position.y + 10, 20, {
-                    frictionAir: 0.05, 
+                    frictionAir: 0.5, 
                     collisionFilter:{group:-1},
                     render: {
                         sprite: {
@@ -251,7 +264,7 @@ $(function(){
                         stiffness: 0.25,
                         damping:.05,
                         render: {
-                            strokeStyle: string_color,
+                            strokeStyle: "red",
                             visible:true,
                             type:'line',
                         lineWidth:.5,
@@ -287,9 +300,6 @@ $(function(){
                     0, 
                     {
                         isStatic: true,
-                        
-                        // example of an attractor function that 
-                        // returns a force vector that applies to bodyB
                         plugin: {
                             attractors: [
                                 
@@ -299,9 +309,23 @@ $(function(){
                     });
                     
                     window.physics.attractiveBody = attractiveBody;
-                    
-                    
                     World.add(world, attractiveBody);
+
+
+                    var wind = Bodies.circle(
+                        0,0,0,{
+                            isStatic:true,
+                            plugin:{
+                                attractors:[
+                                    wind_attractor_func
+                                ]
+                            }
+                        }
+                    )
+                    window.physics.wind = wind;
+                    World.add(world, wind);
+
+                    
                     // mouse
                     const mouseContraint = MouseConstraint.create(engine, {
                         mouse: Mouse.create(engine.render.canvas),
