@@ -11,4 +11,29 @@ body.page-find{
             margin: 0;
             padding: 0;
         }
+
+        // .find-hud{
+
+        //     background-color:white;
+        //     position:fixed;
+        //     bottom:0px;
+        //     width:50vw;
+        //     left:25vw;
+        //     min-height:200px;
+        // }
+        .physics{
+           pointer-events:none;
+            canvas{
+                width:100%;
+                height:100%;
+                background-color:none;
+                
+            }
+            position:fixed;
+            left:0px;
+            right:0px;
+            bottom:0px;
+            top:0px;
+        }
 }
+

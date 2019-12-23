@@ -22,12 +22,11 @@ last_brewed: 12/3/2019
 layout: can
 merch_types: the original artwork, T-shirts and stickers
 name: Balloon Factory
-navbar: 'True'
 statement: "\u201CThis baby Trump balloon is a very orange Georgia peach. The poor\
   \ guy didn\u2019t seem happy in the city. He is freed from a menacing urban landscape\
   \ and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings:\
   \ retiring in peace... or going to jail.\u201D\n--ADAM O\u2019DAY, Balloon Factory,\
   \ MA\n@ADAM_ODAY"
-untappd: https://untappd.com/b/fab-squid-pro-quo/3568228
+untappd: https://untappd.com/b/fab-fermentation-arts-balloon-factory/3589306
 
 ---

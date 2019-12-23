@@ -47,6 +47,9 @@ def fillforward():
         params['min_id'] = row[0]
     else:
         params['min_id'] = 0
+    # if 'min_id' in params:
+    #     del params['min_id']
+    # params["min_id"] = 0
 
     while True:
         print(params)
@@ -55,6 +58,7 @@ def fillforward():
         response = r.json()['response']
         checkins = response['checkins']
         max_id = None
+        print(checkins)
         for checkin in checkins['items']:
             cid = checkin['checkin_id']
             if cid == params['min_id']:
@@ -63,14 +67,17 @@ def fillforward():
                 print('wtf, queried for min_id', params['min_id'], 'and got', cid)
                 continue
             if not max_id or cid > max_id: max_id = cid
+
             when_utc = dateparser.parse(checkin['created_at'])
             timestamp = calendar.timegm(when_utc.timetuple())
             when = EST.normalize(when_utc.astimezone(UTC))
             beer = checkin['beer']['beer_name']
             venue = checkin['venue']['venue_name'] if checkin['venue'] else ''
             checkin_json = json.dumps(checkin)
+
+            
             print(cid, when, beer.encode('utf8'), venue.encode('utf8'))
-            c.execute('INSERT INTO checkins(cid, timestamp, beer, venue, json) values (?, ?, ?, ?, ?)', \
+            c.execute('INSERT OR REPLACE INTO checkins(cid, timestamp, beer, venue, json) values (?, ?, ?, ?, ?)', \
                       (cid, timestamp, beer, venue, checkin_json))
         if max_id is None:
             break

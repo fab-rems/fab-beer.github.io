@@ -1,0 +1,208 @@
+<div id="map"></div>
+    
+<script>
+    var map;
+    function initMap() {
+        
+        var _map;
+        var _markers = [];
+        var _infoWindows = [];
+        
+        var setupInfoWindowClose = function(markerArray, infoWindowArray) {
+            _.each(infoWindowArray, function(element) {
+                element.addListener('closeclick', function() {
+                    var t = this;
+                    var marker = _.find(markerArray, function(m) {
+                        return m.id === t.id;
+                    });
+                    marker.isOpen = false;
+                });
+            });
+        };
+        
+
+        /*
+        * @param array of google.maps.Marker objects
+        * @param array of google.maps.InfoWindow objects
+        */
+
+
+        
+        var setupMarkerClickEvents = function(markerArray, infoWindowArray) {
+            _.each(markerArray, function(element) {
+                element.addListener('click', function() {
+                    // find this marker's matching infoWindow
+                    // and display it
+                    if (!this.isOpen) {
+                        var t = this;
+                        var infoWindow = _.find(infoWindowArray, function(w) {
+                            return w.id === t.id;
+                        });
+                        
+                        if (infoWindow) {
+                            infoWindow.open(_map, this);
+                        }
+                        
+                        this.isOpen = true;
+                    } 
+                });
+            });
+        };
+        
+        
+        
+        
+        
+        var data_images = {bf:`<image x="-25" y="-25" width="50" height="50" href="{% include balloon_uri_bf.txt %}"/>`,
+        sqp:`<image x="-25" y="-25" width="50" height="50" href="{% include balloon_uri_sqp.txt %}"/>`}
+        
+        $(`
+        <?xml version="1.0"?>
+        <svg id="mySVG" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
+                ${data_images['bf']}
+                <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+            </g>
+        </svg>`).appendTo($("body"))
+        
+        var bf_svg_path = btoa(`<?xml version="1.0"?>
+        <svg viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
+                ${data_images['bf']}
+                <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+            </g>
+        </svg>`);
+        
+        var sqp_svg_path =btoa(`
+        <?xml version="1.0"?>
+        <svg viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g>
+                <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
+                ${data_images['sqp']}
+                <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
+            </g>
+        </svg>`);
+        
+        
+        
+        function getIcon(name) {
+            console.log(name == "bf")
+            return name=="bf" ? {
+                url: 'data:image/svg+xml;charset=UTF-8;base64,' + bf_svg_path,
+                scaledSize: new google.maps.Size(100, 100)
+                
+            } : {
+                url: 'data:image/svg+xml;charset=UTF-8;base64,' + sqp_svg_path, 
+                scaledSize: new google.maps.Size(200, 200)
+            };
+        }
+        _map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: Number(window.venues[0].lat), lng: Number(window.venues[0].lng)},
+            zoom: 10,
+            options: {
+                gestureHandling: 'greedy'
+            }
+        });
+
+
+        var anchors = {}
+        window.anchors = anchors
+
+        var cnt = 0
+        for (var v of window.venues){
+            for( var c of window.cans){
+                var nm = c.code;
+                var untappd_bid = /\d*$/.exec(c.untappd);
+
+                if (v.bid!= untappd_bid){continue}
+                    if( !( nm in anchors) ){
+                    anchors[nm] = []
+                }
+
+                cnt +=1;
+                k = cnt;
+                var marker;
+                var infoWindow;
+                var containerDiv = document.createElement('div');
+                containerDiv.className = 'venueWindow';
+                
+                // create headline
+                var header = document.createElement('h4');
+                var checkinText = (v.n_checkins > 1) ? ' Check-ins at ' : ' Check-in at ';
+                header.textContent = v.n_checkins + checkinText + v.venue_name;
+                containerDiv.appendChild(header);
+                
+                var marker = new google.maps.Marker({
+                    id: cnt,
+                    clickable: true,
+                    isOpen: false,
+                    position: new google.maps.LatLng(Number(v.lat), Number(v.lng)),
+                    map: _map,
+
+                    icon: {
+                        path: google.maps.SymbolPath.CIRCLE,
+                        scale: 8.5,
+                        strokeWeight: 0.5
+                    },
+
+                });
+                
+                _markers.push(marker);
+                
+                infoWindow = new google.maps.InfoWindow({
+                    id: cnt,
+                    clickable: true,
+                    content: containerDiv,
+                    maxWidth: 250,
+                    position: new google.maps.LatLng(Number(v.lat),Number( v.lng))
+                });
+                
+
+                anchors[nm].push( { lat:v.lat, lng:v.lng })
+
+                //infoWindow.open(_map, marker);
+                _infoWindows.push(infoWindow);
+                
+            }
+
+         
+        }
+        setupInfoWindowClose(_markers, _infoWindows);
+        setupMarkerClickEvents(_markers, _infoWindows);
+        
+
+        var overlay = new google.maps.OverlayView();
+        overlay.draw = function() {};
+        overlay.setMap(_map);
+
+        var screen_anchors = {}
+        window.screen_anchors = screen_anchors
+        window.anchors = anchors;
+        window.overlay = overlay;
+        window.map = _map;
+
+        google.maps.event.addListenerOnce(_map, 'idle', function(){
+                    window.createPhysics();
+                    google.maps.event.addListener(_map,'bounds_changed', function(){
+                        window.updateBounds();
+                    })
+
+                    google.maps.event.addListener(_map,'idle', function(){
+                        window.updateBounds();
+                    })
+        });
+
+        
+    }
+
+ 
+    /*
+    * @param array of google.maps.Marker objects
+    * @param array of google.maps.InfoWindow objects
+    */
+    
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCCK99lIGLXj04Bts-C3nZlcc3HWKvLH6U&callback=initMap"
+async defer></script>

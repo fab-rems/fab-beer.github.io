@@ -21,7 +21,6 @@ canvas {
 }
 
 .canvas {
-    pointer-events:default;
     position: fixed;;
     z-index:10000;
 }
@@ -30,7 +29,6 @@ canvas {
     background: no-repeat url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/59639/clouds.png') 0 100%;
     background-size: 100vw 75vw;
     height: 50vw;
-    pointer-events: default;
     width: 100vw;
 }
 

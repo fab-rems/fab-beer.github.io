@@ -7,4 +7,25 @@ style: main
 
 ---
 
-{% include google-map.html %}
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js" 
+    integrity="sha256-Bmvb4pJWin8rqq3GnwPz/hxBtqXaMdZHJnHYlpRULa4=" 
+    crossorigin="anonymous"
+    ></script>
+
+<script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
+<script type="text/javascript" src="/find-physics.js" ></script>
+
+
+
+{% include google-map-2.html %}
+
+
+<div class="physics"></div>
+
+<div class="find-hud">
+{% for v in site.data.venues %}
+    {{v.venue_name}}
+{% endfor %}
+</div>

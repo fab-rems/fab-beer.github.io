@@ -71,10 +71,6 @@ body.style-main{
         cursor:pointer;
         transition: margin-top .76s ease-in 0s, margin-right .5s ease-in .3s  , opacity .5s .5s ;
     }
-    .noclick{
-        pointer-events:none;
-    }
-
     .baby-trump::after{
         background-color: yellow;
         color: red;
