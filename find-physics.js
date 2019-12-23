@@ -20,9 +20,10 @@ $(function(){
     window.wind_direction = 0
 
     var wind_attractor_func = function(bodyA, bodyB) {
+        var zonal_factor = Math.pow((bodyA.position.y - bodyB.position.y) * 1e-3,2)*3
         return {
-            x: Math.cos(window.wind_direction)*.01,
-            y: Math.sin(window.wind_direction)*.01,
+            x: .02 + Math.cos(window.wind_direction)*.2 * zonal_factor,
+            y: Math.sin(window.wind_direction)*.2,
         };
     }
 
@@ -83,9 +84,16 @@ $(function(){
 
     window.createPhysics = function(){
         window.setInterval(()=>{
-            window.wind_direction= window.wind_direction + (this.Math.random() - .5)*1.5 
+           var  step = 0 
+           var delta = (this.Math.random() - .5)*.25
+            window.setInterval(()=>{
+                step+=1;
+                if (step > 5){return}
+                else{ window.wind_direction= window.wind_direction + delta * (step / 5)}
+            }, 50)
+
             console.log(window.wind_direction)
-        },1000)
+        },5000)
         window.physics = {}
         
         Matter.use('matter-attractors');
@@ -180,7 +188,7 @@ $(function(){
             Bodies.rectangle(x, y, stringLength / 2,.5, {
                 // collisionFilter:{group},
                 collisionFilter:{group:-1},
-                density:.1,
+                density:.2,
                 render: {
                     
                     fillStyle: string_color,
@@ -204,8 +212,10 @@ $(function(){
 
             //anchor the item to the end of the string
             const item = Bodies.circle(
-                lastBody.position.x, lastBody.position.y + 10, 20, {
+                lastBody.position.x, lastBody.position.y + 10, 30,
+                 {
                     frictionAir: 0.5, 
+                    density:.005,
                     collisionFilter:{group:-1},
                     render: {
                         sprite: {
@@ -240,7 +250,7 @@ $(function(){
                 })
                 
 
-                window.physics.chains.push(  Composites.chain(string, .49,0,-.49,0, {
+                window.physics.chains.push(  Composites.chain(string, .5,0,-.5,-.5, {
                     stiffness: .75,
                     length:default_cons_length,
                     collisionFilter:{group:-1},
@@ -279,9 +289,13 @@ $(function(){
                 // sun
 
 
+                first_anchor = null
                 for (nm in screen_anchors){
                     anchors = screen_anchors[nm]
                     for (v of anchors){
+                        if (! first_anchor){
+                            first_anchor = v;
+                        }
                     
                         
                 createItem({
@@ -312,8 +326,11 @@ $(function(){
                     World.add(world, attractiveBody);
 
 
+                    console.log(first_anchor)
                     var wind = Bodies.circle(
-                        0,0,0,{
+                        first_anchor.position.x- 50, 
+                        first_anchor.position.y, 
+                        0,{
                             isStatic:true,
                             plugin:{
                                 attractors:[
