@@ -1,36 +1,167 @@
 
+
+Queue = TinyQueue
+function knn(tree, x, y, n, predicate, maxDistance) {
+    var node = tree.data,
+        result = [],
+        toBBox = tree.toBBox,
+        i, child, dist, candidate;
+
+    var queue = new Queue([], compareDist);
+
+    while (node) {
+        for (i = 0; i < node.children.length; i++) {
+            child = node.children[i];
+            dist = boxDist(x, y, node.leaf ? toBBox(child) : child);
+            if (!maxDistance || dist <= maxDistance) {
+                queue.push({
+                    node: child,
+                    isItem: node.leaf,
+                    dist: dist
+                });
+            }
+        }
+
+        while (queue.length && queue.peek().isItem) {
+            candidate = queue.pop().node;
+            if (!predicate || predicate(candidate))
+                result.push(candidate);
+            if (n && result.length === n) return result;
+        }
+
+        node = queue.pop();
+        if (node) node = node.node;
+    }
+
+    return result;
+}
+
+function compareDist(a, b) {
+    return a.dist - b.dist;
+}
+
+function boxDist(x, y, box) {
+    var dx = axisDist(x, box.minX, box.maxX),
+        dy = axisDist(y, box.minY, box.maxY);
+    return dx * dx + dy * dy;
+}
+
+function axisDist(k, min, max) {
+    return k < min ? min - k : k <= max ? 0 : k - max;
+}
+
+
 $(function(){
+    
+    var lng_factor = 510
+    var lat_factor = -690
+
     var string_color = "white";
     window.updateBounds = function(){
         window.engine.render.bounds.min = {
-            x:( window.map.getBounds().getSouthWest().lng() )*510,
-            y:(window.map.getBounds().getNorthEast().lat() )*-690
+            x:( window.map.getBounds().getSouthWest().lng() )*lng_factor,
+            y:(window.map.getBounds().getNorthEast().lat() )*lat_factor
         };
 
         window.engine.render.bounds.max = {
-            x:( window.map.getBounds().getNorthEast().lng() )*510,
-            y:(window.map.getBounds().getSouthWest().lat() ) *-690
+            x:( window.map.getBounds().getNorthEast().lng() )*lng_factor,
+            y:(window.map.getBounds().getSouthWest().lat() ) *lat_factor
         };
 
 
     }
     var default_cons_length =20
     var default_texture_scale = .5
+
+    for( v of venues){
+        sorted_stations = _.sortBy(weather, (e)=>{return (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2})
+        influences = _.map(sorted_stations.slice(0,3),(e)=>{return 1 / ( (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2)})
+        console.log(influences)
+        total = _.reduce(influences,(memo, num)=>{return memo + num})
+
+
+        console.log(total)
+        wind_mags = _.reduce(_.map(sorted_stations.slice(0,3),(e,i)=>{
+             return Number(e.speed) * influences[i] / total
+        }), (memo, num)=>memo+num)
+
+
+        wind_degs = _.reduce(_.map(
+            sorted_stations.slice(0,3),(e,i)=>{
+                return Number(e.deg) * influences[i] / total
+                
+        }), (memo, num)=>memo+num)
+
+        v["wind_mag"] = wind_mags
+        v["wind_deg"] = wind_degs
+    }
+
+
+    // venue_stations = _.map(venues, (v)=>{return _.sortBy(weather, (e)=>{return (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2})[0]})
     
+    tree = new RBush();
+    for (w of weather){
+        const item = {
+            minX: w.Lon,
+            minY: w.Lat,
+            maxX: w.Lon,
+            maxY: w.Lat,
+            wind_x: Math.cos(w.deg / 180 * Math.PI) * w.speed,
+            wind_y: Math.sin(w.deg / 180 * Math.PI) * w.speed,
+            foo: 'bar'
+        };
+        tree.insert(item);
+    }
+
+
     window.wind_direction = 0
 
     var wind_attractor_func = function(bodyA, bodyB) {
-        var zonal_factor = Math.pow((bodyA.position.y - bodyB.position.y) * 1e-3,2)*3
-        return {
-            x: .02 + Math.cos(window.wind_direction)*.2 * zonal_factor,
-            y: Math.sin(window.wind_direction)*.2,
-        };
+        var zonal_factor = Math.pow((bodyA.position.y - bodyB.position.y) * 1e-3,2)*10
+
+        
+        //venue_id = /vid-\d*/.exec(bodyB.label)
+        //console.log(bodyB.category)
+
+        if (bodyB.label == "particle"){
+
+            var lng = bodyB.position.x / lng_factor
+            var lat = bodyB.position.y / lat_factor
+            nearest = knn(tree, lng ,lat ,1)[0]
+
+            return {x: nearest.wind_x/1000,
+                    y:nearest.wind_y/1000}
+
+        } else if(bodyB.label == "balloon"){
+
+            
+            //console.log(bodyB.venue)
+            //return null
+            // var v = bodyB.venue
+            // console.log(bodyB.v)
+            //hits = knn( tree, bodyB.lat, bodyB.lng, 3 )
+            //console.log(tree)
+            //console.log(knn(tree, Number(bodyB.venue.lat),Number(bodyB.venue.lng),5))
+
+            nearest = knn(tree, Number(bodyB.venue.lng),Number(bodyB.venue.lat),1)[0]
+
+            // return {
+            //     x: Math.cos(v.wind_deg / 180 * Math.PI)*v.wind_mag*.2, // * zonal_factor,
+            //     y: Math.sin(v.wind_deg / 180 * Math.PI)*v.wind_mag*.2,
+            // };
+
+            return {
+                x: nearest.wind_x/1000, // * zonal_factor,
+                y: nearest.wind_y/1000,
+            };
+        } else {return null}
+
     }
 
     var default_attractor = function(bodyA, bodyB) {
         return {
-            x: .01, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-            y: -.01, //(bodyA.position.y - bodyB.position.y) * 1e-6,
+            x: 0,//.01, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            y: 0//-.01, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };
     }
     var drag_attractor = function(bodyA, bodyB){
@@ -41,13 +172,13 @@ $(function(){
     }
 
     window.startDragging = (e)=>{
-        console.log("started")
+
         var p = window.physics;
         p.attractiveBody.plugin.attractors = [drag_attractor]
     }
 
     window.doneDragging = (e)=>{
-        console.log("done")
+
         var p = window.physics;
         p.attractiveBody.plugin.attractors = [default_attractor]
 
@@ -93,7 +224,7 @@ $(function(){
                 else{ window.wind_direction= window.wind_direction + delta * (step / 5)}
             }, 50)
 
-            console.log(window.wind_direction)
+
         },10000)
         window.physics = {}
         window.physics.items = [];
@@ -101,19 +232,29 @@ $(function(){
         
         
         Matter.use('matter-attractors');
+        Matter.use('matter-wrap');
+
         const { Bodies, Body, Composite, Composites, Constraint, Engine, Mouse, MouseConstraint, Render, Runner, World } = Matter
+
         
         const runner = Runner.create()
+
+
+        xmin = ( window.map.getBounds().getSouthWest().lng() )*lng_factor
+        ymin = (window.map.getBounds().getNorthEast().lat() )*lat_factor
+        ymax = (window.map.getBounds().getSouthWest().lat() ) *lat_factor
+        xmax = ( window.map.getBounds().getNorthEast().lng() )*lng_factor
+
         const engine = Engine.create({
             enableSleeping: false, // def = false
             render: {
                 element: document.querySelector('.physics'),
                    bounds:{max:{
-                       x:( window.map.getBounds().getNorthEast().lng() )*510,
-                       y:(window.map.getBounds().getSouthWest().lat() ) *-690},
+                       x:xmax,
+                       y:ymax},
                     min:{
-                        x:( window.map.getBounds().getSouthWest().lng() )*510,
-                        y:(window.map.getBounds().getNorthEast().lat() )*-690
+                        x:xmin,
+                        y:ymin,
                     }}, 
 
               options: {
@@ -132,6 +273,7 @@ $(function(){
         const world = engine.world
 
 
+
         window.world = world;
         window.render = engine.render;
         window.engine = engine
@@ -147,8 +289,8 @@ $(function(){
             screen_anchors[k] = []
             for(v of anchors[k]){
                 var anchor_body = Bodies.circle(
-                    (Number(v.lng))*510, 
-                    (Number(v.lat))*-690, 
+                    (Number(v.lng))*lng_factor, 
+                    (Number(v.lat))*lat_factor, 
                     1, 
 
                     {
@@ -161,6 +303,8 @@ $(function(){
                     },
                  }
                 )
+                 anchor_body.venue = v.venue
+                 anchor_body.can = v.can
                 screen_anchors[k].push(anchor_body)
             }
         }
@@ -169,8 +313,8 @@ $(function(){
         engine.world.gravity.y =1;
         
         // create item
-        const createItem = ({ length: stringLength, texture = '', anchorBody:anchorBody }) => {
-            const group = Body.nextGroup(true)
+        const createItem = ({ length: stringLength, texture = '', anchorBody:anchorBody}) => {
+            //const group = Body.nextGroup(true)
 
 
             var string_visibility = true;
@@ -219,26 +363,21 @@ $(function(){
                             yScale: default_texture_scale,
                         },
                     },
-                    
-                    
-                    
                 })
-
-                
-
+                item.venue = anchorBody.venue
+                item.can = anchorBody.can
                 window.physics.items.push(item)
+
+    
 
                 var buoyancyAttractor = Bodies.circle(100, 100, stringLength/4, {
                     isStatic:false ,
-                plugin: {
-                    
+                     plugin: {
                     attractors: [
                         (bodyA, bodyB)=>{
                             // console.log("B",bodyB.id)
                             // console.log("Item", item.id)
                             if( bodyB.id ==item.id){ //bodyB.label=="balloon"){
-                                console.log("MATCHED!!")
-                                console.log(bodyB.label)
                                 return         {
                                 x:0,
                                 y:-.02,
@@ -249,10 +388,13 @@ $(function(){
                 })
                     World.add(world, buoyancyAttractor);
 
+                    
 
                 const itemConstraint = Constraint.create({
                     bodyA: item,
                     bodyB: lastBody,
+                    pointA: { x: 0, y: 1 },
+                    pointB: { x: 0, y: 0 },
                     length:stringLength*2,
                     render: {
                         strokeStyle: string_color,
@@ -305,14 +447,32 @@ $(function(){
                     )
                     
                     World.add(world, string)
-                    World.add(world,item)
+                    World.add(world, item)
                     World.add(world, itemConstraint)
-                    World.add(world,anchorBody)
+                    World.add(world, anchorBody)
                 }
                 
                 // sun
 
+                var wind = Bodies.circle(
+                    0 ,
+                    0 , 
+                    10,{
+                        isStatic:true,
+                        plugin:{
+                            attractors:[
+                                wind_attractor_func
+                            ]
+                        }
+                    }
+                )
+                window.physics.wind = wind;
+                World.add(world, wind);
 
+
+                
+
+         
                 first_anchor = null
                 for (nm in screen_anchors){
                     anchors = screen_anchors[nm]
@@ -321,57 +481,71 @@ $(function(){
                             first_anchor = v;
                         }
                     
-                        
-                createItem({
-                    anchorBody:v,
-                    length: 10,
-                    texture: `/assets/balloons/small-heads_${nm}.png`,
-                })
+                                
+                        createItem({
+                            anchorBody:v,
+                            length: 10,
+                            texture: `/assets/balloons/small-heads_${nm}.png`,
+                        })
                     }
                 }
+
             
-                
-                //create a body with an attractor
-                var attractiveBody = Bodies.circle(
-                    0,
-                    0,
-                    0, 
-                    {
-                        isStatic: true,
-                        plugin: {
-                            attractors: [
-                                default_attractor
-                            ]
+                for (var i = 0 ; i < 5; i++){
+                var body = Matter.Bodies.circle(
+                    xmin+ (xmax - xmin)*Math.random(), 
+                    ymin+ (ymax - xmin)*Math.random() ,
+                    2, {
+                    frictionAir: 0.6, 
+                    mass:.25,
+                    label:"particle",
+                    render:{
+                        fillStyle:"white",
+                    },
+                    plugin: {
+                      wrap: {
+                        min: {
+                          x: xmin,
+                          y: ymin
+                        },
+                        max: {
+                          x: xmax,
+                          y: ymax
                         }
-                    });
-                    
-                    window.physics.attractiveBody = attractiveBody;
-                    World.add(world, attractiveBody);
+                      }
+                    }
+                }
+                  );
+                World.add(world,body)
+
+            }
+        
+
+                                //create a body with an attractor
+                                var attractiveBody = Bodies.circle(
+                                    0,
+                                    0,
+                                    0, 
+                                    {
+                                        isStatic: true,
+                                        plugin: {
+                                            attractors: [
+                                                default_attractor
+                                            ]
+                                        }
+                                    });
+                                    window.physics.attractiveBody = attractiveBody;
+                                    World.add(world, attractiveBody);
+                
+            
+  
 
 
-      
+
+  
 
 
-                    //var buoyancyAttractor = Bodies.circle
-
-
-                    // console.log(first_anchor)
-                    // var wind = Bodies.circle(
-                    //     first_anchor.position.x- 50, 
-                    //     first_anchor.position.y, 
-                    //     0,{
-                    //         isStatic:true,
-                    //         plugin:{
-                    //             attractors:[
-                    //                 wind_attractor_func
-                    //             ]
-                    //         }
-                    //     }
-                    // )
-                    // window.physics.wind = wind;
-                    // World.add(world, wind);
-
-                    
+  
                     // mouse
                     const mouseContraint = MouseConstraint.create(engine, {
                         mouse: Mouse.create(engine.render.canvas),
