@@ -14,6 +14,8 @@ $(function(){
 
 
     }
+    var default_cons_length = 5
+    var default_texture_scale = .5
     
     var default_attractor = function(bodyA, bodyB) {
         return {
@@ -41,7 +43,7 @@ $(function(){
 
     }
     window.zoomChanged = (e)=>{
-        console.log("done")
+        //console.log("done")
         var p = window.physics;
         //p.attractiveBody.plugin.attractors = [] 
 
@@ -49,12 +51,22 @@ $(function(){
             //console.log(item.render.sprite)
             var m = window.map
             console.log((.5 )* (10 / m.zoom))
-            var scl = .25 * 1.5**( (10 / m.zoom))
-            console.log(scl)
-            item.render.sprite.yScale = scl;
-            item.render.sprite.xScale = scl;
+            var pix_scl = default_texture_scale * 1.5**( (10 / m.zoom -1))
+            var cons_scl = default_cons_length * 2**( (10 / m.zoom - 1))
 
-            console.log(item.render.sprite)
+
+            for (c of p.chains){
+                for (e of c.constraints){
+                    //e.stiffness = ;
+                    e.length = cons_scl;
+
+                }
+            }
+
+            item.render.sprite.yScale = pix_scl;
+            item.render.sprite.xScale = pix_scl;
+
+            //console.log(item.render.sprite)
             // console.log(e)
             // last_event = e
         }
@@ -164,6 +176,15 @@ $(function(){
             })
             )
 
+            window.physics.string = string;
+            if (! ("items" in window.physics) ){
+                window.physics.items = [];
+            }
+
+            if (! ("chains" in window.physics) ){
+                window.physics.chains = [];
+            }
+
         
             const firstBody = string.bodies[0]
             const lastBody = string.bodies[string.bodies.length - 1]
@@ -176,18 +197,15 @@ $(function(){
                     render: {
                         sprite: {
                             texture: texture,
-                            xScale: .5,
-                            yScale: .5,
+                            xScale: default_texture_scale,
+                            yScale: default_texture_scale,
                         },
                     },
                     
                     
                     
                 })
-                if (! ("items" in window.physics) ){
-                    console.log('setting')
-                    window.physics.items = [];
-                }
+
                 window.physics.items.push(item)
 
 
@@ -208,9 +226,10 @@ $(function(){
                     },
                 })
                 
-                Composites.chain(string, .49,0,-.49,0, {
-                    stiffness: .3,
-                    length: 5,
+
+                window.physics.chains.push(  Composites.chain(string, .49,0,-.49,0, {
+                    stiffness: .75,
+                    length:default_cons_length,
                     collisionFilter:{group:-1},
                     render: { 
 
@@ -218,9 +237,9 @@ $(function(){
                         anchors:false,
                         type: 'line', 
                         visible: true ,
-                        strokeStyle: string_color
+                        strokeStyle: "black"
                     },
-                })
+                }))
                 
                 Composite.add(
                     string,
