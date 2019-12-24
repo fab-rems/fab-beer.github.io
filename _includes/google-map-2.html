@@ -43,7 +43,7 @@
                             infoWindow.open(_map, this);
                         }
                         
-                        this.isOpen = true;
+                        //this.isOpen = true;
                     } 
                 });
             });
@@ -205,6 +205,12 @@
                     google.maps.event.addListener(_map,'dragend', function(){
                         window.doneDragging();
                     })
+
+                    google.maps.event.addListener(map, "click", function(event) {
+                        for (var i = 0; i < _infoWindows.length; i++ ) {  //I assume you have your infoboxes in some array
+                     _infoWindows[i].close();
+    }
+});
         });
         
 

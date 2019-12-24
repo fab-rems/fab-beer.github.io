@@ -493,6 +493,7 @@ $(function(){
 
             
                 for (var i = 0 ; i < 5; i++){
+
                 var body = Matter.Bodies.circle(
                     xmin+ (xmax - xmin)*Math.random(), 
                     ymin+ (ymax - xmin)*Math.random() ,
@@ -502,7 +503,15 @@ $(function(){
                     label:"particle",
                     render:{
                        // fillStyle:"white",
+                        sprite:i==-1?{
+                            texture:"/assets/map/goose-01.png",
+                            xScale:.2,
+                            yScale:.2,
+                        }:{}
+                    
                     },
+
+                
                     plugin: {
                       wrap: {
                         min: {

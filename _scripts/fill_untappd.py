@@ -60,6 +60,7 @@ def fillforward():
         max_id = None
         print(checkins)
         for checkin in checkins['items']:
+            print (checkin)
             cid = checkin['checkin_id']
             if cid == params['min_id']:
                 continue
