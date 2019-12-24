@@ -1,3 +1,25 @@
+last_scroll_pos =null
+last_scroll_time =null
+cur_scroll_velocity = 0;
+$(document).scroll((e)=>{
+    if(! last_scroll_pos){
+        last_scroll_pos =$(document).scrollTop()
+    }
+    if( ! last_scroll_time){
+        last_scroll_time = moment.now()
+    }
+
+    var dpos = $(document).scrollTop() - last_scroll_pos
+    var dtime = moment.now() - last_scroll_time
+
+    var velocity = dpos / dtime
+    cur_scroll_velocity = velocity
+
+    last_scroll_time = moment.now()
+    last_scroll_pos = $(document).scrollTop()
+        console.log("scrolling")
+
+})
 
 $(function(){
     Matter.use('matter-attractors');
@@ -93,11 +115,24 @@ $(function(){
             },
             })
             )
-            
             World.add(world, [string, item, itemConstraint])
         }
         
-        // sun
+
+        const wind = Bodies.circle(0,0, 25,{
+            plugin:{
+                attractors: [
+                    (bodyA, bodyB)=>{
+                        return{
+                            x:cur_scroll_velocity / 100,
+                            y:0,
+                        }
+                    }
+                ]
+            }
+        })
+        World.add(world,wind)
+
         createItem({
             x: window.innerWidth * 0.2,
             y: window.innerHeight,
@@ -106,66 +141,14 @@ $(function(){
             
         })
 
-            // sun
-    createItem({
-        x: window.innerWidth * 0.05,
-        y: window.innerHeight,
-        length: window.innerHeight * 0.1,
-        texture: '/assets/balloons/small-heads_sqp.png',
-    })
-
-//       // create a body with an attractor
-//   var attractiveBody = Bodies.circle(
-//     0,
-//     0,
-//     0, 
-//     {
-//     isStatic: true,
-
-//     // example of an attractor function that 
-//     // returns a force vector that applies to bodyB
-//     plugin: {
-//       attractors: [
-//         function(bodyA, bodyB) {
-//           return {
-//             x: .01, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
-//             y: 0, //(bodyA.position.y - bodyB.position.y) * 1e-6,
-//           };
-//         }
-//       ]
-//     }
-//   });
-
-
-  
-//   World.add(world, attractiveBody);
-
-
-
-        // mouse
-
-        // var mouseConstraint = Matter.MouseConstraint.create(engine, { //Create Constraint
-        //     element: myCanvas,
-        //     constraint: {
-        //       render: {
-        //         visible: false
-        //       },
-        //       stiffness:0.8
-        //     }
-        //   });
-        //   Matter.World.add(world, mouseConstraint);
-
-        const mouseContraint = MouseConstraint.create(engine, {
-            mouse: Mouse.create(render.canvas),
-            element:render.canvas,
-            constraint: {
-                stiffness: 0.8,
-                render: { visible: false },
-            }
+        createItem({
+            x: window.innerWidth * 0.05,
+            y: window.innerHeight,
+            length: window.innerHeight * 0.1,
+            texture: '/assets/balloons/small-heads_sqp.png',
         })
-        console.log("ADDED CONTSTAEIT")
-        World.add(world, mouseContraint)
-        
+
+
         Runner.run(runner, engine)
         Render.run(render)
     }
