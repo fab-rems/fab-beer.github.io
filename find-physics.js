@@ -71,7 +71,7 @@ $(function(){
 
     }
     var default_cons_length =20
-    var default_texture_scale = .5
+    var default_texture_scale = .25
 
     for( v of venues){
         sorted_stations = _.sortBy(weather, (e)=>{return (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2})
@@ -166,7 +166,7 @@ $(function(){
     }
     var drag_attractor = function(bodyA, bodyB){
         return {
-            x: .06, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
+            x: .01, //-1* (bodyA.position.x - bodyB.position.x) * 20 * 1e-6,
             y: -.00, //(bodyA.position.y - bodyB.position.y) * 1e-6,
         };  
     }
@@ -200,7 +200,7 @@ $(function(){
             for (c of p.chains){
                 for (e of c.constraints){
                     //e.stiffness = ;
-                    e.length = cons_scl;
+                    e.length = cons_scl/3;
 
                 }
             }
@@ -330,7 +330,7 @@ $(function(){
                 isStatic:false,
                 render: {
                     strokeStyle: "orange",
-                    visible:string_visibility,
+                    visible:false,
                 },
             })
             )
@@ -447,9 +447,10 @@ $(function(){
                     )
                     
                     World.add(world, string)
-                    World.add(world, item)
+
                     World.add(world, itemConstraint)
                     World.add(world, anchorBody)
+                    World.add(world, item)
                 }
                 
                 // sun
@@ -500,7 +501,7 @@ $(function(){
                     mass:.25,
                     label:"particle",
                     render:{
-                        fillStyle:"white",
+                       // fillStyle:"white",
                     },
                     plugin: {
                       wrap: {

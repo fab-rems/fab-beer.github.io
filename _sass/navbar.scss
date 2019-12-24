@@ -1,8 +1,24 @@
+.navbar{
+.beer-icon-list{
+    display:flex;
+    padding:0px;
+    margin:0px;
+    li{
+        list-style:none;
+        height:32px;
+        margin-left:10px;
+        margin-right:10px;
+        img{
+            height:100%;
+        }        
+    }
 
-.navbar li>a{
+}
+}
+.navbar-nav li>a{
     padding: 8px;
 }
-.navbar li:not(:first-child){
+.navbar-nav li:not(:first-child){
     a{padding-left:30px;}
 }
 

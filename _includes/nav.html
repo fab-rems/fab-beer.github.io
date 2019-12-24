@@ -1,12 +1,21 @@
 <nav class="navbar navbar-expand-lg fixed-bottom {% if page.inverted %} navbar-dark bg-dark {% endif %}">
         <a class="navbar-brand" href="/">FAB</a>
      
+
+
+
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="myNavigation" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
       
     
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
+
+          <ul class="beer-icon-list">
+          {% for c in site.data.cans %}
+            <li><a href="/{{c.code}}"><img src="assets/balloons/small-heads_{{c.code}}.png"/></a></li>
+          {% endfor %}
+        </ul>
           <ul class="navbar-nav">
             <li  class="bd-text"> <a  href="/babydictators">Baby Dictators Project</a></li>
             <li class="bd-text"> <a   href="/people">People</a></li>
