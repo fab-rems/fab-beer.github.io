@@ -1,7 +1,13 @@
 last_scroll_pos =null
 last_scroll_time =null
 cur_scroll_velocity = 0;
+idle_timeout = null
+
 $(document).scroll((e)=>{
+    if(idle_timeout){
+        window.clearTimeout(idle_timeout)
+        idle_timeout=null
+    }
     if(! last_scroll_pos){
         last_scroll_pos =$(document).scrollTop()
     }
@@ -11,13 +17,22 @@ $(document).scroll((e)=>{
 
     var dpos = $(document).scrollTop() - last_scroll_pos
     var dtime = moment.now() - last_scroll_time
+    console.log("SCROLL")
 
-    var velocity = dpos / dtime
+
+    var velocity =dtime>0? dpos / dtime: 0
+
+    console.log(dpos, dtime)
     cur_scroll_velocity = velocity
 
     last_scroll_time = moment.now()
     last_scroll_pos = $(document).scrollTop()
-        console.log("scrolling")
+
+    if(velocity !=0){
+         idle_timeout = window.setTimeout(()=>{
+            $(document).trigger("scroll")
+        },200)
+    }
 
 })
 
