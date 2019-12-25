@@ -19,12 +19,6 @@
                 });
             });
         };
-        
-
-        /*
-        * @param array of google.maps.Marker objects
-        * @param array of google.maps.InfoWindow objects
-        */
 
 
         
@@ -35,13 +29,15 @@
                     // and display it
                     if (!this.isOpen) {
                         var t = this;
-                        var infoWindow = _.find(infoWindowArray, function(w) {
-                            return w.id === t.id;
-                        });
+
+                        window.highlightVenue(t);
+                        // var infoWindow = _.find(infoWindowArray, function(w) {
+                        //     return w.id === t.id;
+                        // });
                         
-                        if (infoWindow) {
-                            infoWindow.open(_map, this);
-                        }
+                        // if (infoWindow) {
+                        //     infoWindow.open(_map, this);
+                        // }
                         
                         //this.isOpen = true;
                     } 
@@ -50,22 +46,20 @@
         };
         
         
+
+        /*
+        * @param array of google.maps.Marker objects
+        * @param array of google.maps.InfoWindow objects
+        */
+
+
+        
         
         
         
         var data_images = {bf:`<image x="-25" y="-25" width="50" height="50" href="{% include balloon_uri_bf.txt %}"/>`,
         sqp:`<image x="-25" y="-25" width="50" height="50" href="{% include balloon_uri_sqp.txt %}"/>`}
-        
-        $(`
-        <?xml version="1.0"?>
-        <svg id="mySVG" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-            <g>
-                <circle cx="0" cy="0" r="30" stroke="red" fill="transparent"/>
-                ${data_images['bf']}
-                <animateMotion dur="2s" repeatCount="indefinite" path="M20,50 C20,-50 180,150 180,50 C180-50 20,150 20,50 z" />
-            </g>
-        </svg>`).appendTo($("body"))
-        
+
         var bf_svg_path = btoa(`<?xml version="1.0"?>
         <svg viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
             <g>
@@ -99,8 +93,9 @@
             };
         }
         _map = new google.maps.Map(document.getElementById('map'), {
-            center: {lat: Number(window.venues[0].lat), lng: Number(window.venues[0].lng)},
+            center: {lat: Number(window.venue_beers[0].lat)-.1, lng: Number(window.venue_beers[0].lng)-.3},
             zoom: 10,
+            disableDefaultUI: true, // a way to quickly hide all controls
             options: {
                 gestureHandling: 'greedy'
             }
@@ -111,7 +106,7 @@
         window.anchors = anchors
 
         var cnt = 0
-        for (var v of window.venues){
+        for (var v of window.venue_beers){
             for( var c of window.cans){
                 var nm = c.code;
                 var untappd_bid = /\d*$/.exec(c.untappd);
@@ -141,6 +136,9 @@
                     position: new google.maps.LatLng(Number(v.lat), Number(v.lng)),
                     map: _map,
 
+                    venue:{
+                        v
+                    },
                     icon: {
                         path: google.maps.SymbolPath.CIRCLE,
                         scale: 8.5,

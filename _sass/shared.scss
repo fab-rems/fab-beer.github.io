@@ -327,3 +327,19 @@ footer{
 .hover-fade-hint:hover{
     opacity:.8;
 }
+
+.beer-icon-list{
+    display:flex;
+    padding:0px;
+    margin:0px;
+    li{
+        list-style:none;
+        height:32px;
+        margin-left:10px;
+        margin-right:10px;
+        img{
+            height:100%;
+        }        
+    }
+
+}

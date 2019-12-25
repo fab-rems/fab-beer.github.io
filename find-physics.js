@@ -1,5 +1,7 @@
 
 
+
+
 Queue = TinyQueue
 function knn(tree, x, y, n, predicate, maxDistance) {
     var node = tree.data,
@@ -50,6 +52,11 @@ function axisDist(k, min, max) {
     return k < min ? min - k : k <= max ? 0 : k - max;
 }
 
+
+function highlightVenue(venue){
+    console.log(venue);
+
+}
 
 $(function(){
     

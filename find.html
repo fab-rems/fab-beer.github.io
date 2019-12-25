@@ -12,23 +12,60 @@ style: main
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.14.2/matter.min.js" 
-    integrity="sha256-Bmvb4pJWin8rqq3GnwPz/hxBtqXaMdZHJnHYlpRULa4=" 
-    crossorigin="anonymous"
-    ></script>
+integrity="sha256-Bmvb4pJWin8rqq3GnwPz/hxBtqXaMdZHJnHYlpRULa4=" 
+crossorigin="anonymous"
+></script>
 
 <script src="https://cdn.jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
 <script type="text/javascript" src="/find-physics.js" ></script>
-
+<script type="text/javascript" src="/find.js" ></script>
 
 
 {% include google-map-2.html %}
 
 
 <div class="physics"></div>
+<div class="row">
+<div class="col-6 col-md-4 offset-md-1 find-hud">
+    <h3>
+       FAB Places
+    </h3>
+    <div class="find-scroll-container">
+        {% assign venue_beers_sorted = site.data.venue_beers | sort: "venue_slug"  %}
+        {% assign venue_beers_grouped = venue_beers_sorted | group_by: "venue_slug"  %}
 
-<div class="find-hud">
-{% for v in site.data.venues %}
-    {{v.venue_name}}
-{% endfor %}
+        {% for group in venue_beers_grouped   %}
+        {% for v in group.items %}
+
+        <li class="venue" id="venue-{{v.venue_id}}">
+            <div class="row venue-item">
+                <div class="col-2 line venue-beer">
+                    <ul class="beer-icon-list">
+                        {% for c in site.data.cans %}
+                        {% if c.code == v.can_code %}
+                        <li><a href="/{{c.code}}"><img src="assets/balloons/small-heads_{{c.code}}.png"/></a> <!--[{{v.n_checkins}}]--></li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul> 
+                </div>
+                <div class="col-10  venue-info">
+                    <span class="line venue-name"><a href="{{v.venue_url}}">{{v.venue_name}}</a></span>
+                    <span class="line venue-city">{{v.venue_city}}, {{v.venue_state}} {{v.venue_country}}</span>
+
+                    {% for c in site.data.cans %}
+                    {% if c.code == v.can_code %}
+                    <span class="line venue-checkin">
+                           <img class="last-seen-icon" src="assets/balloons/small-heads_{{c.code}}.png"/> Last seen {{v.last_checkin | slice: 0,10}}
+                        </span>
+                    {% endif %}
+                    {% endfor %}
+                    
+                </div>
+            </div>          
+        </li>    
+        {% endfor %}
+        {% endfor %}
+    </div>
+</div>
 </div>
