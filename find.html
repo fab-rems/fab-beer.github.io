@@ -31,6 +31,10 @@ crossorigin="anonymous"
     <h3>
        FAB Places
     </h3>
+    <p>
+        This map is live-generated from your Untappd check-ins at bars and restaurants and live wind maps from the National Weather Service. Thanks weather geeks. Fly safe!</p><p>To join our featured tasters group and get a free SQUIDDIE sticker, check out: <a href="fab.beer/sticky">fab.beer/sticky</a>. Package store locations coming soon.<br/> --BEN
+        </p>
+    
     <div class="find-scroll-container">
         {% assign venue_beers_sorted = site.data.venue_beers | sort: "venue_slug"  %}
         {% assign venue_beers_grouped = venue_beers_sorted | group_by: "venue_slug"  %}
