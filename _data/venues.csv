@@ -1,6 +1,4 @@
 ,venue_name,venue_slug,primary_category,contact,venue_id,lat,lng,venue_city,venue_address,venue_country,venue_city,venue_country,venue_state,venue_url
 0,Dorchester Brewing Company,dorchester-brewing-company,Nightlife Spot,"{'twitter': '@dorchesterbrew', 'venue_url': 'http://www.dorchesterbrewing.com'}",4367121,42.322,-71.0626,Boston,1250 Massachusetts Ave,United States,Boston,United States,MA,http://www.dorchesterbrewing.com
 1,Flatbread Company at Sacco's Bowl Haven,flatbread-company-at-saccos-bowl-haven,Food,"{'twitter': '@flatbreadsville', 'venue_url': 'www.saccobowl.com'}",12317,42.3957,-71.1237,Somerville,45 Day St,United States,Somerville,United States,MA,www.saccobowl.com
-2,High Tor State Park,high-tor-state-park,Outdoors & Recreation,"{'twitter': '', 'venue_url': ''}",2006735,41.1911,-73.9891,New City,415 S Mountain Rd,United States,New City,United States,NY,
-3,Flynn's Irish Pub - Mansfield,flynns-irish-pub,Food,"{'twitter': '@FlynnsIrishPub', 'venue_url': 'http://www.gotoflynns.com/'}",1265320,42.0297,-71.218,Mansfield,219-223 N Main St,United States,Mansfield,United States,MA,http://www.gotoflynns.com/
-4,Connecticut River,connecticut-river,Outdoors & Recreation,"{'twitter': '', 'venue_url': ''}",1010984,42.2633,-72.6063,South Hadley,,United States,South Hadley,United States,MA,
+2,Flynn's Irish Pub - Mansfield,flynns-irish-pub,Food,"{'twitter': '@FlynnsIrishPub', 'venue_url': 'http://www.gotoflynns.com/'}",1265320,42.0297,-71.218,Mansfield,219-223 N Main St,United States,Mansfield,United States,MA,http://www.gotoflynns.com/
