@@ -1,19 +1,5 @@
 .navbar{
-.beer-icon-list{
-    display:flex;
-    padding:0px;
-    margin:0px;
-    li{
-        list-style:none;
-        height:32px;
-        margin-left:10px;
-        margin-right:10px;
-        img{
-            height:100%;
-        }        
-    }
 
-}
 }
 .navbar-nav li>a{
     padding: 8px;
@@ -91,4 +77,8 @@ body{
     padding:0px;
     display: flex;
     align-items: center;
+}
+
+.footer{
+    padding-bottom:100px;
 }
