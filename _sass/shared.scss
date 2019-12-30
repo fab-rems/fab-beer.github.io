@@ -315,13 +315,17 @@ footer{
 .text-upper{
     text-transform: uppercase;
 }
+.new{
+    padding-right:15px;
+}
 .new:after{
     content:"new";
-    margin-left:5px;
+    margin-left:0px;
     background-color:red;
     color:white;
     vertical-align: super;
-    font-size:75%;
+    font-size:60%;
+    position:absolute;
 } 
 
 .hover-fade-hint:hover{
