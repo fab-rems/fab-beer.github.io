@@ -53,10 +53,7 @@ function axisDist(k, min, max) {
 }
 
 
-function highlightVenue(venue){
-    console.log(venue);
 
-}
 
 $(function(){
     
@@ -80,7 +77,7 @@ $(function(){
     var default_cons_length =20
     var default_texture_scale = .25
 
-    for( v of venues){
+    for( v of venue_beers){
         sorted_stations = _.sortBy(weather, (e)=>{return (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2})
         influences = _.map(sorted_stations.slice(0,3),(e)=>{return 1 / ( (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2)})
         console.log(influences)
@@ -104,7 +101,6 @@ $(function(){
     }
 
 
-    // venue_stations = _.map(venues, (v)=>{return _.sortBy(weather, (e)=>{return (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2})[0]})
     
     tree = new RBush();
     for (w of weather){
