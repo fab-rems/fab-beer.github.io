@@ -59,5 +59,6 @@ def main():
     venues_annotated.to_csv("../_data/venues.csv")
 
 if __name__ == "__main__":
-    os.chdir(os.path.dirname(sys.argv[0]))
+    print(sys.argv)
+    os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
     main()

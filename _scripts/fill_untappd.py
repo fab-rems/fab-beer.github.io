@@ -1,6 +1,6 @@
 
 
-import os
+import os,sys
 import pytz
 import time
 import json
@@ -9,38 +9,41 @@ import requests
 import calendar
 from dateutil import parser as dateparser
 
-requests.packages.urllib3.disable_warnings()
-
-db_file = os.path.join(os.getcwd(), 'untappd.db')
-conn = sqlite3.connect(db_file)
-c = conn.cursor()
-
-create = """
-create table if not exists checkins (
-    cid INTEGER PRIMARY KEY,
-    timestamp INTEGER NOT NULL,
-    beer VARCHAR NOT NULL,
-    venue VARCHAR NOT NULL,
-    json VARCHAR NOT NULL
-)"""
-
-c.execute(create)
-
-api_id     = 'E8847D1FA347C37248DEC90E1D21568E18FC5152'
-api_secret = '199C86117D183A9B6BCB3220098F34CFF81FD562'
-brewery_checkin_url = 'https://api.untappd.com/v4/brewery/checkins/451812'
-
-UTC = pytz.utc
-EST = pytz.timezone('America/New_York')
-
-url = brewery_checkin_url
-params = {
-    'client_id'     : api_id,
-    'client_secret' : api_secret,
-    'limit'         : 100,
-}
 
 def fillforward():
+
+    requests.packages.urllib3.disable_warnings()
+
+    db_file = os.path.join(os.getcwd(), 'untappd.db')
+    conn = sqlite3.connect(db_file)
+    c = conn.cursor()
+
+    create = """
+    create table if not exists checkins (
+        cid INTEGER PRIMARY KEY,
+        timestamp INTEGER NOT NULL,
+        beer VARCHAR NOT NULL,
+        venue VARCHAR NOT NULL,
+        json VARCHAR NOT NULL
+    )"""
+
+    c.execute(create)
+
+    api_id     = 'E8847D1FA347C37248DEC90E1D21568E18FC5152'
+    api_secret = '199C86117D183A9B6BCB3220098F34CFF81FD562'
+    brewery_checkin_url = 'https://api.untappd.com/v4/brewery/checkins/451812'
+
+    UTC = pytz.utc
+    EST = pytz.timezone('America/New_York')
+
+    url = brewery_checkin_url
+    params = {
+        'client_id'     : api_id,
+        'client_secret' : api_secret,
+        'limit'         : 100,
+    }
+
+
     c.execute('select max(cid) from checkins')
     row = c.fetchone()
     if row and row[0]:
@@ -129,4 +132,6 @@ def run():
     fillforward()
     
 if __name__ == '__main__':
+    os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
+
     run()

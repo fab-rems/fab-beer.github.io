@@ -1,0 +1,9 @@
+{
+"errors":[
+{
+"status":"401",
+"title":"Session Expired",
+"detail":"URL does not include APIToken and User is not logged on."
+}
+]
+}
