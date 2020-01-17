@@ -6,17 +6,24 @@ style: main
 navbar: true
 ---
 
-{% assign people_by_type = site.data.people | group_by:"type" %}
-<div class="collaborators col-md-8 offset-md-2">
-    {% for type in people_by_type %}
-    <h1>{{ type.name }}</h1>
-    <div class="type-list">
-        {% for person in type.items %}
-        <div class="person">
-                  <a href="{{person.link}}"><img src="{{person.webasset}}" />
-                 <div>{{person.name}}</div></a>
+{% assign people_sorted = site.data.people | sort_by:"name" %}
+<h1><span class="fab fancy-text">FAB</span>PEOPLE</h1>
+<div class="collaborators col-md-8 offset-md-2"> 
+<div class="type-list">
+
+    <div class="row">
+
+    
+        {% for person in people_sorted %}
+        <div class="person col-md-4">
+                  <a href="{{person.link}}"><img src="{{person.webasset}}" /></a>
+                 <div>{{person.name}} ({{ person.type }})   </div> 
+                 <div class="bio">{{ person.bio | raw }}</div>
+                 <div>{% if person.email %} {{ person.email }} {% endif %}</div> 
             </div>
         {% endfor %}
-    </div>
-    {% endfor %}
+
+
+</div>
+</div>
 </div>
