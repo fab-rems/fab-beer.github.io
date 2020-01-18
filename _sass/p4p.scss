@@ -7,13 +7,19 @@ body.page-p4p{
     }
     h1{
         color:black;
+        margin-top:20px;
     }
     .peace{
         background-color:lightblue;
     }
     .coming-soon{
         text-align:center;
-        background:lightyellow;
+        background:yellow;
+    }
+    .coming-soon-container{
+        img{
+            width:64px;
+        }
     }
     .center{
         text-align:center;
