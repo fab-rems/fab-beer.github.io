@@ -1,5 +1,5 @@
 ---
-abv: '7.5'
+abv: '8'
 ad_feature_html: '<div class="print-circle-image"    style="background-image: url(/assets/ads/merch-squid_favicon.png);"></div><button
   type="button" class="btn ad-button btn-dark" data-toggle="modal" data-target="#medusa-t-modal"><h3
   class="can-print-title new">GET PRINTS</h3></button><div class="can-print-description">  <h6
@@ -7,8 +7,10 @@ ad_feature_html: '<div class="print-circle-image"    style="background-image: ur
   the artist.</p></div></div>'
 ad_feature_id: '4405538553940'
 ad_feature_type: prints
-artist_id: andy
-beer_style: DOUBLE IPA
+artist_id:
+- andy
+beer_cat: ipa
+beer_style: IPA
 code: sqp
 collection_id: '156883058772'
 description: <em class="sqp-text fancy">SQUID PRO QUO</em> is the second can in the
@@ -32,6 +34,7 @@ statement: '"I imagined him floating over a psychedelic sunset, riding tubes in 
   --ANDREW JACOBS, Wellfleet Mass.
 
   @SOULKONTROLLER'
+text_description: .nan
 untappd: https://untappd.com/b/fab-squid-pro-quo/3568228
 
 ---

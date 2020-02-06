@@ -1,5 +1,5 @@
 ---
-abv: '6.1'
+abv: '5.4'
 ad_feature_html: '<button type="button" class="btn " data-toggle="modal" data-target="#medusa-t-modal"><div
   class="print-circle-image"   style="background-image: url(/assets/ads/balloon_factory_graphic@0,3x.png);"></div>    <h6
   class="can-print-title">Own the original artwork</h6></button><div class="can-print-description">    <h6
@@ -7,8 +7,10 @@ ad_feature_html: '<button type="button" class="btn " data-toggle="modal" data-ta
   artwork. Profits to the artist.</p></div></div>'
 ad_feature_id: '4405832253524'
 ad_feature_type: artwork
-artist_id: adam
-beer_style: AMERICAN IPA
+artist_id:
+- adam
+beer_cat: ipa
+beer_style: SESSION IPA
 code: bf
 collection_id: '156883124308'
 description: "<em class=\"bf-text fancy\">BALLOON FACTORY</em> is the first can in\
@@ -27,6 +29,7 @@ statement: "\u201CThis baby Trump balloon is a very orange Georgia peach. The po
   \ and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings:\
   \ retiring in peace... or going to jail.\u201D\n--ADAM O\u2019DAY, Balloon Factory,\
   \ MA\n@ADAM_ODAY"
+text_description: .nan
 untappd: https://untappd.com/b/fab-fermentation-arts-balloon-factory/3589306
 
 ---
