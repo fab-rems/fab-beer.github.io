@@ -24,6 +24,7 @@ last_brewed: 12/3/2019
 layout: can
 merch_types: the original artwork, T-shirts and stickers
 name: Balloon Factory
+series: babydictators
 statement: "\u201CThis baby Trump balloon is a very orange Georgia peach. The poor\
   \ guy didn\u2019t seem happy in the city. He is freed from a menacing urban landscape\
   \ and drifts to a farm I painted in New Hampshire. The word farm has multiple meanings:\

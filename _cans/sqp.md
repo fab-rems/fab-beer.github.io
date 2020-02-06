@@ -27,6 +27,7 @@ last_brewed: 12/4/2019
 layout: can
 merch_types: museum quality prints, hoodies and stickers
 name: Squid Pro Quo
+series: babydictators
 statement: '"I imagined him floating over a psychedelic sunset, riding tubes in pure
   bliss. 5 alternate reality surfer Trumps guide the strings harmoniously. Like if
   he grew up surfing with his dad, going to the beach each weekend.
