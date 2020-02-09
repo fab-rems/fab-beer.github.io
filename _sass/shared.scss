@@ -5,6 +5,32 @@ $bf-bg-color:#ffea01;
 $bf-fg-color:#cd6800;
 
 
+$offprem-color:#FF1493;
+ 
+.valentines.banner{
+    background-color:$offprem-color;
+    color:white;
+    font-weight:bold;
+    display: block;
+
+    white-space: normal;
+        margin-bottom: 10px;
+border: 2px solid white;
+border-radius: 10px;
+margin-top:20px;
+text-align:center;
+
+a{text-decoration:underline;
+    text-shadow: 2px 2px lightgreen;
+    font-size: 150%;
+color:white !important;}
+
+a:link{
+    color:white !important;    
+    
+}
+}
+
 blockquote{
     background-color:rgba(220,220,220,.4);
     padding-left:3em;
@@ -16,7 +42,7 @@ blockquote{
 }
 
 body{
-    max-width: 100vw;
+    max-width: 100vw;   
     overflow-x: hidden;
 }
 

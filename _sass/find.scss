@@ -1,8 +1,6 @@
 $onprem-color:blue;
 $offprem-color:#FF1493;
-.gm-style-iw{
 
-}
 .venueWindow{
     background-color:black;
 }
@@ -68,6 +66,23 @@ body.page-find{
         }
     }
  
+    .label-group.valentines{
+        background-color:$offprem-color;
+        color:white;
+        font-weight:bold;
+        display: block;
+        max-width: 25em;
+        white-space: normal;
+            margin-bottom: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+
+    a{text-decoration:underline;}
+    a:link{
+        color:white;
+        
+    }
+    }
     #location-update{
         color:gray;
         font-family:courier;
