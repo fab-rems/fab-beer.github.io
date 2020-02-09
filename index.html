@@ -51,9 +51,11 @@ redirect_from:
             </section>
         </div>
     </div>
+    {% assign fullcans = "sqp:bf" | split: ':' %}
     <div class="can-gallery d-md-flex d-none">
         <div class="can-list">
             {% for can in site.cans %}
+            {% if  fullcans  contains can.code %}
             <div class="can">
                 <a href= "/cans/{{can.code}}"> 
                     <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
@@ -63,17 +65,21 @@ redirect_from:
                     <img src="/assets/canart/cans_{{ can.code }}_wide_can.png"/>
                 </div>
             </div>
+            {% endif %}
             {% endfor %}    
         </div>
     </div>
     
     <div class="can-gallery-mobile d-md-none">
+
         {% for can in site.cans %}
+        {% if  fullcans  contains can.code %}
         <div class="row">
             <div class="can can-stretch col-xs-12">
                 <img  class="main" src="/assets/canart/cans_{{ can.code }}_art.png" />
             </div>
         </div>
+        {% endif %}
         {% endfor %}    
     </div>
     
@@ -160,27 +166,15 @@ redirect_from:
         
         
         {% for can in site.cans %}
+        {% if  fullcans contains can.code %}
         <div class="chapter"></div>
         {% include can_info_template.html %}
         <p>...Learn more about <a href="/cans/{{can.code}}"><em class="fancy {{can.code}}-text text-upper">{{can.name}}</em></a> and fund Baby Dictator balloons with <b>{{can.merch_types}}</b>, <a href="/cans/{{can.code}}">HERE</a>!</p>
+        {% endif %}
         {% endfor %}
         
         
         
-        
-        <h3  class="chapter" id="reach-goal-medusa-balloon">REACH GOAL: MEDUSA BALLOON</h3>
-        <p><img src="/assets/story/medusa_with_ruler_bw@0,25x.png" alt="Medusa With Ruler" class="img-responsive image image-medusa-ruler" /></p>
-        
-        <p>MEDUSA BALLOON is the mascot for this series. It was imagined by Adam O’Day who is also an artist of <em class="bf-text fancy">BALLOON FACTORY</em>, the first baby dictator. We are not sure how to fabricate MEDUSA BALLOON, as the shape is outrageously complicated. A perfect MEDUSA BALLOON, would probably work like this guy:</p><br/>
-        
-        
-<iframe width="280" src="https://www.youtube.com/embed/jLdNObRoZpg" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<br/>
-
-If you have any advice for how we can achieve that effect, please email: <a href="mailto:fabrication-advice@fab.beer">fabrication-advice@fab.beer</a>
-
-<h1>STORE </h1>
-In addition to making balloons and beer, we also created a store where you can pick up cool gear for both FAB and the <a href="/babydictators"><em class="fancy bd-text">BABY DICTATORS PROJECT</em></a>. The store is launching on 12/3/2019. Check it out then.
 
 <h1>MAILING LIST</h1>
 Sign up for our mailing list!
