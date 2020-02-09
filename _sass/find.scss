@@ -71,7 +71,7 @@ body.page-find{
         color:white;
         font-weight:bold;
         display: block;
-        max-width: 25em;
+        max-width: 30em;
         white-space: normal;
             margin-bottom: 10px;
     border: 2px solid white;
@@ -87,7 +87,14 @@ body.page-find{
         color:gray;
         font-family:courier;
         font-size:80%;
+        
     }
+#location-update.clickable{
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+
     #enable-location{
 
         height: 2em;
@@ -102,6 +109,15 @@ body.page-find{
         text-decoration: underline;
     }
 
+
+    .inactive{
+        color:lightgray;
+        input{
+            pointer-events:none;
+            color:lightgray !important;}
+
+
+    }
     .label-group.location{
         transform: translate(-100%, 0%);
         margin-left: -17px;
@@ -145,7 +161,7 @@ body.page-find{
             padding:5px;
             border:2px solid black;
             border-radius:10px;
-            width:25em;
+            width:30em;
             box-shadow:3px 3px 3px rgba(0, 0, 0, .2);
 
         }

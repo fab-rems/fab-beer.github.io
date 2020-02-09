@@ -107,6 +107,7 @@ offprem_svg = ` <svg id="gift" class="gift icon" height='100px' width='100px' xm
 var input = document.getElementById("venue-search");
 
 autocomplete({
+    showOnFocus:true,
 input: input,
 render:(item)=>{
 
@@ -137,7 +138,46 @@ fetch: function(text, update) {
     // you can also use AJAX requests instead of preloaded data
     var suggestions = []
 
+    console.log(text)
+    if (text.startsWith("geo:")){
+        latlng = /([\-\d\.]+)[^\-0-9]*([\-\d\.]+)[^\-0-9]*([\-\d\.]+)/.exec(text)
+        
+        lat = Number(latlng[1])
+        lng = Number(latlng[2])
+        threshold = Number(latlng[3])
+        console.log(threshold)
+        for (k in anchors){
+
+distfun = (e)=>((e.venue.lat  - lat)**2 +(e.venue.lng - lng)**2)**.5  ;
+a0 = anchors[k][0]
+
+
+console.log(a0)
+console.log(distfun(a0))
+console.log(lat,lng)
+console.log(a0.venue.lng -lng )
+found = anchors[k].filter(e=>distfun(e)<(threshold/30))
+if (found.length > 0){
+    suggestions = suggestions.concat(found.map((e)=>{return{value:e}}))
+}                
+}
+
+for (k in packy_anchors){
+  
+distfun = (e)=>((e.packy.lat  - lat)**2 +(e.packy.lng - lng)**2)**.5  ;
+found = packy_anchors[k].filter(e=>distfun(e)<(threshold/30))
+if (found.length > 0){
+    suggestions = suggestions.concat(found.map((e)=>{return{value:e}}))
+}            
+            
+}
+
+    } else{
+
+
+    
     for (k in anchors){
+
         strfun = (e)=>e.venue.venue_name + e.venue.venue_city + e.can.name;
         found = anchors[k].filter(e=>strfun(e).toLowerCase().includes(text))
         if (found.length > 0){
@@ -152,7 +192,7 @@ fetch: function(text, update) {
             suggestions = suggestions.concat(found.map((e)=>{return{value:e}}))
         }                
     }
-
+    }
     
    
    
@@ -167,15 +207,19 @@ onSelect: function(item) {
 </script>
 </span>
 
-<span class="label-group location">
+<span class="label-group location inactive">
     <input type="button" id="enable-location" class="location" value="🌍 FAB near me!"/>
-    <span class="location" id="location-update"></span>
+    <span class="location" id="location-update" onClick="getLocation">... searching</span>
 
 </span>
 
 
 <script>
     
+    $(document).on("click", "#location-update",(e)=>{
+        console.log("CLICKED");
+        getLocation()
+    });
     var x = document.getElementById("location-update");
     function getLocation() {
       if (navigator.geolocation) {
@@ -189,6 +233,7 @@ onSelect: function(item) {
       x.innerHTML = "(" +parseFloat(position.coords.latitude).toFixed(0)+"°N " + 
         parseFloat(position.coords.longitude).toFixed(0) + "°E" +")";
       window.user_location = position
+      $(".location").removeClass("inactive")
     }
     </script>
 
@@ -207,9 +252,15 @@ onSelect: function(item) {
             $("#show-onprem").trigger("change")
 
         },500))
-        $(document).on("change","#venue-search",(e)=>{
-            var t = $(e).currentTarget()
+
+        $(document).on("click", "#enable-location",(e)=>{
+            $("#venue-search").val("GEO: " +parseFloat(window.user_location.coords.latitude).toFixed(2)+"°N " + 
+        parseFloat(window.user_location.coords.longitude).toFixed(2) + "°E +" +"25mi");
+        $("#venue-search").trigger("change");
+        $("#venue-search").focus()
+
         })
+    
         $(document).on("change", "#show-onprem",(e)=>{
             var shown=  $(e.currentTarget).prop("checked")
             if(window.addType){shown ? addType("onprem") :releaseType("onprem")}
