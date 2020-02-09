@@ -9,6 +9,9 @@ ad_feature_id: '4405538553940'
 ad_feature_type: prints
 artist_id:
 - andy
+balloon_coef: '1.5'
+balloon_mass: '1'
+balloon_string_len: '1'
 beer_cat: ipa
 beer_style: IPA
 code: sqp
@@ -22,6 +25,7 @@ description: <em class="sqp-text fancy">SQUID PRO QUO</em> is the second can in 
   PRO QUO</em> in the artwork are alternate reality future Trumps who benefited from
   surfing lessons as kids and now live peacefully as professional surfers, riding
   the swells.</p>
+glassware: teku
 head_graphic: /assets/story/squid_head_only.png
 last_brewed: 12/4/2019
 layout: can

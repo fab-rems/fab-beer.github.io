@@ -1,3 +1,5 @@
+$onprem-color:blue;
+$offprem-color:#FF1493;
 .gm-style-iw{
 
 }
@@ -7,8 +9,170 @@
 
 body.page-find{
 
+    .label-group{
+        &.onprem{
+        .account-checkbox-label{
+            border-color:$onprem-color;}
+        }
+        &.offprem{
+          .account-checkbox-label{
+              border-color: $offprem-color;}
+        }
+    }
+    .glass{
+        fill:$onprem-color;
+        height:100%;
+    }
+
+    
+    .gift{
+        fill:$offprem-color;
+        height:100%;
+    }
+
+    form{
+        text-align:center;
+        display:inline-block;
+        white-space:nowrap;
+    label{margin-bottom:0px;}
+    }
+
+ 
+    .result{
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        .balloon{height:1.5em;
+        margin-left:.5em;
+     margin-right:.5em;}
+        &:hover{
+            background-color:lightgray;
+        }
+        svg{
+            height:1.5em;
+            width:1.5em;
+            padding-right:4px;
+            
+        }
+        display:block;
+        &.onprem{
+            .name{color:$onprem-color;}
+
+        }
+        &.offprem{
+            .name{color:$offprem-color;}
+        }
+        .city{
+            font-weight:bold;
+
+        }
+    }
+ 
+    #enable-location{
+
+        height: 2em;
+        text-align: center;
+        padding: 0px;
+        background-color: transparent;
+        text-align: center;
+        border: none;
+
+        color: blue;
+        text-decoration: underline;
+    }
+
+    .physics{
+        display:none;
+    }
+    .label-group{
+        vertical-align:top;
+        margin-right:5px;
+        display:inline-block;
+        input[type="checkbox"]{
+            display:none;
+        }
+        input:not(:checked)~label{
+            //filter:grayscale(100%) brightness(100%);
+            svg{fill:black}
+            border-style:dashed;
+            border-color:black;
 
 
+        }
+        input:checked~label{
+            border-style:solid;
+        }
+    }
+
+
+
+    &:not(.user-initialized) .find-hud-top{
+margin-top:50vh;
+    margin-top:50vh;
+    transform:translate(-50%, -50%);
+    bottom:auto;
+    input[type="search"]{
+        display:none;
+    }
+
+    }
+    .find-hud-top{
+        position:absolute;
+        left:50%;
+        top:50px;
+        transform:translate(-50%, 0%);
+
+        input[type="search"]{
+            border:2px solid black;
+            border-radius:10px;
+            width:30em;
+            box-shadow:3px 3px 3px rgba(0, 0, 0, .2);
+
+        }
+
+    }
+
+
+    &:not(.user-initialized) .find-hud-top  .account-checkbox-label{
+        padding:20px;
+        width:100px;
+        height:100px;
+        border-width:4px;
+    }
+
+
+    .account-checkbox-label{
+        padding:5px;
+        width:32px;
+        height:32px;
+        display:block;
+        
+
+        border-width:2px;
+        border-color:black;
+
+
+        background:rgba( 255, 255, 255, .2);
+        box-shadow:3px 3px 3px rgba(0, 0, 0, .2);
+
+        &:hover{
+            background:rgba( 255, 255, 255, .75)
+        }
+
+        .icon{
+            display:block;
+            margin-left:auto;
+            margin-right:auto;
+            max-width:100%;
+        }
+
+        cursor:pointer;
+        &:selected{
+            border:4px solid blue;
+        }
+        border-radius:10px;
+        background-color:rgba(255, 255, 255, .2);
+    }
 
         /* Always set the map height explicitly to define the size of the div
         * element that contains the map. */
@@ -31,6 +195,9 @@ body.page-find{
 
      .find-hud{
 
+
+
+        display:none; //TEMPORARY! BRING BACK WHEN DONE
             padding:10px;
             background-color:white;
             position:fixed;

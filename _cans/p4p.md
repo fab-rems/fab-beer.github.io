@@ -9,6 +9,9 @@ artist_id:
 - eftekhari
 - adam
 - hiya
+balloon_coef: '.5'
+balloon_mass: '1.5'
+balloon_string_len: '2'
 beer_cat: lager
 beer_style: pilsner
 code: p4p
@@ -22,6 +25,7 @@ description: American-style Pilsner, with subtle layers of Mandarina Bavaria and
   Participating breweries are invited to collaborate on this open recipe, and all
   they have to do is pay local artists a fair price to contribute to our global art
   series. For more information, check out fab.beer/p4p
+glassware: pilsner
 head_graphic: .nan
 last_brewed: 1/07
 layout: can-p4p

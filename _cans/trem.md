@@ -5,6 +5,9 @@ ad_feature_id: .nan
 ad_feature_type: .nan
 artist_id:
 - mars
+balloon_coef: '3'
+balloon_mass: '1'
+balloon_string_len: '2'
 beer_cat: ipa
 beer_style: new england IPA
 code: trem
@@ -18,6 +21,7 @@ description: New England Double IPA (9%), brimming with passionfruit, citrus & p
   flavor amplification. Adding hops during the height of fermentation and carefully
   controlling temperatures, we maximize hop aroma and gather natural CO2 in steel
   for flavorful, champagne-like effervescence, balanced flavor, and delicate sweetness.
+glassware: teku
 head_graphic: .nan
 last_brewed: 1/17
 layout: can-tremendous

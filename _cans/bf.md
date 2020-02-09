@@ -9,6 +9,9 @@ ad_feature_id: '4405832253524'
 ad_feature_type: artwork
 artist_id:
 - adam
+balloon_coef: '1'
+balloon_mass: '1'
+balloon_string_len: '1'
 beer_cat: ipa
 beer_style: SESSION IPA
 code: bf
@@ -19,6 +22,7 @@ description: "<em class=\"bf-text fancy\">BALLOON FACTORY</em> is the first can 
   \ a literal rendering of the subject and to tell a different story\u2026 the <em\
   \ class=\"bf-text fancy\">BALLOON FACTORY</em> is a pretty dark place, from which\
   \ the balloon escapes to greener pastures.</p>"
+glassware: teku
 head_graphic: /assets/story/just_peach.png
 last_brewed: 12/3/2019
 layout: can

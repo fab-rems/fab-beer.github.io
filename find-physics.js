@@ -55,6 +55,7 @@ function axisDist(k, min, max) {
 
 
 
+
 $(function(){
     
     var lng_factor = 510
@@ -74,17 +75,16 @@ $(function(){
 
 
     }
-    var default_cons_length =20
+    var default_cons_length =15
     var default_texture_scale = .25
 
     for( v of venue_beers){
         sorted_stations = _.sortBy(weather, (e)=>{return (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2})
         influences = _.map(sorted_stations.slice(0,3),(e)=>{return 1 / ( (Number(e.Lat) - Number(v.lat))**2+ (Number(e.Lon) - Number(v.lng))**2)})
-        console.log(influences)
         total = _.reduce(influences,(memo, num)=>{return memo + num})
 
 
-        console.log(total)
+
         wind_mags = _.reduce(_.map(sorted_stations.slice(0,3),(e,i)=>{
              return Number(e.speed) * influences[i] / total
         }), (memo, num)=>memo+num)
@@ -122,9 +122,6 @@ $(function(){
     var wind_attractor_func = function(bodyA, bodyB) {
         var zonal_factor = Math.pow((bodyA.position.y - bodyB.position.y) * 1e-3,2)*10
 
-        
-        //venue_id = /vid-\d*/.exec(bodyB.label)
-        //console.log(bodyB.category)
 
         if (bodyB.label == "particle"){
 
@@ -136,26 +133,23 @@ $(function(){
                     y:nearest.wind_y/1000}
 
         } else if(bodyB.label == "balloon"){
-
-            
-            //console.log(bodyB.venue)
-            //return null
-            // var v = bodyB.venue
-            // console.log(bodyB.v)
-            //hits = knn( tree, bodyB.lat, bodyB.lng, 3 )
-            //console.log(tree)
-            //console.log(knn(tree, Number(bodyB.venue.lat),Number(bodyB.venue.lng),5))
+            if(bodyB.venue){
 
             nearest = knn(tree, Number(bodyB.venue.lng),Number(bodyB.venue.lat),1)[0]
-
+        } else if (bodyB.packy){
+            nearest = knn(tree, Number(bodyB.packy.lng),Number(bodyB.packy.lat),1)[0]
+        } else{
+            return null
+        }
             // return {
             //     x: Math.cos(v.wind_deg / 180 * Math.PI)*v.wind_mag*.2, // * zonal_factor,
             //     y: Math.sin(v.wind_deg / 180 * Math.PI)*v.wind_mag*.2,
             // };
 
+            wind_coef = Number(bodyB.can.balloon_coef)
             return {
-                x: nearest.wind_x/1000, // * zonal_factor,
-                y: nearest.wind_y/1000,
+                x: nearest.wind_x/1000 * wind_coef, // * zonal_factor,
+                y: nearest.wind_y/1000 * wind_coef,
             };
         } else {return null}
 
@@ -187,12 +181,9 @@ $(function(){
 
     }
     window.zoomChanged = (e)=>{
-        //console.log("done")
         var p = window.physics;
-        //p.attractiveBody.plugin.attractors = [] 
 
         for( var item of window.physics.items){
-            //console.log(item.render.sprite)
             var m = window.map
 
             miles_per_pixel = 4**( (10 / m.zoom -1)) * 1
@@ -200,10 +191,11 @@ $(function(){
             var cons_scl = default_cons_length * 2**( (10 / m.zoom - 1))
 
 
+
             for (c of p.chains){
+                var current_can = p.item_can_lookup[c.id] 
                 for (e of c.constraints){
-                    //e.stiffness = ;
-                    e.length = cons_scl/3;
+                    e.length = cons_scl/3 * current_can.balloon_string_len;
 
                 }
             }
@@ -211,9 +203,6 @@ $(function(){
             item.render.sprite.yScale = pix_scl;
             item.render.sprite.xScale = pix_scl;
 
-            //console.log(item.render.sprite)
-            // console.log(e)
-            // last_event = e
         }
     }
 
@@ -232,7 +221,9 @@ $(function(){
         window.physics = {}
         window.physics.items = [];
         window.physics.chains = [];
-        
+        window.physics.item_can_lookup = {};
+        window.physics.chain_type_lookup ={};
+
         
         Matter.use('matter-attractors');
         Matter.use('matter-wrap');
@@ -285,7 +276,9 @@ $(function(){
 
         var overlay = window.overlay;
         var anchors = window.anchors;
+        var packy_anchors = window.packy_anchors;
         var screen_anchors = window.screen_anchors;
+        var packy_screen_anchors = window.packy_screen_anchors;
 
 
         for (k in anchors){    
@@ -311,6 +304,32 @@ $(function(){
                 screen_anchors[k].push(anchor_body)
             }
         }
+
+
+        for (k in packy_anchors){    
+            packy_screen_anchors[k] = []
+            for(v of packy_anchors[k]){
+                var anchor_body = Bodies.circle(
+                    (Number(v.lng))*lng_factor, 
+                    (Number(v.lat))*lat_factor, 
+                    1, 
+
+                    {
+                        label:"anchor",
+                    collisionFilter:{group:-1},
+                    isStatic:true,
+                    render: { 
+                        visible: false ,
+
+                    },
+                 }
+                )
+                 anchor_body.packy = v.packy
+                 anchor_body.can = v.can
+                packy_screen_anchors[k].push(anchor_body)
+            }
+        }
+        
         
         
         engine.world.gravity.y =1;
@@ -378,8 +397,6 @@ $(function(){
                      plugin: {
                     attractors: [
                         (bodyA, bodyB)=>{
-                            // console.log("B",bodyB.id)
-                            // console.log("Item", item.id)
                             if( bodyB.id ==item.id){ //bodyB.label=="balloon"){
                                 return         {
                                 x:0,
@@ -409,15 +426,15 @@ $(function(){
                 })
                 
 
-                window.physics.chains.push(  Composites.chain(
+                
+                var c = Composites.chain(
                     string,
                      0,
                      0,
                      0,
                      0, {
                     stiffness: .8,
-
-                    length:default_cons_length,
+                    length:default_cons_length * anchorBody.can.balloon_string_len,
                     collisionFilter:{group:-1},
                     render: { 
 
@@ -427,7 +444,11 @@ $(function(){
                         visible: string_visibility ,
                         strokeStyle: string_color,
                     },
-                }))
+                })
+                window.physics.item_can_lookup[c.id] = anchorBody.can;
+                window.physics.chain_type_lookup[c.id] = "onprem"
+                window.physics.chains.push( c)
+              
                 
                 Composite.add(
                     string,
@@ -455,6 +476,152 @@ $(function(){
                     World.add(world, anchorBody)
                     World.add(world, item)
                 }
+
+                //END CREATE ITEM
+
+        // create packy
+        const createPacky  = ({ length: stringLength, texture = '', anchorBody:anchorBody}) => {
+            //const group = Body.nextGroup(true)
+
+            
+
+            var string_visibility = true;
+            var stringX = anchorBody.position.x;
+            var stringY = anchorBody.position.y;
+
+            //define the stack of elements in the string
+            const string = Composites.stack(stringX+ stringLength, stringY, 5, 1,stringLength/4,stringLength/4, (x, y) =>
+            Bodies.circle(x, y, stringLength/10, {
+                collisionFilter:{group:-1},
+                label:"joint",
+                mass:4.0,
+                isStatic:false,
+                render: {
+                    strokeStyle: "orange",
+                    visible:false,
+                },
+            })
+            )
+
+            window.physics.string = string;
+
+
+        
+            const firstBody = string.bodies[0]
+            const lastBody = string.bodies[string.bodies.length - 1]
+
+
+
+                window.lastBody = lastBody
+
+
+            //anchor the item to the end of the string
+            const item = Bodies.circle(
+                lastBody.position.x+stringLength*2, lastBody.position.y, stringLength/4,
+                 {
+                    frictionAir: 0.1, 
+                    mass: 5,
+                    collisionFilter:{group:-1},
+                    label:"balloon",
+                    isStatic:false,
+                    render: {
+                        sprite: {
+                            texture: texture,
+                            xScale: default_texture_scale,
+                            yScale: default_texture_scale,
+                        },
+                    },
+                })
+                item.packy = anchorBody.packy
+                item.can = anchorBody.can
+                window.physics.items.push(item)
+
+    
+
+                var buoyancyAttractor = Bodies.circle(100, 100, stringLength/4, {
+                    isStatic:false ,
+                     plugin: {
+                    attractors: [
+                        (bodyA, bodyB)=>{
+                            if( bodyB.id ==item.id){ //bodyB.label=="balloon"){
+                                return         {
+                                x:0,
+                                y:-.02 * bodyB.can.balloon_mass,
+                            } } else { return  null}
+                        }
+                    ]
+                }
+                })
+                    World.add(world, buoyancyAttractor);
+
+                    
+
+                const itemConstraint = Constraint.create({
+                    bodyA: item,
+                    bodyB: lastBody,
+                    pointA: { x: 0, y: 1 },
+                    pointB: { x: 0, y: 0 },
+                    length:stringLength*2,
+                    render: {
+                        strokeStyle: string_color,
+                        visible:string_visibility,
+                        type:'line',
+                        lineWidth:.5,
+                        anchors:false,
+                    },
+                })
+                
+                var c = Composites.chain(
+                    string,
+                     0,
+                     0,
+                     0,
+                     0, {
+                    stiffness: .8,
+                    length:default_cons_length * anchorBody.can.balloon_string_len,
+                    collisionFilter:{group:-1},
+                    render: { 
+
+                        lineWidth:.5,
+                        anchors:false,
+                        type: 'line', 
+                        visible: string_visibility ,
+                        strokeStyle: string_color,
+                    },
+                })
+                window.physics.item_can_lookup[c.id] = anchorBody.can;
+                window.physics.chain_type_lookup[c.id] = "offprem"
+                window.physics.chains.push( c)
+              
+
+
+                Composite.add(
+                    string,
+                    Constraint.create({
+                        bodyA: anchorBody,
+                        bodyB: firstBody,
+                        pointA: { x: 0, y: 0 },
+                        pointB: { x: firstBody.bounds.min.x - firstBody.position.x, y:0},
+                        stiffness: 0.75,
+                        damping:.25,
+                        length:stringLength,
+                        render: {
+                            strokeStyle: string_color,
+                            visible:string_visibility,
+                            type:'line',
+                        lineWidth:.5,
+                        anchors:false,
+                        },
+                    })
+                    )
+                    
+                    World.add(world, string)
+
+                    World.add(world, itemConstraint)
+                    World.add(world, anchorBody)
+                    World.add(world, item)
+                }
+                //END CREATE PACKY
                 
                 // sun
 
@@ -477,23 +644,7 @@ $(function(){
                 
 
          
-                first_anchor = null
-                for (nm in screen_anchors){
-                    anchors = screen_anchors[nm]
-                    for (v of anchors){
-                        if (! first_anchor){
-                            first_anchor = v;
-                        }
-                    
-                                
-                        createItem({
-                            anchorBody:v,
-                            length: 10,
-                            texture: `/assets/balloons/small-heads_${nm}.png`,
-                        })
-                    }
-                }
-
+  
             
                 for (var i = 0 ; i < 5; i++){
 
@@ -532,6 +683,7 @@ $(function(){
                 World.add(world,body)
 
             }
+            
         
 
                                 //create a body with an attractor
@@ -569,6 +721,63 @@ $(function(){
                     })
                     World.add(world, mouseContraint)
                     Runner.run(runner, engine)
+
+
+
+                    function addType(typename){
+                    if(typename=="onprem"){
+                        first_anchor = null
+                        for (nm in screen_anchors){
+                            anchors = screen_anchors[nm]
+                            for (v of anchors){
+                                if (! first_anchor){
+                                    first_anchor = v;
+                                }
+                            
+                                        
+                                createItem({
+                                    anchorBody:v,
+                                    length: 10,
+                                    texture: `/assets/balloons/small-heads_${nm}.png`,
+                                })
+                                                         
+                 
+                            }
+                        }
+                    } else{
+                        first_anchor_p = null;
+                        for (nm_p in packy_screen_anchors){
+                            panchors = packy_screen_anchors[nm_p]
+                            for(v of panchors){
+                                if(!first_anchor_p){
+                                    first_anchor_p = v;
+                                }
+                                createPacky({
+                                    anchorBody:v,
+                                    length: 10,
+                                    texture: `/assets/balloons/small-heads_${nm_p}.png`,
+                                })
+                            }
+                        }
+                    }
+        
+
+                    }
+
+                    // addType("onprem")
+                    // addType("offprem")
+                    function releaseType(typename){ 
+                        for (c of physics.chains){
+                            var type = window.physics.chain_type_lookup[c.id]
+                            if (type==typename){
+                                Matter.Composite.remove(world,c)
+                            }
+                        }
+                    }
+                    this.window.releaseType=releaseType;
+                    this.window.addType=addType;
+                    
+
                     //Render.run(engine.render)
                     
                 }
