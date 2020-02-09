@@ -326,7 +326,8 @@ function getGlassware(name){
         window.packy_anchors =packy_anchors;
 
         google.maps.event.addListenerOnce(_map, 'idle', function(){
-                    window.createPhysics();
+            //TEMPORARILY DISABLES BALLOON PHYSICS        
+            //window.createPhysics();
                     google.maps.event.addListener(_map,'bounds_changed', function(){
                         window.updateBounds();
                     })

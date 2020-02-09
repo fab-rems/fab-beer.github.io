@@ -87,9 +87,9 @@ body.page-find{
         text-decoration: underline;
     }
 
-    // .physics{
-    //     display:none;
-    // }
+    .physics{
+        display:none;
+    }
     .label-group.location{
         transform: translate(-100%, 0%);
         margin-left: -17px;
@@ -116,16 +116,12 @@ body.page-find{
 
 
 
-    &:not(.user-initialized) .find-hud-top{
-margin-top:50vh;
-    margin-top:50vh;
-    transform:translate(-50%, -50%);
-    bottom:auto;
-    input[type="search"]{
-        display:none;
-    }
-
-    }
+.filters{
+    display:block;
+    position:absolute;
+    top: 100%;
+    margin-top: .5em;
+}
     .find-hud-top{
         position:absolute;
         left:50%;
@@ -145,12 +141,6 @@ margin-top:50vh;
     }
 
 
-    &:not(.user-initialized) .find-hud-top  .account-checkbox-label{
-        padding:20px;
-        width:100px;
-        height:100px;
-        border-width:4px;
-    }
 
 
     .account-checkbox-label{
