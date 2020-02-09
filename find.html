@@ -155,7 +155,7 @@ onSelect: function(item) {
 </span>
 
 <span class="label-group location">
-    <input type="button" id="enable-location" class="location" value="🌍 Show FAB near me!"/>
+    <input type="button" id="enable-location" class="location" value="🌍 FAB near me!"/>
     <span class="location" id="location-update"></span>
 
 </span>
@@ -173,8 +173,8 @@ onSelect: function(item) {
     }
     
     function showPosition(position) {
-      x.innerHTML = "(" +parseFloat(position.coords.latitude).toFixed(2)+"°N " + 
-        parseFloat(position.coords.longitude).toFixed(2) + "°E" +")";
+      x.innerHTML = "(" +parseFloat(position.coords.latitude).toFixed(0)+"°N " + 
+        parseFloat(position.coords.longitude).toFixed(0) + "°E" +")";
       window.user_location = position
     }
     </script>
