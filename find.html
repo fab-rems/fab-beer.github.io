@@ -19,7 +19,7 @@ crossorigin="anonymous"
 
 <script src="https://cdn.jsdelivr.net/npm/matter-wrap@0.2.0/build/matter-wrap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/matter-attractors@0.1.6/build/matter-attractors.min.js"></script>
-
+<script type="text/javascript" src="/find-physics.js" ></script>
 <script type="text/javascript" src="/find.js" ></script>
 
 
@@ -206,13 +206,13 @@ onSelect: function(item) {
         })
         $(document).on("change", "#show-onprem",(e)=>{
             var shown=  $(e.currentTarget).prop("checked")
-            shown ? addType("onprem") :releaseType("onprem")
+            if(window.addType){shown ? addType("onprem") :releaseType("onprem")}
             $.each(_markers,(i,m)=>{ if (m.venue){ m.setVisible(shown)}})
          })
 
         $(document).on("change", "#show-offprem",(e)=>{
             var shown=  $(e.currentTarget).prop("checked")
-            shown ? addType("offprem") :releaseType("offprem")
+            if(window.addType){shown ? addType("offprem") :releaseType("offprem")}
             $.each(_markers,(i,m)=>{ if (m.packy){ m.setVisible(shown)}})
                 
         })

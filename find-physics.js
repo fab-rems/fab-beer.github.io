@@ -120,6 +120,7 @@ $(function(){
     window.wind_direction = 0
 
     var wind_attractor_func = function(bodyA, bodyB) {
+
         var zonal_factor = Math.pow((bodyA.position.y - bodyB.position.y) * 1e-3,2)*10
 
 
@@ -231,7 +232,12 @@ $(function(){
         const { Bodies, Body, Composite, Composites, Constraint, Engine, Mouse, MouseConstraint, Render, Runner, World } = Matter
 
         
-        const runner = Runner.create()
+        const runner = Runner.create({
+    delta: 1000 / 10,
+    isFixed: false,
+    enabled: true,
+
+        })
 
 
         xmin = ( window.map.getBounds().getSouthWest().lng() )*lng_factor
@@ -339,12 +345,12 @@ $(function(){
             //const group = Body.nextGroup(true)
 
 
-            var string_visibility = true;
+            var string_visibility = false;
             var stringX = anchorBody.position.x;
             var stringY = anchorBody.position.y;
 
             //define the stack of elements in the string
-            const string = Composites.stack(stringX+ stringLength, stringY, 5, 1,stringLength/4,stringLength/4, (x, y) =>
+            const string = Composites.stack(stringX+ stringLength, stringY, 3, 1,stringLength/4,stringLength/4, (x, y) =>
             Bodies.circle(x, y, stringLength/10, {
                 collisionFilter:{group:-1},
                 label:"joint",
@@ -373,7 +379,7 @@ $(function(){
             const item = Bodies.circle(
                 lastBody.position.x+stringLength*2, lastBody.position.y, stringLength/4,
                  {
-                    frictionAir: 0.1, 
+                    frictionAir: 0.05, 
                     mass: 5,
                     collisionFilter:{group:-1},
                     label:"balloon",
@@ -490,7 +496,7 @@ $(function(){
             var stringY = anchorBody.position.y;
 
             //define the stack of elements in the string
-            const string = Composites.stack(stringX+ stringLength, stringY, 5, 1,stringLength/4,stringLength/4, (x, y) =>
+            const string = Composites.stack(stringX+ stringLength, stringY, 3, 1,stringLength/4,stringLength/4, (x, y) =>
             Bodies.circle(x, y, stringLength/10, {
                 collisionFilter:{group:-1},
                 label:"joint",
@@ -519,7 +525,7 @@ $(function(){
             const item = Bodies.circle(
                 lastBody.position.x+stringLength*2, lastBody.position.y, stringLength/4,
                  {
-                    frictionAir: 0.1, 
+                frictionAir: 0.1, 
                     mass: 5,
                     collisionFilter:{group:-1},
                     label:"balloon",
@@ -652,7 +658,7 @@ $(function(){
                     xmin+ (xmax - xmin)*Math.random(), 
                     ymin+ (ymax - xmin)*Math.random() ,
                     2, {
-                    frictionAir: 0.6, 
+                    frictionAir: 0.4, 
                     mass:.25,
                     label:"particle",
                     render:{
