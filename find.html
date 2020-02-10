@@ -215,7 +215,7 @@ onSelect: function(item) {
 
 <span class="label-group location inactive">
     <input type="button" id="enable-location" class="location" value="🌍 FAB near me!"/>
-    <span class="location" id="location-update" onClick="getLocation">... searching</span>
+    <span class="location" id="location-update">... searching</span>
 
 </span>
 
@@ -228,14 +228,33 @@ onSelect: function(item) {
     });
     var x = document.getElementById("location-update");
     function getLocation() {
+
       if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition
+        , function(error) {         
+            console.log(error)  
+        //  switch(error.code) {
+        //    case error.PERMISSION_DENIED:
+        //      result.innerHTML = "Denied request for Geolocation."
+        //      break;
+        //    case error.POSITION_UNAVAILABLE:
+        //      result.innerHTML = "Location unavailable."
+        //      break;
+        //   case error.TIMEOUT:
+        //      result.innerHTML = "Location request timed out." 
+        //      break;
+        //   case error.UNKNOWN_ERROR:
+        //      result.innerHTML = "An unknown error occurred."
+        //      break;
+        //  }
+       }, { timeout: 1000, maximumAge: 1000 }); 
       } else {
         x.innerHTML = "Geolocation is not supported by this browser.";
       }
     }
     
     function showPosition(position) {
+        console.log("HELLO!")
       x.innerHTML = "(" +parseFloat(position.coords.latitude).toFixed(0)+"°N " + 
         parseFloat(position.coords.longitude).toFixed(0) + "°E" +")";
       window.user_location = position
