@@ -7,6 +7,9 @@ $offprem-color:#FF1493;
 
 body.page-find{
 
+    &.noballoons{
+.physics{display:none;}
+    }
     .label-group{
         &.onprem{
         .account-checkbox-label{
@@ -170,7 +173,16 @@ body.page-find{
 
 
 
+.noballoons{
+    label{
+        padding:5px;
+        //border:0px;
+        opacity:.4;
+    }
+    svg#noballoon{
 
+    }
+}
     .account-checkbox-label{
         padding:.5em;
         width:2.5em;

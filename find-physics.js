@@ -780,9 +780,22 @@ $(function(){
                             }
                         }
                     }
+                    function pauseEngine(do_pause){
+                        if(do_pause){
+                            // engine.enabled=false
+console.log("PAUSING")
+                            Runner.stop(runner,engine) ///Matter.Runner.stop(runner)
+                        } else{
+                            //engine.enabled = true;
+                            Runner.run(runner,engine)//Matter.Runner.start(engine)
+                        }
+                    }
                     this.window.releaseType=releaseType;
                     this.window.addType=addType;
+                    this.window.pauseEngine = pauseEngine;
                     
+
+
 
                     //Render.run(engine.render)
                     
