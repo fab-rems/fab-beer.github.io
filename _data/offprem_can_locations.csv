@@ -1,34 +1,75 @@
 ,company,city,instagram,lat,lng,feb,p4p,tremendous
-0,Craft Beer Cellar - Westford,Westford,cbc_westford,42.569300399999996,-71.4184302,Y,2/14/2020,2/14/2020
-1,Craft Beer Cellar - Belmont,Belmont,cbc_belmont,42.39731939999999,-71.1752308,Y,2/14/2020,2/14/2020
-2,Fenway Beer Shop,Boston,fenwaybeershop,42.3453258,-71.09850209999999,Y,2/14/2020,2/14/2020
-3,Craft Beer Cellar - Norfolk,Norfolk,cbc_norfolk,42.0906222,-71.29659090000001,Y,2/14/2020,2/14/2020
-4,Crafted - The Alcohol Enthusiast,Holliston,crafted_ma,42.2114245,-71.4246719,Y,2/14/2020,2/14/2020
-5,Liquor Junction - Reading,Reading,liquorjunction,42.51907429999999,-71.09823879999999,Y,2/14/2020,2/14/2020
-6,High Spirits Liquors (Kim Rich Inc),Providence,highspiritsliquors,41.8365572,-71.4096113,Y,2/14/2020,2/14/2020
-7,Vinnin Square Liquors,Swampscott,vinninliquors,42.479926899999995,-70.9038698,Y,2/14/2020,2/14/2020
-8,Ball Square Fine Wines,Somerville,ballsqfinewines,42.399845899999995,-71.11249570000001,Y,2/14/2020,2/14/2020
-9,Craft Beer Cellar - Newton,Newton,cbc_newton,42.350336999999996,-71.20752900000001,Y,2/14/2020,2/14/2020
-10,Vinal Square Craft Beer House & Premium Liquors,North Chelmsford,vscraftbeerhouse,42.639579,-71.38357409999999,Y,2/14/2020,2/14/2020
-11,Redstone Liquors - Stoneham,Stoneham,redstoneliquors,42.49495,-71.1031067,Y,2/14/2020,2/14/2020
-12,Luke's Beer & Wine - Palmer,Palmer,,42.158983,-72.33267099999999,Y,2/14/2020,2/14/2020
-13,Cambridge Spirits,Cambridge,cambridgespirits,42.363170700000005,-71.083042,Y,2/14/2020,2/14/2020
-14,Muckey's Liquors,Lakeville,muckeysliquors,41.9013153,-70.9819949,Y,2/14/2020,2/14/2020
+0,Post Road Liquors,Wayland,postroadfinewine,42.3614741,-71.3341068,Y,2/14/2020,2/14/2020
+1,Eataly Cantina,Boston,eatalyboston,42.346515999999994,-71.08385,Y,2/14/2020,2/14/2020
+2,Kappy's - Medford,Medford,,42.4054287,-71.08072709999999,Y,2/14/2020,2/14/2020
+3,Idylwilde Farms,Acton,idylwildefarm,42.4836402,-71.47790909999999,Y,2/14/2020,2/14/2020
+4,Kappy's - Malden (Rte 1 Bennett Highway),,,42.4439369,-71.02529270000001,Y,2/14/2020,2/14/2020
+5,Kappy's - Peabody,,,42.543097700000004,-70.9408873,Y,2/14/2020,2/14/2020
+6,Bridge Liquors (KRG Enterprises),Newport,bridgeliquors,41.5001714,-71.3167941,Y,2/14/2020,2/14/2020
+7,Inman Square Wine & Spirits,Cambridge,inmansquarewinenspirits,42.373145799999996,-71.0978276,Y,2/14/2020,2/14/2020
+8,Pemberton Farms,Cambridge,pembertonfarms,42.3938285,-71.12577309999999,Y,2/14/2020,2/14/2020
+9,Craft Beer Cellar - Norfolk,Norfolk,cbc_norfolk,42.0906222,-71.29659090000001,Y,2/14/2020,2/14/2020
+10,Ted's Package Store,,teds_packies,42.1457076,-71.9890023,Y,2/14/2020,2/14/2020
+11,Sudbury Craft Beer,Sudbury,sudbury_craft,42.36124039,-71.41603851,Y,2/14/2020,2/14/2020
+12,The Beer Shop,Longmeadow,thebeershop,42.080611299999994,-72.5294028,Y,2/14/2020,2/14/2020
+13,Luke's Beer & Wine - Palmer,Palmer,,42.158983,-72.33267099999999,Y,2/14/2020,2/14/2020
+14,Atkins Farms Country Market,Amherst,atkinsfarmsmarket,42.319221999999996,-72.52916409999999,Y,2/14/2020,2/14/2020
 15,Boston Wine Exchange,Boston,bostonwineexchange,42.3560315,-71.0575516,Y,2/14/2020,2/14/2020
 16,American Provisions Dorchester,Dorchester,americanprovisions,42.2833079,-71.0650652,Y,2/14/2020,2/14/2020
 17,Essex Wine Exchange,Essex,essexwineexchng,42.631221999999994,-70.77731,Y,2/14/2020,2/14/2020
-18,Burlington Wine & Spirits,Burlington,burlingtonwineandspirits,42.4703924,-71.20839720000001,Y,2/14/2020,2/14/2020
-19,Howes Station Market,,howesstationmarket,42.5958387,-70.99248829999999,Y,,
-20,Wang's Liquors,Amesbury,wangsliquors,42.8568841,-70.9329923,Y,,
-21,Empire Wine and Spirits (VMO Associates),,empirebeerdept,42.010273600000005,-70.734538,Y,,
-22,Redstone Liquors - Andover,Andover,redstoneliquors,42.6540409,-71.1391042,Y,,
-23,Needham Center Fine Wines (Lianos Liquors Inc),Needham,ncfwma,42.280488299999995,-71.23708990000002,Y,,
-24,Perk's Beer and Beverage,,perksbeerandbeveragemaine,43.6012375,-70.369309,Y,,
-25,Depot Liquors,Beverly,depotliquors,42.585316,-70.884198,Y,,
-26,The Umbrella Factory,,store_ufo,43.9701278,-70.5927672,Y,,
-27,Craft Beer Cellar - Plymouth,,cbc_plymouth,41.9563969,-70.66424690000001,Y,,
-28,Ted's Package Store,,teds_packies,42.1457076,-71.9890023,Y,,
-29,Dion's Newton,,dionscraftbeer,42.35952329999999,-71.20245179999999,Y,,
-30,Dion's - Woburn,,,42.4824551,-71.150533,Y,,
-31,Dion's - River St,,,42.369812200000005,-71.2203366,Y,,
-32,Jerry's Liquors,Somerville,jerrys_liquors,42.3807573,-71.0977009,Y,,
+18,Leary's Fine Wines - Newburyport,Newburyport,learysfinewines,42.815751,-70.8790932,Y,2/14/2020,2/14/2020
+19,Liquor Junction - Reading,Reading,liquorjunction,42.51907429999999,-71.09823879999999,Y,,
+20,Andover Classic Wines,Andover,andoverclassicwines,42.665232,-71.1440379,Y,,
+21,Vinnin Square Liquors,Swampscott,vinninliquors,42.479926899999995,-70.9038698,Y,,
+22,One Stop Market,Haverhill,onestophaverhill,42.7848963,-71.1273466,Y,,
+23,Vinal Square Craft Beer House & Premium Liquors,North Chelmsford,vscraftbeerhouse,42.639579,-71.38357409999999,Y,,
+24,Redstone Liquors - Stoneham,Stoneham,redstoneliquors,42.49495,-71.1031067,Y,,
+25,Burlington Wine & Spirits,Burlington,burlingtonwineandspirits,42.4703924,-71.20839720000001,Y,,
+26,Wang's Liquors,Amesbury,wangsliquors,42.8568841,-70.9329923,Y,,
+27,Depot Liquors,Beverly,depotliquors,42.585316,-70.884198,Y,,
+28,Liquor Junction - Woburn,Woburn,liquorjunctionwoburn,42.4984584,-71.1244245,Y,,
+29,High Spirits Liquors (Kim Rich Inc),Providence,highspiritsliquors,41.8365572,-71.4096113,Y,,
+30,Perk's Beer and Beverage,,perksbeerandbeveragemaine,43.6012375,-70.369309,Y,,
+31,The Umbrella Factory,,store_ufo,43.9701278,-70.5927672,Y,,
+32,Craft Beer Cellar - Plymouth,,cbc_plymouth,41.9563969,-70.66424690000001,Y,,
+33,MV Wine & Spirits,Edgartown,m.v.wineandspirits,41.3870286,-70.608599,Y,,
+34,Kappy's - Hyannis,Hyannis,kappys,41.662258,-70.281515,Y,,
+35,Kappy's - Falmouth,Falmouth,,41.5576003,-70.5981199,Y,,
+36,Our Market,Oak Bluffs,ourmarketmv,41.458312299999996,-70.56235290000001,Y,,
+37,Spirited (International Beverage Center),Pittsfield,spiritedjimandjane,42.4013451,-73.26601600000001,Y,,
+38,O'Neil's Package Store,,,41.430346899999996,-71.48010079999999,Y,,
+39,Craft Beer Cellar - Westford,Westford,cbc_westford,42.569300399999996,-71.4184302,Y,,
+40,Craft Beer Cellar - Belmont,Belmont,cbc_belmont,42.39731939999999,-71.1752308,Y,,
+41,Fenway Beer Shop,Boston,fenwaybeershop,42.3453258,-71.09850209999999,Y,,
+42,Crafted - The Alcohol Enthusiast,Holliston,crafted_ma,42.2114245,-71.4246719,Y,,
+43,Craft Beer Cellar - Newton,Newton,cbc_newton,42.350336999999996,-71.20752900000001,Y,,
+44,Vinodivino Needham,Needham,vinodivino_needham,42.292737,-71.2348917,Y,,
+45,Muckey's Liquors,Lakeville,muckeysliquors,41.9013153,-70.9819949,Y,,
+46,Needham Center Fine Wines (Lianos Liquors Inc),Needham,ncfwma,42.280488299999995,-71.23708990000002,Y,,
+47,Bernier's Liquors,Bridgewater,berniersliquors,41.990165000000005,-70.94225809999999,Y,,
+48,Ball Square Fine Wines,Somerville,ballsqfinewines,42.399845899999995,-71.11249570000001,Y,,
+49,Cambridge Spirits,Cambridge,cambridgespirits,42.363170700000005,-71.083042,Y,,
+50,Jerry's Liquors,Somerville,jerrys_liquors,42.3807573,-71.0977009,Y,,
+51,Curtis Liquors - Cohasset,Cohasset,curtiscraftbeer,42.220523299999996,-70.8012658,Y,,
+52,Curtis Liquors - Weymouth,Weymouth,curtiscraftbeer,42.18092539999999,-70.97189449999999,Y,,
+53,Dion's - Woburn,Woburn,,42.4824551,-71.150533,Y,,
+54,Dion's - River St,Waltham,,42.369812200000005,-71.2203366,Y,,
+55,Howes Station Market,Middleton,howesstationmarket,42.5958387,-70.99248829999999,Y,,
+56,Empire Wine and Spirits (VMO Associates),,empirebeerdept,42.010273600000005,-70.734538,Y,,
+57,Redstone Liquors - Andover,Andover,redstoneliquors,42.6540409,-71.1391042,Y,,
+58,Dion's Newton,Newton,dionscraftbeer,42.35952329999999,-71.20245179999999,Y,,
+59,Porter Square Wine & Spirits (fka Liquor World),Somerville,portersqwine,42.3895046,-71.11835699999999,Y,,
+60,Wine and Cheese Cask,,thewineandcheesecask,42.378519,-71.1060981,Y,,
+61,Barrell & Vine,Cohasset,barrelandvinema,42.24279,-70.8355005,Y,,
+62,Boston Beer Alley,Boston,bostonbeeralley,42.3620534,-71.05704399999999,Y,,
+63,Kappy's - Danvers,,,42.5575876,-70.97108,Y,,
+64,Ryan and Casey Liquors,Greenfield,ryanncaseyliquors,42.587022,-72.607123,Y,,
+65,Vinodivino Newton,Newton,,,,Y,,
+66,Brewfest Beverage,Ludlow,,,,Y,,
+67,Stowe Public House,Stowe,,,,Y,,
+68,Craft Beer Cellar - Waterbury,Waterbury,,,,Y,,
+69,City Market/Onion River Coop - Downtown,Burlington,,,,Y,,
+70,Beverage Warehouse,Winooski,,,,Y,,
+71,Big Fatty's BBQ,White River Junction,,,,Y,,
+72,The Crowler Pit (w/in Fatty's BBQ),White River Junction,,,,Y,,
+73,Gordon's - Main St,Waltham,,42.3760784,-71.246912,Y,,
