@@ -271,6 +271,7 @@ onSelect: function(item) {
         $(window.setTimeout(()=>{
             
             getLocation()
+            $("#noballoons").prop("checked",true)
             $("#show-offprem").prop("checked",true)
             $("#show-onprem").prop("checked",true)
             $("#show-offprem").trigger("change")
