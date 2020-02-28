@@ -22,7 +22,7 @@ balloon_mass: '1'
 balloon_string_len: '1'
 beer_cat: ipa
 beer_style: IPA
-code: sqp
+code: spq
 collection_id: '156883058772'
 description: <em class="sqp-text fancy">SQUID PRO QUO</em> is the second can in the
   Baby Dictators series. It is created by artist / surfing teacher / oyster farmer

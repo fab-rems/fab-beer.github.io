@@ -13,7 +13,10 @@
 
           <ul class="beer-icon-list">
           {% for c in site.data.cans %}
+
+    {% if  fullcans contains can.code %}
             <li><a href="/{{c.code}}"><img src="/assets/balloons/small-heads_{{c.code}}.png"/></a></li>
+            {% endif %}
           {% endfor %}
 
 

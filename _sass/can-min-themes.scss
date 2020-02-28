@@ -1,0 +1,18 @@
+.can-min-themes{
+
+    .can-name{
+        text-transform: uppercase;
+        font-weight:bold;
+    }
+    .can-square-image{
+        img{
+        max-width:100%;
+        }
+    }
+.oneline{
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+
+}
+}

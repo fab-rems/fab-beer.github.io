@@ -1,4 +1,12 @@
 ---
+Benefits: .nan
+Collab: .nan
+NOTE: .nan
+Next Release Date: '2020-02-14'
+OPS Latest Next Packaging Date: '2020-02-04'
+OPS Planned Packaging Date: '2020-02-04'
+Quick Description: 2X NE IPA. Comic book space opera with Joey Mars. First NEIPA
+Vital Marketing Date: .nan
 abv: '9'
 ad_feature_html: .nan
 ad_feature_id: .nan
@@ -21,13 +29,15 @@ description: New England Double IPA (9%), brimming with passionfruit, citrus & p
   flavor amplification. Adding hops during the height of fermentation and carefully
   controlling temperatures, we maximize hop aroma and gather natural CO2 in steel
   for flavorful, champagne-like effervescence, balanced flavor, and delicate sweetness.
-glassware: teku
+glass: teku
 head_graphic: .nan
 last_brewed: 1/17
 layout: can-tremendous
 merch_types: glassware and Ts, coming soon
 name: Tremendous
-series: tremendous
+price_tier: '5'
+series:
+- tremendous
 statement: .nan
 text_description: New England Double IPA (9%), brimming with passionfruit, citrus
   & pineapple flavors of Mosaic hops. Biotransformed by vigorous fermentation with
@@ -40,5 +50,7 @@ text_description: New England Double IPA (9%), brimming with passionfruit, citru
   CO2 in steel for flavorful, champagne-like effervescence, balanced flavor, and delicate
   sweetness.
 untappd: https://untappd.com/b/fab-fermentation-arts-fabcans-tremendous/3657888
+web_date_available: '2020-02-14T00:00:00.000Z'
+web_release_program: rotating
 
 ---

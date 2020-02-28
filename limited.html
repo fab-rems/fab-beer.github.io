@@ -1,0 +1,58 @@
+---
+layout: default
+permalink: /limited
+id: limited
+name: Upcoming Limited-release drafts on rotating lines
+---
+
+<div class="container can-min-themes">
+
+<section id="limited" >
+    <h1>LIMITED RELEASES</h1>
+    <a href="/find#flagships">view on map</a>
+<div id="past-rotating-cans"></div>
+<div id="current-rotating-cans"><h3>Now on Draft</h3></div>
+<div id="upcoming-rotating-cans"><h3>Upcoming Limited Releases</h3></div>
+</section>
+
+<div class="flagships">
+    <h1>FLAGSHIPS</h1>
+    <a href="/find#flagships">view on map</a>
+    <div id="current-flagship-cans"><h3>Currently pouring</h3></div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+    const cans = window.cans;
+    for(var c of cans){
+        c.date=moment(c.web_date_available)
+    }
+    
+
+    $.each(_.sortBy(cans,(c)=>c.date),(i,can)=>{
+
+        console.log(can)
+        var target_list;
+        if(can.date > moment(new Date())){
+            if(can.web_release_program=="rotating"){
+                target_list = $("#upcoming-rotating-cans")
+            } else{
+                target_list = $("#current-flagship-cans")
+            }
+        } else{
+            target_list= $("#current-rotating-cans")
+        }
+        target_list.append(
+            $(
+`<div class="row">
+    <div class="col-md-2 offset-md-2"><span class="can-square-image"><img src="/assets/square/1x/${can.code}-square-80.jpg"/></span></div>
+    <div class="col-md-2"><span class="can-date">${can.date.format("YYYY-MM-DD")}</span></div>
+    <div class="col-md-6 oneline"><span class="can-name">${can.name}</span> <span class="can-style">${can.beer_style}</span> <span class="can-abv">${can.abv}</span></div>
+</div>`)
+    )})
+})
+</script>
+
+
+
+</div>

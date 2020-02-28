@@ -1,4 +1,13 @@
 ---
+Benefits: .nan
+Collab: .nan
+NOTE: .nan
+Next Release Date: '2020-02-14'
+OPS Latest Next Packaging Date: '2020-02-04'
+OPS Planned Packaging Date: '2020-02-04'
+Quick Description: Flagship, open-source pilsner. Created with several startup artists
+  to build an open world defined by the art.
+Vital Marketing Date: .nan
 abv: '5'
 ad_feature_html: .nan
 ad_feature_id: .nan
@@ -25,13 +34,16 @@ description: American-style Pilsner, with subtle layers of Mandarina Bavaria and
   Participating breweries are invited to collaborate on this open recipe, and all
   they have to do is pay local artists a fair price to contribute to our global art
   series. For more information, check out fab.beer/p4p
-glassware: pilsner
+glass: pilsner
 head_graphic: .nan
 last_brewed: 1/07
 layout: can-p4p
 merch_types: prints, sold by the artists
 name: Pilsner 4 Peace
-series: p4p
+price_tier: '1'
+series:
+- opensource
+- peace
 statement: .nan
 text_description: American-style Pilsner, with subtle layers of Mandarina Bavaria
   and Citra hops, created in partnership between brewers and international, activist
@@ -43,5 +55,7 @@ text_description: American-style Pilsner, with subtle layers of Mandarina Bavari
   they have to do is pay local artists a fair price to contribute to our global art
   series. For more information, check out fab.beer/p4p
 untappd: https://untappd.com/b/fab-fermentation-arts-fabcans-pilsner-4-peace-p4p/3657979
+web_date_available: '2020-02-14T00:00:00.000Z'
+web_release_program: flagship
 
 ---
