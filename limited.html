@@ -45,9 +45,11 @@ $(function(){
         target_list.append(
             $(
 `<div class="row">
-    <div class="col-md-2 offset-md-2"><span class="can-square-image"><img src="/assets/square/1x/${can.code}-square-80.jpg"/></span></div>
+    <div class="col-md-2"><span class="can-square-image"><img src="/assets/square/1x/${can.code}-square-80.jpg"/></span></div>
     <div class="col-md-2"><span class="can-date">${can.date.format("YYYY-MM-DD")}</span></div>
-    <div class="col-md-6 oneline"><span class="can-name">${can.name}</span> <span class="can-style">${can.beer_style}</span> <span class="can-abv">${can.abv}</span></div>
+    <div class="col-md-4 oneline"><span class="can-name">${can.name}</span> <span class="can-style">${can.beer_style}</span> <span class="can-abv">${can.abv}</span></div>
+    <div class="col-md-4"><span class="can-desc">${can.text_description}</span></div>
+
 </div>`)
     )})
 })
