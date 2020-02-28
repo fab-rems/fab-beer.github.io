@@ -736,7 +736,7 @@ $(function(){
                         for (nm in screen_anchors){
                             anchors = screen_anchors[nm]
                             for (v of anchors){
-                                if (Math.random() > 1){continue}
+                                if (Math.random() > .1){continue}
 
                                 if (! first_anchor){
                                     first_anchor = v;
@@ -757,7 +757,7 @@ $(function(){
                         for (nm_p in packy_screen_anchors){
                             panchors = packy_screen_anchors[nm_p]
                             for(v of panchors){
-                                if (Math.random() > 1 ){continue}
+                                if (Math.random() > .1 ){continue}
 
                                 if(!first_anchor_p){
                                     first_anchor_p = v;
