@@ -1,0 +1,31 @@
+---
+title: FAB People
+layout: default
+id: people
+style: main
+navbar: true
+---
+
+{% assign people_sorted = site.data.people | sort_by:"name" %}
+<h1><span class="fab fancy-text">FAB</span>PEOPLE</h1>
+<div class="collaborators col-md-8 offset-md-2"> 
+<div class="type-list">
+
+    <div class="row">
+
+    
+        {% for person in people_sorted %}
+        <div class="person col-md-4">
+                  <a href="{{person.link}}"><img src="{{person.webasset}}" /></a>
+                 <div>{{person.name}} ({{ person.type }})   </div> 
+                 <div class="bio">{{ person.bio | raw }}</div>
+                 <div>{% if person.email %} {{ person.email }} {% endif %}</div> 
+            </div>
+        {% endfor %}
+
+
+</div>
+</div>
+</div>
+
+<div class="footer"></div>
