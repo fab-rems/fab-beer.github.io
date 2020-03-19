@@ -1,0 +1,95 @@
+---
+title: FAB Package Stores
+layout: default
+id: support-our-friends
+style: main
+navbar: true
+---
+
+
+<style >
+    body{
+        background-image:url("/assets/img/cgc.png");
+        background-size:cover;
+        background-repeat:no-repeat;
+        background-position:50% 50%;
+    }
+    h1{
+        color:black !important;
+        letter-spacing: normal !important;
+    }
+    .overlay{
+        background-color:rgba(255, 255, 255, .8);
+        position:absolute;
+        left:0px;
+        right:0px;
+        top:0px;
+        bottom:0px;
+    }
+
+</style>
+
+<div class="overlay">
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="content">
+                <div class="title">
+                    <h1 class="l1">Support bars & restaurants</h1>
+                    <h2 class="l2">By advocating for MA legislation to allow take-away sales during the Covid 19 Crisis!</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/><br/>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="content">
+                <div class="title">
+                    <h2 class="l2">The plan: </h2>
+                    <p>Our favorite local bars and restaurants are suffering from 
+                        a completely unprecedented challenge to afford their costs and 
+                        pay staff during the current Covid 19 medical crisis. Understanding
+                        the current extreme circumstances, several states including NY and Maine
+                        have enacted emergency legislation in order to protect business owners
+                        and help them pay employees by letting on-premises establishments
+                        sell alcohol at their storefronts and via delivery to customers 
+                        to consume in their homes. 
+                    </p><p>Together with Somerville's rep 
+                    <b>Denise Provost</b> and our favorite establishments, FAB asks
+                    Governor Charlie Baker to sign an emergency executive order which
+                    will allow bars and restaurants to add delivery and take-away alcohol
+                    in closed containers to their menu, adding revenue to take-away orders 
+                    and helping to support staff and pay costs.
+                    </p>
+                    <p>For PRESS INQUIRIES and to learn how YOU PERSONALLY CAN HELP, please contact: ben@fab.beer</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <br/><br/>
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="content">
+                <div class="title">
+                    <h2 class="l2">List of establishments in support: </h2>
+                    <ul>
+                        {% for tg in site.data.togopoll %}
+                        <li>{{tg.name}}</li>
+                        {% endfor %}
+                    </ul>
+                    <div>And growing!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br/><br/>
+    <br/><br/>
+    <br/><br/>
+
+</div>
