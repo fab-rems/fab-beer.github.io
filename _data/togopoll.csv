@@ -1,19 +1,28 @@
-name,zipcode
-Avenue kitchen + bar,02144
-Christopher's Restaurant & Bar,02140
-Grendel's Den Restaurant and Bar,02138
-Semolina kitchen ,02155
-BARRA,02143
-Beat Brew Hall,02138
-"The Beehive, Beat Brew Hall, Cósmica ",02116
-Enricos Brick Oven Pizzeria ,01518
-City girl cafe,02139
-Red’s Speakeasy ,01226
-Sylvan Street Grille,01960
-Renegade's Pub,02128
-Short & Main,01930
-Mezze Bistro & Bar ,01267
-Goodstuff Smokehouse ,01504
-State park / cafe du pays/ Mamalehs ,02139
-Horse Thieves Tavern ,02026
-C.F. McCarthy's,02021
+name,zipcode,email
+Avenue kitchen + bar,02144,kennys@avenuesomerville.com
+Christopher's Restaurant & Bar,02140,dan@christopherscambridge.com
+Grendel's Den Restaurant and Bar,02138,kkuelzer@gmail.com
+Semolina kitchen ,02155,Beverages@semolinakitchen.com
+BARRA,02143,hola@barraunionsquare.com
+Beat Brew Hall,02138,Casey@beatbrewhall.com
+"The Beehive, Beat Brew Hall, Cósmica ",02116,jack@beehiveboston.com
+Enricos Brick Oven Pizzeria ,01518,Elizalicea@gmail.com
+City girl cafe,02139,Citygirlcatering@gmail.com
+Red’s Speakeasy ,01226,Redsspeakeasy@gmail.com
+Sylvan Street Grille,01960,ctremblay@sylvanstreetgrille.com
+Renegade's Pub,02128,Kcdaly8@gmail.com
+Short & Main,01930,shortandmain@gmail.com
+Mezze Bistro & Bar ,01267,nancy@mezzeinc.com
+Goodstuff Smokehouse ,01504,Goodstuffconcessions@gmail.com
+State park / cafe du pays/ Mamalehs ,02139,heathermojer@gmail.com
+Horse Thieves Tavern ,02026,Michelle@horsethievestavern.com
+C.F. McCarthy's,02021,cfmccarthys2018@gmail.com
+Warren Tavern,02129,Thomas@superiordininggroup.com
+Tavern  on the hill ,01027,Amy@tavernonline.com 
+Brighton Bodega,02135,Thomas@superiordininggroup.com
+Devlins Restaurant,02135,Thomas@superiordininggroup.com
+Porter Bellys,02135,Thomas@superiordininggroup.com
+Barlow’s Restaurant,02210,Thomas@superiordininggroup.com
+Copper House Tavern,02451,Thomas@superiordininggroup.com
+Orleans Restaurant,02144,Thomas@superiordininggroup.com
+hop + grind,,
