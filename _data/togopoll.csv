@@ -1,32 +1,37 @@
-name,zipcode,email
-Avenue kitchen + bar,02144,kennys@avenuesomerville.com
-Christopher's Restaurant & Bar,02140,dan@christopherscambridge.com
-Grendel's Den Restaurant and Bar,02138,kkuelzer@gmail.com
-Semolina kitchen ,02155,Beverages@semolinakitchen.com
-BARRA,02143,hola@barraunionsquare.com
-Beat Brew Hall,02138,Casey@beatbrewhall.com
-"The Beehive, Beat Brew Hall, Cósmica ",02116,jack@beehiveboston.com
-Enricos Brick Oven Pizzeria ,01518,Elizalicea@gmail.com
-City girl cafe,02139,Citygirlcatering@gmail.com
-Red’s Speakeasy ,01226,Redsspeakeasy@gmail.com
-Sylvan Street Grille,01960,ctremblay@sylvanstreetgrille.com
-Renegade's Pub,02128,Kcdaly8@gmail.com
-Short & Main,01930,shortandmain@gmail.com
-Mezze Bistro & Bar ,01267,nancy@mezzeinc.com
-Goodstuff Smokehouse ,01504,Goodstuffconcessions@gmail.com
-State park / cafe du pays/ Mamalehs ,02139,heathermojer@gmail.com
-Horse Thieves Tavern ,02026,Michelle@horsethievestavern.com
-C.F. McCarthy's,02021,cfmccarthys2018@gmail.com
-Warren Tavern,02129,Thomas@superiordininggroup.com
-Tavern  on the hill ,01027,Amy@tavernonline.com 
-Brighton Bodega,02135,Thomas@superiordininggroup.com
-Devlins Restaurant,02135,Thomas@superiordininggroup.com
-Porter Bellys,02135,Thomas@superiordininggroup.com
-Barlow’s Restaurant,02210,Thomas@superiordininggroup.com
-Copper House Tavern,02451,Thomas@superiordininggroup.com
-Orleans Restaurant,02144,Thomas@superiordininggroup.com
-hop + grind,,
-hope & olive restaurant ,01301,jim@hopeandolive.com
-Za Arlington ,02474,jbroadman@gmail.com
-Wit’s End,02139,harrison@witsendbar.com
-Za and EVOO,02142,steve@zarestaurant.com
+Timestamp,Do you support legislation allowing bars & restaurants to sell alcohol TO-GO?,Your Establishment's Name:,Optional: Your email,Optional: What is your zip code?,Optional: Should we update you when and if To-Go legislation passes?,Optional: Your name,Optional: Press or Legislative contacts
+3/19/2020 10:42:15,Yes,,,,,,
+3/19/2020 14:03:29,Yes,Avenue kitchen + bar,kennys@avenuesomerville.com,02144,Yes,,
+3/19/2020 14:05:40,Yes,Christopher's Restaurant & Bar,dan@christopherscambridge.com,02140,Yes,,
+3/19/2020 14:40:27,Yes,Grendel's Den Restaurant and Bar,kkuelzer@gmail.com,02138,Yes,,
+3/19/2020 15:23:20,Yes,Semolina kitchen ,Beverages@semolinakitchen.com,02155,Yes,,
+3/19/2020 15:45:52,Yes,BARRA,hola@barraunionsquare.com,02143,Yes,,
+3/19/2020 15:59:27,Yes,Beat Brew Hall,Casey@beatbrewhall.com,02138,Yes,,
+3/19/2020 16:04:29,Yes,"The Beehive, Beat Brew Hall, Cósmica ",jack@beehiveboston.com,02116,Yes,,
+3/19/2020 16:06:31,Yes,Enricos Brick Oven Pizzeria ,Elizalicea@gmail.com,01518,Yes,,
+3/19/2020 16:23:28,Yes,City girl cafe,Citygirlcatering@gmail.com,02139,Yes,,
+3/19/2020 16:39:21,Yes,Red’s Speakeasy ,Redsspeakeasy@gmail.com,01226,Yes,,
+3/19/2020 16:50:23,Yes,Sylvan Street Grille,ctremblay@sylvanstreetgrille.com,01960,Yes,,
+3/19/2020 16:59:12,Yes,Renegade's Pub,Kcdaly8@gmail.com,02128,Yes,,
+3/19/2020 17:01:06,Yes,Short & Main,shortandmain@gmail.com,01930,Yes,,
+3/19/2020 17:16:45,Yes,Mezze Bistro & Bar ,nancy@mezzeinc.com,01267,Yes,,
+3/19/2020 17:50:00,Yes,Goodstuff Smokehouse ,Goodstuffconcessions@gmail.com,01504,Yes,,
+3/19/2020 18:01:08,Yes,State park / cafe du pays/ Mamalehs ,heathermojer@gmail.com,02139,Yes,,
+3/19/2020 18:15:37,Yes,Horse Thieves Tavern ,Michelle@horsethievestavern.com,02026,Yes,,
+3/19/2020 18:16:31,Yes,C.F. McCarthy's,cfmccarthys2018@gmail.com,02021,Yes,,
+3/19/2020 21:32:34,Yes,Warren Tavern,Thomas@superiordininggroup.com,02129,Yes,Thomas Devlin,Dan.Ryan@mahouse.gov
+3/19/2020 21:32:53,Yes,Tavern  on the hill ,Amy@tavernonline.com ,01027,Yes,Amy Guyette ,
+3/19/2020 21:36:04,Yes,Brighton Bodega,Thomas@superiordininggroup.com,02135,Yes,Thomas Devlin,Kevin.Honan@mahouse.gov
+3/19/2020 21:37:07,Yes,Devlins Restaurant,Thomas@superiordininggroup.com,02135,Yes,Thomas Devlin,Kevin.Honan@mahouse.gov
+3/19/2020 21:38:29,Yes,Porter Bellys,Thomas@superiordininggroup.com,02135,Yes,Thomas Devlin,Kevin.Honan@mahouse.gov
+3/19/2020 21:40:34,Yes,Barlow’s Restaurant,Thomas@superiordininggroup.com,02210,Yes,Thomas Devlin,David.Biele@mahouse.gov
+3/19/2020 21:44:29,Yes,Copper House Tavern,Thomas@superiordininggroup.com,02451,Yes,Thomas Devlin,Thomas.Stanley@mahouse.gov
+3/19/2020 21:46:50,Yes,Orleans Restaurant,Thomas@superiordininggroup.com,02144,Yes,Thomas Devlin,Denise.Provost@mahouse.gov
+3/19/2020 22:14:28,Yes,hop + grind,,,Yes,Bobby Marcotte,
+3/20/2020 11:04:01,Yes,hope & olive restaurant ,jim@hopeandolive.com,01301,Yes,jim ,"Jo Comerford, Natalie Blais "
+3/20/2020 13:29:43,Yes,Za Arlington ,jbroadman@gmail.com,02474,Yes,Jeff Broadman,
+3/20/2020 14:50:56,Yes,Wit’s End,harrison@witsendbar.com,02139,Yes,Harrison Snow,
+3/20/2020 16:10:43,Yes,Za and EVOO,steve@zarestaurant.com,02142,Yes,Steven Kurland,
+3/22/2020 17:55:49,Yes,Bukowski Tavern,Yobuksbos@Gmail.com,01235,No,Yoanna Torres,
+3/23/2020 9:54:27,Yes,The Independent,jessw@theindo.com,02143,Yes,Jess Willis,
+3/23/2020 9:55:04,Yes,"Foundry on Elm, Saloon, The Rockwell",jessw@theindo.com,02143,Yes,Jess Willis,
+3/23/2020 9:55:33,Yes,Brass Union,jessw@theindo.com,02143,Yes,Jess Willis,
