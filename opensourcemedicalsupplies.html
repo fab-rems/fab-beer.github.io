@@ -8,16 +8,24 @@ navbar: true
 
 <style >
     body{
+        
+        padding-top:70vh;
+    }
+    body .background{
         background-image:url("/assets/img/mars_iwantyou_1.jpg");
         background-size:cover;
         background-repeat:no-repeat;
         background-position:50% 50%;
-        padding-top:5em;
+        position:fixed;
+        left:0px;
+        top:0px;
+        bottom:0px;
+        right:0px;
     }
     h1{
         color:black !important;
         letter-spacing: normal !important;
-        }
+    }
     .overlay{
         background-color:rgba(255, 255, 255, .8);
         position:absolute;
@@ -27,23 +35,38 @@ navbar: true
         bottom:0px;
     }
     .canart{
-    width:100%;
+        max-width:800px;
         margin-top:2em;
         margin-bottom:2em;
         box-shadow:5px 5px 20px rgba(0, 0, 0, .25);
-
+        
     }
- 
- 
+    .thumbs{
+        display:flex; 
+        flex-wrap:wrap;
+    }
+    .thumbs div{
+        width: 320px;
+        height: 240px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin: 10px;
+    }
     h1{
-        font-size:3em;
+        font-size: 2em;
+    font-weight: bold;
     }
     h2{
-        font-size:2em;
+        font-size:1.5em;
     }
     h3{
         font-size:1em;
         text-transform: initial;
+    }
+    .title{
+        padding:2em;
+         max-width:600px;
     }
     section{
         margin-top:3em;
@@ -53,31 +76,33 @@ navbar: true
         padding-left:20px;
         padding-right:20px;
     }
-
+    
 </style>
 
-<div class="overlay">
-</div>
+<div class="background"></div>
+<!-- <div class="overlay"></div> -->
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-6 offset-md-3">
             <div class="content">
-                <div class="title">
-                    <h1 class="l1">FAB100 💖 Artisan's Asylum</h1>
-                    <h2 class="l2">100% of profits from cans of #FAB100 will be donated to the <b>Artisan's Asylum</b>.</h2>
-                    <h3 class="l3">..to support manufacturing efforts at the artisan's asylum in Somerville to provide medical supplies to community medical centers, including Face Masks, Face Shields, and Hand Sanitizer</h3>
-                </div>
+                <section>
+                    <div class="title">
+                        <h1 class="l1">FAB100 💖 Artisan's Asylum</h1>
+                        <h2 class="l2">100% of profits from cans of #FAB100 will be donated to the <b>Artisan's Asylum</b>.</h2>
+                        <h3 class="l3">..to support manufacturing efforts at the artisan's asylum in Somerville to provide medical supplies to community medical centers, including Face Masks, Face Shields, and Hand Sanitizer</h3>
+                    </div>
+                </section>
             </div>
         </div>
     </div>
-
+    
     <br/>
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-8 offset-md-2">
             <div class="content">
-
-                    <section>
+                
+                <section>
                     <h3 class="l2">The plan: </h3>
                     <p>
                         To support our local makerspaces and address medical supply shortages, around the globe, FAB is partnering up with opensourcemedicalsupplies.org globally, and the <a href="">Artisan's Asylum</a> 
@@ -86,19 +111,61 @@ navbar: true
                         will be contributed to funding the local effort at the Asylum.
                     </p>
                     
+                    
+                </section>
+                
+                
+                
+                <div class="row">
+                    <div class="">
+                        <img class="canart" src="/assets/img/fab100.jpg"/>
+                    </div>
+                </div>
+                <section>
+                    <h3 class="l2">Artisan's Asylum: </h3>
+                    <p>
+                    # Artisans Description
 
-                    </section>
-                    <img class="canart" src="/assets/img/fab100.jpg"/>
+                    *Artisan’s Asylum envisions a world of makers. We imagine a whole society where everyone feels welcome to share their talents and ceaselessly develop their capabilities, contributing to the social, cultural and economic vibrancy of our communities.*
+                    
+                    *Our mission as a non-profit community workshop is to advance the learning, practice and culture of do-it-yourself (“DIY”) fabrication. We strive to provide anyone with access to the tools and training necessary to develop creative confidence and build the things they love.*
+                    
+                    *Instagram @artisansasylum*
+                    
+                    *Twitter @artisansasylum*
+                    
+                    *Facebook /artisansasylum*
+                    
+                    *#makersforhumanity*
 
-                    <section>
+                    <p>
+                        See the open letter from the Artisan's Asylum, here:<br/>
+                        <a href="/artisans_letter">http://fab.beer/artisans_letter</a>
+                    </p>
+                <div class="row ">
+                    <div>
+                        <div class="content">
+                            <div class="thumbs">
+                                {% for tg in site.data.lars %}
+                                <div style="background-image:url('/assets/lars/{{tg.filename}}');"></div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </section>
+                
+                <section>
                     <h3 class="l2">Contact us: </h3>
                     <p>For PRESS INQUIRIES and to learn how YOU PERSONALLY CAN HELP, please contact: ben@fab.beer</p>
-
+                    
                 </section>
+                
             </div>
         </div>
     </div>
-
+    
     <br/>
     <!-- <div class="row">
         <div class="col-md-6 offset-md-3">
@@ -118,5 +185,5 @@ navbar: true
     <br/><br/>
     <br/><br/>
     <br/><br/>
-
+    
 </div>
